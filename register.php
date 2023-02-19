@@ -5,6 +5,7 @@ if (isset($_POST['btnDaftar'])) {
     $nik = $_POST['nik'];
     $nama = $_POST['nama'];
     $telp = $_POST['telp'];
+    $alamat = $_POST['alamat'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $password2 = $_POST['password2'];

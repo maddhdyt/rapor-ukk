@@ -7,8 +7,6 @@ if (!isset($_SESSION['login_admin'])) {
     header("Location: login_pa.php");
 }
 
-$id = $_SESSION['id'];
-
 $title = "Kelola Pengaduan";
 
 include 'partials/header.php';
@@ -19,7 +17,7 @@ include 'partials/header.php';
 <div class="main-content">
     <div class="card mt-3">
         <div class="card-body">
-            <table id="dataKelolaPengaduan" class="display nowrap" style="width: 100%;">
+            <table id="raporTable" class="display nowrap" style="width: 100%;">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -27,7 +25,7 @@ include 'partials/header.php';
                         <th>Nama</th>
                         <th>Tanggal Aduan</th>
                         <th>Judul</th>
-                        <th>Aksi</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,17 +35,49 @@ include 'partials/header.php';
                     while ($data = mysqli_fetch_assoc($show)) :
                     ?>
                         <tr>
-                            <td><?= $no++ ?></td>
+                            <td><?= $no++; ?></td>
                             <td><?= $data['nik']; ?></td>
                             <td><?= $data['nama']; ?></td>
                             <td><?= $data['tgl_pengaduan']; ?></td>
                             <td><?= $data['judul']; ?></td>
-                            <!-- <td><a href="../gambar/<?php echo $data['gambar'] ?>" target="_blank"><img src="../gambar/<?php echo $data['gambar'] ?>" width="80" height="80"></a></td> -->
+
                             <td>
-                                <a href="../detail_pengaduan.php?id=<?php echo $data['id'] ?>" class="btn btn-success">Detail</a>
-                                <a href="" class="btn btn-primary">Tanggapi</a>
+                                <a href="../detail_pengaduan.php?id=<?php echo $data['id'] ?>" class="btn btn-secondary text-primary">Detail</a>
+                                <a href="form_validasi.php?id=<?php echo $data['id'] ?>" class="btn btn-primary">Tanggapi</a>
                             </td>
                         </tr>
+
+                        <!-- Modal tanggapan -->
+                        <div class="modal modal-lg fade" id="kelolaPengaduan<?php echo $data['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="model-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Kelola Pengaduan</h1>
+                                        <button type="button" class="btn-Close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="crud_kelola_pengaduan.php" method="post" enctype="multipart/form-data">
+                                            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                                            <div class="mb-3">
+                                                <label for="">Konfirmasi Aduan</label>
+                                                <select name="status_pengaduan" class="form_control" id="">
+                                                    <option value="Ditolak">Tolak</option>
+                                                    <option value="Diterima">Terima</option>
+                                                </select>
+                                                <div class="mb-3">
+                                                    <label for="">Isi Tanggapan</label>
+                                                    <textarea name="tanggapan" id="" rows="6"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" nam="btnSimpan" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <?php endwhile; ?>
                 </tbody>
             </table>

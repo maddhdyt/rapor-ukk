@@ -479,7 +479,8 @@ nav {
         @include flex(center, center);
         width: 45px;
         height: 45px;
-        background-color: $bg_primary;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 4px 1px #dddddd;
         border-radius: 12px;
         color: $primary_color;
         text-decoration: none;
@@ -605,7 +606,7 @@ nav {
 
         h2 {
           font-weight: 600;
-          font-size: 16px;
+          font-size: 18px;
           line-height: 24px;
           margin-top: 8px;
           color: #222222;
@@ -935,7 +936,7 @@ nav {
       }
 
       ._not_found {
-        border-radius: 4px;
+        border-radius: 8px;
         padding: 15px 15px;
         background-color: #ff00004e;
         text-align: center;
@@ -953,7 +954,7 @@ nav {
   ._info {
     h2 {
       font-size: 18px;
-      color: #444444;
+      color: #222222;
       font-weight: 600;
     }
 
@@ -971,7 +972,7 @@ nav {
       margin-top: 20px;
 
       ._box {
-        border-radius: 4px;
+        border-radius: 8px;
         width: 100%;
         padding: 15px 15px;
         font-size: 14px;
@@ -1145,7 +1146,7 @@ nav {
       .aduan_title {
         width: 100%;
         h2 {
-          font-size: 18px;
+          font-size: 20px;
           line-height: 26px;
         }
       }
