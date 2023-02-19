@@ -1,0 +1,1214 @@
+$primary_color: #254074;
+$bg_primary: #25417420;
+
+@mixin flex($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin grid($col, $row, $gap) {
+  display: grid;
+  grid-template-columns: repeat($col, minmax(0, 1fr));
+  grid-template-rows: repeat($row, minmax(0, 1fr));
+  gap: $gap;
+}
+
+@mixin col_span($span_num) {
+  grid-column: span $span_num / span $span_num;
+}
+
+@mixin img_fit() {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@mixin base_btn() {
+  width: fit-content;
+  border-radius: 12px;
+  background-color: $primary_color;
+  font-size: 14px;
+  padding: 16px 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+@mixin form_control() {
+  width: 100%;
+  border-radius: 12px;
+  padding: 20px 25px;
+  background-color: $bg_primary;
+  border: none;
+  outline: none;
+  color: #444444;
+}
+
+// JS Control
+.nav_drop {
+  transform: translateX(0%) !important;
+}
+
+.nav_scroll {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.13);
+}
+
+.toggle_active {
+  background-color: $primary_color !important;
+  color: #ffffff !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  overflow-x: hidden !important;
+}
+
+footer {
+  margin-top: 100px;
+  background-color: $primary_color;
+
+  .footer_content {
+    @include grid(1, 1, 50px);
+    padding: 70px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    .footer_nav {
+      ._title {
+        h1 {
+          font-size: 28px;
+          color: #ffffff;
+          font-weight: 700;
+        }
+
+        p {
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 28px;
+          letter-spacing: 0.5px;
+          color: #ffffffcd;
+          margin-top: 10px;
+        }
+
+        h2 {
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 18px;
+          margin-top: 40px;
+        }
+      }
+
+      ._items {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        .nav_link {
+          font-size: 14px;
+          color: #ffffffcb;
+          text-decoration: none;
+
+          &:hover {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+
+    .contact_form {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .form_control {
+        width: 100%;
+        border-radius: 12px;
+        background-color: #ffffff;
+        color: #888888;
+        font-size: 14px;
+        padding: 15px 20px;
+        outline: none;
+        border: none;
+        margin-top: 20px;
+      }
+
+      .text_area {
+        height: 150px;
+        resize: none;
+      }
+
+      .btn_submit {
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        padding: 15px 25px;
+        background-color: #ffffff61;
+        color: #ffffff;
+        font-weight: 600;
+        margin-top: 20px;
+        align-self: end !important;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .copyright {
+    padding: 40px 0;
+
+    p {
+      font-weight: 400;
+      font-size: 12px;
+      color: #ffffff;
+    }
+  }
+}
+
+.container {
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.form_enter_container {
+  width: 100%;
+  margin: 100px auto;
+
+  .form {
+    .form_title {
+      text-align: center;
+      margin-bottom: 35px;
+
+      h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: $primary_color;
+      }
+
+      p {
+        color: #444444;
+        margin-top: 10px;
+      }
+    }
+
+    .form_group {
+      margin-bottom: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .form_control {
+        width: 100%;
+        border-radius: 12px;
+        padding: 20px 25px;
+        background-color: $bg_primary;
+        border: none;
+        outline: none;
+        color: #444444;
+      }
+
+      .btn_submit {
+        width: 100%;
+        border-radius: 12px;
+        padding: 20px 25px;
+        background-color: $primary_color;
+        border: none;
+        outline: none;
+        color: #ffffff;
+        cursor: pointer;
+      }
+
+      i {
+        position: absolute;
+        right: 25px;
+        font-size: 20px;
+        color: $primary_color;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .link {
+    .to_another {
+      text-align: right;
+      font-size: 14px;
+      color: #444444;
+      margin-top: 30px;
+
+      a {
+        color: $primary_color;
+        text-decoration: none;
+      }
+    }
+
+    .to_home {
+      text-align: center;
+      margin-top: 40px;
+      color: $primary_color;
+      gap: 10px;
+      text-decoration: none;
+      @include flex(center, center);
+
+      i {
+        font-size: 20px;
+        rotate: 180deg;
+      }
+    }
+  }
+}
+
+nav {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+
+  .container {
+    @include flex(center, space-between);
+
+    .logo {
+      z-index: 9999;
+
+      a {
+        font-size: 28px;
+        font-weight: 800;
+        text-decoration: none;
+        color: $primary_color;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    .nav_items {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 100px 0 50px 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #ffffff;
+      transition: all 600ms;
+      transform: translateX(-100%);
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 85%;
+        margin: 0 auto;
+
+        li {
+          list-style: none;
+          font-size: 14px;
+          font-weight: 500;
+          opacity: 0.8;
+
+          a {
+            text-decoration: none;
+            color: #444444;
+
+            &:hover {
+              color: #254074;
+            }
+          }
+        }
+      }
+    }
+
+    .btn_login {
+      width: fit-content;
+      @include flex(center, center);
+      padding: 14px 20px;
+      background-color: $bg_primary;
+      color: $primary_color;
+      font-weight: 500;
+      text-decoration: none;
+      gap: 10px;
+      font-size: 14px;
+      border-radius: 12px;
+      transition: all 400ms;
+
+      i {
+        font-size: 20px;
+      }
+
+      &:hover {
+        background-color: $primary_color;
+        color: #ffffff;
+      }
+    }
+
+    .nav_toggle {
+      z-index: 9999;
+      border-radius: 12px;
+      background-color: $bg_primary;
+      padding: 10px 15px;
+      color: $primary_color;
+      transition: all 400ms;
+
+      i {
+        font-size: 24px;
+      }
+
+      &:hover {
+        background-color: $primary_color;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.header_content {
+  margin-top: 100px;
+  padding: 50px 0 80px 0;
+  align-items: center;
+  @include grid(1, 1, 50px);
+
+  ._title {
+    order: 2;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 40px;
+      color: #444444;
+    }
+
+    p {
+      color: #444444;
+      margin-top: 10px;
+      line-height: 28px;
+      margin-bottom: 40px;
+    }
+
+    ._btn {
+      @include base_btn();
+    }
+  }
+
+  ._banner {
+    @include img_fit();
+  }
+}
+
+.user_menu {
+  @include grid(1, 1, 30px);
+
+  ._card {
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 1px #dddddd;
+    padding: 30px;
+    height: 280px;
+    @include flex(flex-start, space-between);
+    flex-direction: column;
+
+    ._title {
+      h2 {
+        font-weight: 600;
+        font-size: 24px;
+        color: #444444;
+      }
+
+      p {
+        font-size: 14px;
+        margin-top: 8px;
+        color: #444444;
+      }
+    }
+
+    .btn_group {
+      width: 100%;
+      @include flex(flex-end, space-between);
+
+      ._icon {
+        height: 80px;
+        width: 80px;
+        @include img_fit();
+      }
+
+      ._btn {
+        @include base_btn();
+        @include flex(center, flex-start);
+        gap: 15px;
+
+        i {
+          color: #ffffff;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+// Dashboard user
+.nav_user {
+  width: 100%;
+  height: 100px;
+  position: relative !important;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: 99;
+
+  .container {
+    @include flex(center, space-between);
+
+    .head_title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .btn_back {
+        @include flex(center, center);
+        width: 45px;
+        height: 45px;
+        background-color: $bg_primary;
+        border-radius: 12px;
+        color: $primary_color;
+        text-decoration: none;
+        cursor: pointer;
+
+        i {
+          font-size: 16px;
+        }
+      }
+
+      h1 {
+        font-size: 16px;
+        color: #292c33;
+        font-weight: 600;
+      }
+    }
+
+    .icon_profile {
+      @include flex(center, center);
+      width: 45px;
+      height: 45px;
+      border-radius: 100px;
+      background-color: #dddddd;
+      color: $primary_color;
+      cursor: pointer;
+      position: relative;
+      .profile_menu {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        padding: 20px 25px;
+        border-radius: 12px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 4px 1px #dddddd;
+        width: max-content;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        transform: translateX(300%);
+        a {
+          @include flex(center, center);
+          text-decoration: none;
+          font-size: 14px;
+          color: #444444;
+          word-break: keep-all;
+          cursor: pointer;
+          gap: 5px;
+          i {
+            font-size: 14px;
+          }
+          &:hover {
+            color: $primary_color;
+          }
+          &:last-child {
+            color: #ff0000;
+          }
+        }
+      }
+
+      i {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.dashboard_user_menu {
+  padding: 40px 0 70px 0;
+
+  ._title {
+    margin-bottom: 25px;
+
+    h2 {
+      font-size: 32px;
+      color: #444444;
+      font-weight: 600;
+    }
+
+    p {
+      color: #444444;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+  }
+}
+
+// History Pengaduan
+.user_history {
+  ._title {
+    @include flex(center, space-between);
+    margin-bottom: 40px;
+
+    h2 {
+      color: #444444;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    a {
+      font-size: 14px;
+      color: $primary_color;
+    }
+  }
+
+  .history_list {
+    @include grid(1, 1, 20px);
+
+    ._card {
+      @include flex(center, space-between);
+      padding: 25px 30px;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0px 0px 4px 1px #dddddd;
+      flex-direction: column;
+
+      .aduan_title {
+        width: 100%;
+        p {
+          font-weight: 300;
+          font-size: 14px;
+        }
+
+        h2 {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          margin-top: 8px;
+          color: #222222;
+        }
+      }
+
+      .btn_control {
+        width: 100%;
+        height: 100%;
+        @include flex(center, flex-end);
+        gap: 30px;
+        margin-top: 40px;
+
+        ._detail {
+          padding: 12px 30px;
+          font-size: 12px;
+          color: #ffffff;
+          background-color: $primary_color;
+          border-radius: 12px;
+          text-decoration: none;
+        }
+
+        .drop_active {
+          .action_menu {
+            display: flex !important;
+          }
+        }
+        ._menu {
+          cursor: pointer;
+          position: relative;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          i {
+            font-size: 24px;
+          }
+          .active {
+            display: flex !important;
+          }
+          .action_menu {
+            position: absolute;
+            z-index: 2;
+            right: 0;
+            top: 50px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 4px 1px #dddddd;
+            width: max-content;
+            display: none;
+            gap: 16px;
+            button {
+              @include flex(center, center);
+              text-decoration: none;
+              border: none;
+              outline: none;
+              color: #444444;
+              word-break: keep-all;
+              cursor: pointer;
+              background-color: transparent;
+              gap: 10px;
+              color: $primary_color;
+              i {
+                font-size: 18px;
+              }
+              &:last-child {
+                color: #ff0000;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Tulis Pengaduan
+.user_pengaduan {
+  ._title {
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      color: #444444;
+    }
+  }
+}
+
+.form_pengaduan {
+  margin-top: 25px;
+
+  .form_group {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .form_control {
+      width: 100%;
+      border-radius: 12px;
+      padding: 20px 25px;
+      background-color: $bg_primary;
+      border: none;
+      outline: none;
+      color: #444444;
+    }
+
+    i {
+      position: absolute;
+      right: 25px;
+      font-size: 18px;
+      color: $primary_color;
+      cursor: pointer;
+      pointer-events: none;
+    }
+
+    .text_area {
+      height: 200px;
+      resize: vertical;
+    }
+
+    .select {
+      appearance: none;
+    }
+
+    .input_date {
+      &::-webkit-calendar-picker-indicator {
+        color: rgba(0, 0, 0, 0);
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-width: thin;
+        position: absolute;
+        cursor: pointer;
+        color: $primary_color !important;
+        opacity: 0;
+      }
+    }
+
+    .btn_submit {
+      padding: 20px 25px;
+      color: #ffffff;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      background-color: $primary_color;
+    }
+  }
+}
+
+// Pengaduan News
+.user_news {
+  ._title {
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      color: #444444;
+    }
+  }
+
+  ._list {
+    @include grid(1, 1, 24px);
+    margin-top: 30px;
+    gap: 40px 24px !important;
+
+    .card_news {
+      ._banner {
+        @include img_fit();
+        aspect-ratio: 5/3;
+        border-radius: 12px;
+        background-color: #dddddd;
+        cursor: pointer;
+        position: relative;
+
+        a{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 2;
+        }
+
+        img {
+          transition: all 500ms;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      ._title {
+        margin-top: 20px;
+
+        p {
+          font-weight: 300;
+          font-size: 14px;
+          color: #444444;
+        }
+
+        a {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 26px;
+          color: #444444;
+          text-decoration: none;
+
+          &:hover {
+            color: $primary_color;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+
+    .btn_control {
+      @include flex(center, center);
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      font-size: 14px;
+      border: 1px solid $primary_color;
+      background-color: $primary_color;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .page {
+      @include flex(center, center);
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      border: 1px solid $primary_color;
+      background-color: #ffffff;
+      color: $primary_color;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 400ms;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary_color;
+        color: #ffffff;
+      }
+    }
+
+    .active {
+      background-color: $primary_color;
+      color: #ffffff;
+    }
+  }
+}
+
+// Detail Pengaduan
+.pengaduan_detail_wrapper {
+  @include grid(1, 1, 40px);
+
+  ._content {
+    ._banner {
+      aspect-ratio: 5/3;
+      border-radius: 12px;
+      background-color: #dddddd;
+      @include img_fit();
+    }
+
+    .news_title {
+      margin-top: 25px;
+
+      p {
+        color: #444444;
+        font-weight: 300;
+      }
+
+      h2 {
+        margin-top: 8px;
+        font-weight: 600;
+        font-size: 24px;
+        color: #222222;
+      }
+    }
+
+    .detail {
+      p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 26px;
+        text-align: justify;
+        word-wrap: break-word;
+        color: #444444;
+        margin-top: 15px;
+      }
+    }
+
+    .tanggapan {
+      margin-top: 35px;
+
+      p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 26px;
+        text-align: justify;
+        color: #444444;
+        margin-top: 15px;
+        font-style: italic;
+      }
+
+      ._title {
+        h2 {
+          font-weight: 600;
+          font-size: 18px;
+          color: #222222;
+        }
+      }
+
+      ._not_found {
+        border-radius: 4px;
+        padding: 15px 15px;
+        background-color: #ff00004e;
+        text-align: center;
+        margin-top: 15px;
+
+        h4 {
+          font-size: 14px;
+          color: #ff0000;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  ._info {
+    h2 {
+      font-size: 18px;
+      color: #444444;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 14px;
+      color: #444444;
+      font-weight: 600;
+      margin-top: 25px;
+    }
+
+    ._status {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+
+      ._box {
+        border-radius: 4px;
+        width: 100%;
+        padding: 15px 15px;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .cata {
+        background-color: $primary_color;
+        color: #ffffff;
+      }
+
+      .process {
+        background-color: #ffb70050;
+        color: #ff5c00;
+      }
+
+      .done {
+        background-color: #009f2838;
+        color: #009f28;
+      }
+
+      .reject {
+        background-color: #9f000038;
+        color: #ba0000;
+      }
+    }
+
+    .user_sender {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-top: 15px;
+
+      ._icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background-color: #dddddd;
+        color: $primary_color;
+        position: relative;
+        @include img_fit();
+        @include flex(center, center);
+
+        i {
+          font-size: 18px;
+          position: absolute;
+        }
+
+        img {
+          z-index: 2;
+        }
+      }
+
+      p {
+        font-weight: 500;
+        font-size: 14px;
+        color: #444444;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  nav {
+    height: 110px;
+  }
+
+  .container {
+    width: 80%;
+  }
+
+  .form_enter_container {
+    width: 50%;
+  }
+
+  .nav_items {
+    position: static !important;
+    margin-top: 0px;
+    width: fit-content !important;
+    height: fit-content !important;
+    padding: 0 !important;
+    transform: translateX(0%) !important;
+
+    ul {
+      width: fit-content !important;
+      margin: 0 !important;
+      gap: 20px;
+      flex-direction: row !important;
+      align-items: center;
+    }
+  }
+
+  .nav_toggle {
+    display: none;
+  }
+
+  .header_content {
+    @include grid(7, 1, 50px);
+
+    ._title {
+      @include col_span(4);
+
+      h1 {
+        font-size: 36px;
+        line-height: 54px;
+      }
+    }
+
+    ._banner {
+      @include col_span(3);
+      order: 2 !important;
+    }
+  }
+
+  .user_menu {
+    @include grid(2, 1, 30px);
+
+    ._card {
+      padding: 40px;
+      height: 300px;
+
+      .btn_group {
+        ._icon {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+  }
+
+  // Dashboard User
+  .nav_user {
+    height: 120px;
+
+    .container {
+      .head_title {
+        gap: 25px;
+
+        .back_to_home {
+          width: 50px;
+          height: 50px;
+
+          i {
+            font-size: 20px;
+          }
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+      }
+
+      .icon_profile {
+        width: 50px;
+        height: 50px;
+
+        i {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  // History List
+  .history_list {
+    ._card {
+      flex-direction: row !important;
+      padding: 35px 40px;
+
+      .aduan_title {
+        width: 100%;
+        h2 {
+          font-size: 18px;
+          line-height: 26px;
+        }
+      }
+
+      .btn_control {
+        @include flex(center, center);
+        width: fit-content;
+        margin-top: 0px !important;
+      }
+    }
+  }
+
+  // Pengaduan List
+  .user_news {
+    ._list {
+      @include grid(3, 1, 24px);
+    }
+  }
+
+  // Detail pengaduan
+  .pengaduan_detail_wrapper {
+    @include grid(6, 1, 40px);
+
+    ._content {
+      @include col_span(4);
+
+      ._banner {
+        aspect-ratio: 4/2 !important;
+      }
+    }
+
+    ._info {
+      @include col_span(2);
+    }
+  }
+
+  // Pengaduan News
+  // .user_news {
+  //   ._list {
+  //     .card_news {
+  //       ._banner {
+  //         aspect-ratio: 5/3 !important;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // Footer
+  footer {
+    .footer_content {
+      @include grid(2, 1, 50px);
+    }
+  }
+
+  .user_pengaduan {
+    ._title {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 1050px) {
+  .form_enter_container {
+    width: 45%;
+  }
+}

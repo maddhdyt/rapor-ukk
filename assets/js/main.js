@@ -1,0 +1,31 @@
+function showMenuProfile() {
+    document.querySelector('.profile_menu').classList.toggle("nav_drop")
+}
+function showNavbar() {
+    document.querySelector('.nav_items').classList.toggle("nav_drop")
+}
+function showPassword() {
+    let inputPassword = document.getElementsByClassName('input_password')
+    for (var i = 0; i < inputPassword.length; i++) {
+        var inputPasswords = inputPassword[i];
+        if (inputPasswords.type == 'password') {
+            inputPasswords.type = 'text';
+        } else {
+            inputPasswords.type = 'password';
+        }
+    }
+}
+
+const actionToggle = document.querySelectorAll('.action_toggle')
+for (let i = 0; i < actionToggle.length; i++) {
+    const Toggles = actionToggle[i];
+
+    Toggles.addEventListener("click", function (e) {
+        Toggles.classList.toggle("drop_active");
+        for (let i = 0; i < actionToggle.length; i++) {
+            if (actionToggle[i] != Toggles) {
+                actionToggle[i].classList.remove('drop_active')
+            }
+        }
+    })
+}
