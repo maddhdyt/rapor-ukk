@@ -27,7 +27,7 @@ include 'partials/header.php';
                     <input type="hidden" name="id" value="<?php echo $id ?>">
                     <div class="form-group">
                         <label>Konfirmasi</label>
-                        <select name="status_pengaduan" class="form-control" id="">
+                        <select name="status_pengaduan" class="form-control" id="" required>
                             <option value="Diterima">Terima</option>
                             <option value="Ditolak">Tolak</option>
                         </select>

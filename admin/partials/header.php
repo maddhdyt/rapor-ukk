@@ -14,10 +14,6 @@
 
 
     <!-- CSS Libraries -->
-    <!-- <link rel="stylesheet" href="../assets/admin/modules/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="../assets/admin/modules/weather-icon/css/weather-icons.min.css">
-    <link rel="stylesheet" href="../assets/admin/modules/weather-icon/css/weather-icons-wind.min.css">
-    <link rel="stylesheet" href="../assets/admin/modules/summernote/summernote-bs4.css"> -->
     <link rel="stylesheet" href="cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
 
     <!-- Template CSS -->
