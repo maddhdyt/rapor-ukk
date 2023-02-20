@@ -5,6 +5,8 @@ include '../koneksi.php';
 session_start();
 if (!isset($_SESSION['login_admin'])) {
     header("Location: login_pa.php");
+} else if ($_SESSION['level'] == 'petugas') {
+    header("Location: dashboard.php");
 }
 
 $id = $_SESSION['id'];
@@ -17,6 +19,9 @@ include 'partials/header.php';
 
 <!-- Main Content -->
 <div class="main-content">
+    <a href="tambah_petugas.php" class="btn btn-primary mt-3">
+        Tambah Petugas
+    </a>
     <div class="card mt-3">
         <div class="card-body">
             <table id="raporTable" class="display nowrap" style="width: 100%;">
@@ -24,7 +29,7 @@ include 'partials/header.php';
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Telpon</th>
+                        <th>Telepon</th>
                         <th>Level</th>
                         <th>Username</th>
                         <th>Action</th>
@@ -44,8 +49,11 @@ include 'partials/header.php';
                             <td><?= $data['username']; ?></td>
 
                             <td>
-                                <a href="edit_petugas.php?id=<?php echo $data['id'] ?>" class="btn btn-secondary text-primary">Ubah</a>
-                                <a href="<?php echo $data['id'] ?>" class="btn btn-danger">Hapus</a>
+                                <form action="crud_petugas.php" method="post">
+                                    <input type="hidden" name="id" value="<?= $data['id'] ?> ">
+                                    <a href="edit_petugas.php?id=<?= $data['id'] ?>" class="btn btn-secondary text-primary">Ubah</a>
+                                    <button type="submit" name="btnDelete" class="btn btn-danger">Hapus</button>
+                                </form>
                             </td>
                         </tr>
 

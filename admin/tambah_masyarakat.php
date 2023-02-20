@@ -5,13 +5,9 @@ include '../koneksi.php';
 session_start();
 if (!isset($_SESSION['login_admin'])) {
     header("Location: login_pa.php");
+} else if($_SESSION['level'] == 'petugas') {
+    header("Location: dashboard.php");
 }
-
-$id = $_GET['id'];
-
-$show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = $id");
-
-$data = mysqli_fetch_assoc($show);
 
 $title = "Data Masyarakat";
 
@@ -21,42 +17,48 @@ include 'partials/header.php';
 
 <!-- Main Content -->
 <div class="main-content">
-    <div class="row mt-3">
+<div class="row mt-3">
         <div class="col-12 col-md-6 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Edit Data Masyarakat</h4>
+                    <h4>Registrasi Masyarakat</h4>
                 </div>
-                <form action="crud_masyarakat.php" method="post" enctype="multipart/form-data" class="card-body">
-                    <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
+                <form action="crud_masyarakat" method="post" enctype="multipart/form-data" class="card-body">
                     <div class="form-group">
                         <label>NIK</label>
-                        <input name="nik" type="text" class="form-control" value="<?php echo $data['nik']?>">
+                        <input name="nik" type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
                         <label>Nama Lengkap</label>
-                        <input name="nama" type="text" class="form-control" value="<?php echo $data['nama']?>">
+                        <input name="nama" type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
                         <label>Telepon</label>
-                        <input name="telp" type="text" class="form-control" value="<?php echo $data['telp']?>">
+                        <input name="telp" type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
-                        <input name="alamat" type="text" class="form-control" value="<?php echo $data['alamat']?>">
+                        <input name="alamat" type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input name="username" type="text" class="form-control" value="<?php echo $data['username']?>">
+                        <input name="username" type="text" class="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input name="password" type="password" class="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Konfirmasi Password</label>
+                        <input name="password2" type="password" class="form-control" value="">
                     </div>
                     <div class="card-footer text-right">
-                        <input name="btnUpdate" type="submit" class="btn btn-primary mr-1" value="Submit">
+                        <input name="btnDaftar" type="submit" class="btn btn-primary mr-1" value="Submit">
                         <div class="btn btn-secondary" onclick="history.back ()">Cancel</div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
 
 <?php include 'partials/footer.php'; ?>

@@ -5,15 +5,7 @@ include '../koneksi.php';
 session_start();
 if (!isset($_SESSION['login_admin'])) {
     header("Location: login_pa.php");
-} else if ($_SESSION['level'] == 'petugas') {
-    header("Location: dashboard.php");
 }
-
-$id = $_GET['id'];
-
-$show = mysqli_query($koneksi, "SELECT * FROM dat_petugas WHERE id = $id");
-
-$data = mysqli_fetch_assoc($show);
 
 $title = "Data Petugas";
 
@@ -27,44 +19,42 @@ include 'partials/header.php';
         <div class="col-12 col-md-6 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Edit Data Petugas</h4>
+                    <h4>Registrasi Petugas</h4>
                 </div>
                 <form action="crud_petugas.php" method="post" enctype="multipart/form-data" class="card-body">
-                    <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
-                    <input type="hidden" name="password_lama" value="<?php echo $data['password'] ?>">
                     <div class="form-group">
                         <label>Nama</label>
-                        <input name="nama_petugas" type="text" class="form-control" value="<?php echo $data['nama_petugas'] ?>">
+                        <input name="nama_petugas" type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
-                        <label>Telp</label>
-                        <input name="telp" type="text" class="form-control" value="<?php echo $data['telp'] ?>">
+                        <label>No Telepon</label>
+                        <input name="telp" type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
                         <label>Level</label>
                         <select name="level" class="form-control" id="">
-                            <option value="admin" <?= $data['level'] == 'admin' ? 'selected' : '' ?>>
+                            <option value="admin">
                                 Admin
                             </option>
-                            <option value="petugas" <?= $data['level'] == 'petugas' ? 'selected' : '' ?>>
+                            <option value="petugas">
                                 Petugas
                             </option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input name="username" type="text" class="form-control" value="<?php echo $data['username'] ?>">
+                        <input name="username" type="text" class="form-control" value="">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input name="password" type="password" class="form-control" value="<?php echo $data['password'] ?>">
+                        <input name="password" type="password" class="form-control" value="">
                     </div>
                     <div class="form-group">
                         <label>Konfirmasi Password</label>
-                        <input name="password2" type="password" class="form-control" value="<?php echo $data['password'] ?>">
+                        <input name="password2" type="password" class="form-control" value="">
                     </div>
                     <div class="card-footer text-right">
-                        <input name="btnUbah" type="submit" class="btn btn-primary mr-1" value="Submit">
+                        <input name="btnDaftar" type="submit" class="btn btn-primary mr-1" value="Submit">
                         <div class="btn btn-secondary" onclick="history.back ()">Cancel</div>
                     </div>
                 </form>
