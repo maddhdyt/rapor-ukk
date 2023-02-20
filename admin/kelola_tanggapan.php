@@ -46,7 +46,7 @@ include 'partials/header.php';
                             <td>
                                 <form action="">
                                     <a href="../detail_pengaduan.php?id=<?php echo $data['id_pengaduan'] ?>" class="btn btn-secondary text-primary">Detail</a>
-                                    <a href="ubah_tanggapan.php?id=<?php echo $data['id'] ?>" class="btn btn-primary">Ubah</a>
+                                    <a href="edit_tanggapan.php?id=<?php echo $data['id_pengaduan'] ?>" class="btn btn-primary ml-1">Ubah</a>
                                 </form>
                             </td>
                         </tr>

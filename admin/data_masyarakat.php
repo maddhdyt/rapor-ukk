@@ -7,8 +7,6 @@ if (!isset($_SESSION['login_admin'])) {
     header("Location: login_pa.php");
 } else if ($_SESSION['level'] == 'petugas') {
     header("Location: dashboard.php");
-} else if($_SESSION['level'] == 'petugas') {
-    header("Location: dashboard.php");
 }
 
 $id = $_SESSION['id'];
@@ -56,10 +54,11 @@ include 'partials/header.php';
                                 <form action="crud_masyarakat.php" method="post">
                                     <input type="hidden" name="id" value="<?= $data['id'] ?> ">
                                     <a href="edit_masyarakat.php?id=<?php echo $data['id'] ?>" class="btn btn-secondary text-primary">Ubah</a>
-                                    <input type="submit" name="btnDelete" class="btn btn-danger" value="Hapus">
+                                    <input type="submit" name="btnDelete" class="btn btn-danger ml-1" value="Hapus">
                                 </form>
                             </td>
                         </tr>
+
                         <div class="modal fade" id="hapusPetugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">

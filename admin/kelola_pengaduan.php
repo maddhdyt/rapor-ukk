@@ -42,8 +42,8 @@ include 'partials/header.php';
                             <td><?= $data['judul']; ?></td>
 
                             <td>
-                                <a href="../detail_pengaduan.php?id=<?php echo $data['id'] ?>" class="btn btn-secondary text-primary">Detail</a>
-                                <a href="form_validasi.php?id=<?php echo $data['id'] ?>" class="btn btn-primary">Tanggapi</a>
+                                <a href="../detail_pengaduan.php?id=<?php echo $data['id']; ?>" class="btn btn-secondary text-primary">Detail</a>
+                                <a href="form_validasi.php?id=<?php echo $data['id']; ?>" class="btn btn-primary ml-1">Tanggapi</a>
                             </td>
                         </tr>
 

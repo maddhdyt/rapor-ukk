@@ -52,7 +52,7 @@ include 'partials/header.php';
                                 <form action="crud_petugas.php" method="post">
                                     <input type="hidden" name="id" value="<?= $data['id'] ?> ">
                                     <a href="edit_petugas.php?id=<?= $data['id'] ?>" class="btn btn-secondary text-primary">Ubah</a>
-                                    <button type="submit" name="btnDelete" class="btn btn-danger">Hapus</button>
+                                    <button type="submit" name="btnDelete" class="btn btn-danger ml-1">Hapus</button>
                                 </form>
                             </td>
                         </tr>
