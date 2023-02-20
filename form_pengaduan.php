@@ -20,22 +20,12 @@
             </div>
             <form action="crud_pengaduan.php" method="post" class="form_pengaduan" enctype="multipart/form-data">
                 <div class="form_group">
-                    <input type="text" name="judul" placeholder="Judul pengaduan" class="form_control">
+                    <input type="text" name="judul" placeholder="Judul pengaduan" class="form_control" required>
                 </div>
                 <div class="form_group">
                     <textarea name="deskripsi" id="isiPengduan" class="form_control text_area"
-                        placeholder="Isi laporan beserta lokasi yang jelas"></textarea>
+                        placeholder="Isi laporan beserta lokasi yang jelas" required></textarea>
                 </div>
-                <!-- <div class="form_group">
-                    <select class="select form_control" name="category" value="options">
-                        <option value="">Kategori</option>
-                        <option value="Kerusakan">Kerusakan</option>
-                        <option value="Pelayanan Buruk">Pelayanan Buruk</option>
-                        <option value="Kekerasan">Kekerasan</option>
-                        <option value="Kriminal">Kriminal</option>
-                    </select>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div> -->
                 <div class="form_group">
                     <input type="file" name="gambar" placeholder="Judul pengaduan" class="form_control" accept="image/*">
                 </div>
