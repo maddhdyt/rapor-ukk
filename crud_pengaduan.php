@@ -44,3 +44,21 @@ if (isset($_POST['btnDelete'])) {
         echo "<script>alert('Data gagal dihapus')</script>";
     }
 }
+
+if (isset($_POST['btnUpdate'])) {
+    $id = $_POST['id'];
+    $judul = $_POST['judul'];
+    $deskripsi = $_POST['deskripsi'];
+
+    $update = mysqli_query($koneksi, "UPDATE dat_pengaduan SET judul = '$judul', deskripsi = '$deskripsi' WHERE id = $id");
+
+    if ($update) {
+        echo "<script>alert('Data pengaduan berhasil diupdate');
+            document.location='user_dashboard.php';
+            </script>";
+    } else {
+        echo "<script>alert('Data pengaduan gagal diupdate');
+            document.location='edit_pengaduan.php';
+            </script>";
+    }
+}

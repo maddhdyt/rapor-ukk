@@ -100,13 +100,13 @@ include 'partials/header.php';
                                 <i class="fa-solid fa-ellipsis"></i>
                                 <form action="crud_pengaduan.php" method="post" class="action_menu">
                                     <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
-                                    <button name="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
-                                    <button name="btnDelete"><i class="fa-solid fa-trash-can"></i></button>
+                                    <a href="edit_pengaduan.php?id=<?= $data['id']?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <button type="submit" name="btnDelete"><i class="fa-solid fa-trash-can"></i></button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                <?php endwhile ?>
+                <?php endwhile; ?>
             </div>
         </section>
     </div>

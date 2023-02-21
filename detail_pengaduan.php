@@ -24,7 +24,6 @@ include 'partials/nav.php';
                 <img src="gambar/<?= $pengaduan['gambar']; ?>" alt="">
             </div>
             <div class="news_title">
-                <p><?= $pengaduan['tgl_pengaduan']; ?></p>
                 <h2><?= $pengaduan['judul']; ?></h2>
             </div>
             <div class="detail">
@@ -72,6 +71,8 @@ include 'partials/nav.php';
                 <!-- username -->
                 <p><?= $pengaduan['nama']; ?></p>
             </div>
+            <h3>Pada tanggal</h3>
+            <p class="date"><?= $pengaduan['tgl_pengaduan']; ?></p>
         </div>
     </div>
 </div>

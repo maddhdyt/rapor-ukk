@@ -502,9 +502,10 @@ nav {
         color: #292c33;
         font-weight: 600;
       }
-      h2{
+      h2 {
         font-size: 16px;
         color: #292c33;
+        font-weight: 600;
       }
     }
 
@@ -570,7 +571,7 @@ nav {
     margin-bottom: 25px;
 
     h2 {
-      font-size: 32px;
+      font-size: 24px;
       color: #444444;
       font-weight: 600;
     }
@@ -579,6 +580,7 @@ nav {
       color: #444444;
       font-weight: 500;
       margin-top: 12px;
+      font-size: 14px;
     }
   }
 }
@@ -680,7 +682,7 @@ nav {
             display: none;
             gap: 16px;
 
-            button {
+            button, a {
               @include flex(center, center);
               text-decoration: none;
               border: none;
@@ -841,6 +843,7 @@ nav {
     }
 
     .profile_input {
+      width: 100%;
       display: flex;
       align-items: center;
       gap: 30px;
@@ -861,12 +864,9 @@ nav {
         img {
           position: absolute;
         }
-
-        ;
       }
 
       .file_name {
-        flex-basis: auto;
         border-radius: 12px;
         padding: 15px 40px;
         background-color: $bg_primary;
@@ -1079,6 +1079,12 @@ nav {
       margin-top: 25px;
     }
 
+    .date {
+      font-size: 14px;
+      color: #444444;
+      margin-top: 10px;
+    }
+
     ._status {
       display: flex;
       flex-direction: column;
@@ -1219,6 +1225,16 @@ nav {
   }
 
   // Dashboard User
+  .dashboard_user_menu {
+    ._title {
+      h2 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
   .nav_user {
     height: 120px;
 
@@ -1238,7 +1254,7 @@ nav {
         h1 {
           font-size: 24px;
         }
-        h2{
+        h2 {
           font-size: 20px;
         }
       }

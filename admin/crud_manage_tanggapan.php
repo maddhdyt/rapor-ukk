@@ -14,8 +14,6 @@
 
         mysqli_query($koneksi, "UPDATE dat_pengaduan SET status_pengaduan = '$status_pengaduan' WHERE id = '$id_pengaduan'");
 
-        echo $id_pengaduan;
-
         if ($update) {
             echo "<script>alert('Data berhasil diubah'); 
             document.location='kelola_tanggapan.php'</script>

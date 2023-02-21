@@ -441,6 +441,7 @@ nav .container .nav_toggle:hover {
 .nav_user .container .head_title h2 {
   font-size: 16px;
   color: #292c33;
+  font-weight: 600;
 }
 .nav_user .container .icon_profile {
   display: flex;
@@ -501,7 +502,7 @@ nav .container .nav_toggle:hover {
   margin-bottom: 25px;
 }
 .dashboard_user_menu ._title h2 {
-  font-size: 32px;
+  font-size: 24px;
   color: #444444;
   font-weight: 600;
 }
@@ -509,6 +510,7 @@ nav .container .nav_toggle:hover {
   color: #444444;
   font-weight: 500;
   margin-top: 12px;
+  font-size: 14px;
 }
 
 .user_history ._title {
@@ -604,7 +606,7 @@ nav .container .nav_toggle:hover {
   display: none;
   gap: 16px;
 }
-.user_history .history_list ._card .btn_control ._menu .action_menu button {
+.user_history .history_list ._card .btn_control ._menu .action_menu button, .user_history .history_list ._card .btn_control ._menu .action_menu a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -618,10 +620,10 @@ nav .container .nav_toggle:hover {
   gap: 10px;
   color: #254074;
 }
-.user_history .history_list ._card .btn_control ._menu .action_menu button i {
+.user_history .history_list ._card .btn_control ._menu .action_menu button i, .user_history .history_list ._card .btn_control ._menu .action_menu a i {
   font-size: 18px;
 }
-.user_history .history_list ._card .btn_control ._menu .action_menu button:last-child {
+.user_history .history_list ._card .btn_control ._menu .action_menu button:last-child, .user_history .history_list ._card .btn_control ._menu .action_menu a:last-child {
   color: #ff0000;
 }
 
@@ -743,6 +745,7 @@ nav .container .nav_toggle:hover {
   cursor: pointer;
 }
 .edit_pengaduan .form_group .profile_input {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -771,7 +774,6 @@ nav .container .nav_toggle:hover {
   position: absolute;
 }
 .edit_pengaduan .form_group .profile_input .file_name {
-  flex-basis: auto;
   border-radius: 12px;
   padding: 15px 40px;
   background-color: rgba(37, 65, 116, 0.1254901961);
@@ -960,6 +962,11 @@ nav .container .nav_toggle:hover {
   font-weight: 600;
   margin-top: 25px;
 }
+.pengaduan_detail_wrapper ._info .date {
+  font-size: 14px;
+  color: #444444;
+  margin-top: 10px;
+}
 .pengaduan_detail_wrapper ._info ._status {
   display: flex;
   flex-direction: column;
@@ -1088,6 +1095,12 @@ nav .container .nav_toggle:hover {
   .user_menu ._card .btn_group ._icon {
     width: 80px;
     height: 80px;
+  }
+  .dashboard_user_menu ._title h2 {
+    font-size: 32px;
+  }
+  .dashboard_user_menu ._title p {
+    font-size: 16px;
   }
   .nav_user {
     height: 120px;
