@@ -23,7 +23,7 @@ include 'partials/header.php';
                 <div class="card-header">
                     <h4>Registrasi Masyarakat</h4>
                 </div>
-                <form action="crud_masyarakat" method="post" enctype="multipart/form-data" class="card-body">
+                <form action="crud_masyarakat.php" method="post" enctype="multipart/form-data" class="card-body">
                     <div class="form-group">
                         <label>NIK</label>
                         <input name="nik" type="text" class="form-control" value="">

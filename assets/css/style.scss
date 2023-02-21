@@ -33,7 +33,7 @@ $bg_primary: #25417420;
   border-radius: 12px;
   background-color: $primary_color;
   font-size: 14px;
-  padding: 16px 20px;
+  padding: 18px 20px;
   color: #ffffff;
   text-decoration: none;
 }
@@ -214,6 +214,7 @@ footer {
 
       .form_control {
         width: 100%;
+        font-size: 14px;
         border-radius: 12px;
         padding: 20px 25px;
         background-color: $bg_primary;
@@ -479,12 +480,17 @@ nav {
         @include flex(center, center);
         width: 45px;
         height: 45px;
-        background-color: #ffffff;
-        box-shadow: 0px 0px 4px 1px #dddddd;
+        background-color: $bg_primary;
         border-radius: 12px;
         color: $primary_color;
         text-decoration: none;
         cursor: pointer;
+        transition: all 400ms;
+
+        &:hover {
+          background-color: #ffffff;
+          box-shadow: 0px 0px 4px 1px #dddddd;
+        }
 
         i {
           font-size: 16px;
@@ -492,9 +498,13 @@ nav {
       }
 
       h1 {
-        font-size: 16px;
+        font-size: 18px;
         color: #292c33;
         font-weight: 600;
+      }
+      h2{
+        font-size: 16px;
+        color: #292c33;
       }
     }
 
@@ -507,6 +517,7 @@ nav {
       color: $primary_color;
       cursor: pointer;
       position: relative;
+
       .profile_menu {
         position: absolute;
         top: 70px;
@@ -521,6 +532,7 @@ nav {
         flex-direction: column;
         gap: 14px;
         transform: translateX(300%);
+
         a {
           @include flex(center, center);
           text-decoration: none;
@@ -529,12 +541,15 @@ nav {
           word-break: keep-all;
           cursor: pointer;
           gap: 5px;
+
           i {
             font-size: 14px;
           }
+
           &:hover {
             color: $primary_color;
           }
+
           &:last-child {
             color: #ff0000;
           }
@@ -599,6 +614,7 @@ nav {
 
       .aduan_title {
         width: 100%;
+
         p {
           font-weight: 300;
           font-size: 14px;
@@ -634,6 +650,7 @@ nav {
             display: flex !important;
           }
         }
+
         ._menu {
           cursor: pointer;
           position: relative;
@@ -645,9 +662,11 @@ nav {
           i {
             font-size: 24px;
           }
+
           .active {
             display: flex !important;
           }
+
           .action_menu {
             position: absolute;
             z-index: 2;
@@ -660,6 +679,7 @@ nav {
             width: max-content;
             display: none;
             gap: 16px;
+
             button {
               @include flex(center, center);
               text-decoration: none;
@@ -671,9 +691,11 @@ nav {
               background-color: transparent;
               gap: 10px;
               color: $primary_color;
+
               i {
                 font-size: 18px;
               }
+
               &:last-child {
                 color: #ff0000;
               }
@@ -690,7 +712,7 @@ nav {
   ._title {
     p {
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 28px;
       color: #444444;
     }
@@ -710,8 +732,9 @@ nav {
 
     .form_control {
       width: 100%;
+      font-size: 14px;
       border-radius: 12px;
-      padding: 20px 25px;
+      padding: 18px 20px;
       background-color: $bg_primary;
       border: none;
       outline: none;
@@ -752,12 +775,103 @@ nav {
     }
 
     .btn_submit {
-      padding: 20px 25px;
+      width: fit-content;
+      padding: 18px 20px;
+      color: #ffffff;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      font-size: 14px;
+      background-color: $primary_color;
+      cursor: pointer;
+    }
+  }
+}
+
+// Edit Pengaduan
+.edit_pengaduan {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 25px;
+
+  .form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    label {
+      font-weight: 600;
+      font-size: 14px;
+      color: #222222;
+    }
+
+    .form_control {
+      width: 100%;
+      font-size: 14px;
+      border-radius: 12px;
+      padding: 18px 20px;
+      background-color: #ffffff;
+      border: 1px solid $primary_color;
+      outline: none;
+      color: #444444;
+
+      &:disabled {
+        background-color: $bg_primary;
+        border: none;
+      }
+    }
+
+    .text_area {
+      height: 200px;
+      resize: vertical;
+    }
+
+    .btn_submit {
+      align-self: flex-end;
+      width: fit-content;
+      padding: 18px 20px;
+      font-size: 14px;
       color: #ffffff;
       border: none;
       outline: none;
       border-radius: 12px;
       background-color: $primary_color;
+      cursor: pointer;
+    }
+
+    .profile_input {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      .preview {
+        width: 80px;
+        height: 80px;
+        border-radius: 100px;
+        background-color: $bg_primary;
+        position: relative;
+        @include flex(center, center);
+        @include img_fit();
+
+        i {
+          font-size: 18px;
+        }
+
+        img {
+          position: absolute;
+        }
+
+        ;
+      }
+
+      .file_name {
+        flex-basis: auto;
+        border-radius: 12px;
+        padding: 15px 40px;
+        background-color: $bg_primary;
+        color: #444444;
+      }
     }
   }
 }
@@ -787,7 +901,7 @@ nav {
         cursor: pointer;
         position: relative;
 
-        a{
+        a {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -1122,6 +1236,9 @@ nav {
         }
 
         h1 {
+          font-size: 24px;
+        }
+        h2{
           font-size: 20px;
         }
       }
@@ -1145,6 +1262,7 @@ nav {
 
       .aduan_title {
         width: 100%;
+
         h2 {
           font-size: 20px;
           line-height: 26px;
@@ -1183,13 +1301,11 @@ nav {
     }
   }
 
-  // Pengaduan News
-  // .user_news {
-  //   ._list {
-  //     .card_news {
-  //       ._banner {
-  //         aspect-ratio: 5/3 !important;
-  //       }
+  // Tulis Pengaduan
+  // .form_pengaduan, .edit_pengaduan{
+  //   .form_group{
+  //     .form_control{
+  //       padding: 16px 18px;
   //     }
   //   }
   // }
@@ -1203,7 +1319,11 @@ nav {
 
   .user_pengaduan {
     ._title {
-      width: 50%;
+      width: 60%;
+
+      p {
+        font-size: 16px;
+      }
     }
   }
 }

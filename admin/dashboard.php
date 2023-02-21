@@ -27,7 +27,7 @@ $total_admin = mysqli_num_rows($data6);
 
 $id = $_SESSION['id'];
 
-$title = "Dashboard";
+$title = "Home";
 
 include 'partials/header.php';
 

@@ -26,12 +26,12 @@ include 'partials/header.php';
                     <a href="index.php" class="btn_back to_home">
                         <i class="fa-solid fa-house"></i>
                     </a>
-                    <h1>Halo, <span><?php echo $_SESSION['nama']; ?></span>!</h1>
+                    <h2>Halo, <span><?php echo $_SESSION['nama']; ?></span>!</h2>
                 </div>
                 <div class="icon_profile" onclick="showMenuProfile()">
                     <i class="fa-solid fa-user"></i>
                     <div class="profile_menu">
-                        <a href=""><i class="fa-solid fa-pen-to-square"></i>Edit Profile</a>
+                        <a href="edit_profile.php"><i class="fa-solid fa-pen-to-square"></i>Edit Profile</a>
                         <a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
                     </div>
                 </div>

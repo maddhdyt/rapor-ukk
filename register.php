@@ -32,6 +32,7 @@ if (isset($_POST['btnDaftar'])) {
             </script>";
         } else {
             echo "<script>alert('Data akun gagal dibuat');
+            document.location='register.php';
             </script>";
         }
     }
@@ -79,7 +80,7 @@ include 'partials/header.php';
             </div>
         </div>
     </div>
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
