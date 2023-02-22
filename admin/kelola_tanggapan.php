@@ -14,16 +14,17 @@ include 'partials/header.php';
 
 <!-- Main Content -->
 <div class="main-content">
-    <div class="card mt-3">
+    <div class="card mt-3" style="border-radius: 8px !important;">
         <div class="card-body">
             <table id="raporTable" class="display nowrap" style="width: 100%;">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>NIK</th>
-                        <th>Nama</th>
-                        <th>Tanggal Aduan</th>
+                        <th>Status</th>
+                        <th>Tanggal</th>
+                        <th>Nama Pengadu</th>
                         <th>Judul</th>
+                        <th>Gambar</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -35,10 +36,20 @@ include 'partials/header.php';
                     ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $data['nik']; ?></td>
-                            <td><?= $data['nama']; ?></td>
+                            <td>
+                                <div class="<?php if ($data['status_pengaduan'] == 'Diterima') {
+                                                echo "stat_done";
+                                            } else if ($data['status_pengaduan'] == 'Diproses') {
+                                                echo "stat_procc";
+                                            } else {
+                                                echo "stat_reject";
+                                            } ?>"><?= $data['status_pengaduan']; ?></div>
+                            </td>
                             <td><?= $data['tgl_pengaduan']; ?></td>
+                            <td><?= $data['nama']; ?></td>
+
                             <td><?= $data['judul']; ?></td>
+                            <td><img class="rounded" src="../assets/img/<?= $data['gambar'] ?>" alt="" width="80px" height="50px"></td>
 
                             <td>
                                 <form action="">

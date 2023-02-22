@@ -21,7 +21,7 @@ include 'partials/nav.php';
     <div class="pengaduan_detail_wrapper">
         <div class="_content">
             <div class="_banner">
-                <img src="gambar/<?= $pengaduan['gambar']; ?>" alt="">
+                <img src="assets/img/<?= $pengaduan['gambar']; ?>" alt="">
             </div>
             <div class="news_title">
                 <h2><?= $pengaduan['judul']; ?></h2>

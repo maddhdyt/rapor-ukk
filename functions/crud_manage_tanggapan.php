@@ -5,7 +5,7 @@ session_start();
 if (isset($_POST['btnUbah'])) {
 
     $id_pengaduan = $_POST['id_pengaduan'];
-    $id_petugas = $_SESSION['id'];
+    $id_petugas = $_SESSION['id_petugas'];
     $tgl_tanggapan = date('Y-m-d');
     $tanggapan = $_POST['tanggapan'];
     $status_pengaduan = $_POST['status_pengaduan'];

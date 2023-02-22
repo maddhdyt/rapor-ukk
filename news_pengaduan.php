@@ -20,7 +20,7 @@ include 'partials/nav.php';
                     <div class="card_news">
                         <div class="_banner">
                             <a href="detail_pengaduan.php?id=<?php echo $data['id'] ?>"></a>
-                            <img src="gambar/<?= $data['gambar'] ?>">
+                            <img src="assets/img/<?= $data['gambar'] ?>">
                         </div>
                         <div class="_title">
                             <p><?= $data['tgl_pengaduan'] ?></p>

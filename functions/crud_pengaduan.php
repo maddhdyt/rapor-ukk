@@ -12,7 +12,7 @@ if (isset($_POST['btnSave'])) {
 
     $namafile = $_FILES['gambar']['name'];
     $ukuran = $_FILES['gambar']['size'];
-    $dir = "../gambar/";
+    $dir = "../assets/img/";
     $random = rand();
     $tmpFile = $_FILES['gambar']['tmp_name'];
 
@@ -33,7 +33,7 @@ if (isset($_POST['btnDelete'])) {
     $show = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE id = '$id'");
     $ambil = mysqli_fetch_assoc($show);
 
-    unlink("../gambar/" . $ambil['gambar']);
+    unlink("../assets/img/" . $ambil['gambar']);
     $hapus = mysqli_query($koneksi, "DELETE FROM dat_pengaduan WHERE id = '$id'");
 
     if ($hapus) {

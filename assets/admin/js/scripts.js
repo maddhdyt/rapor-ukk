@@ -104,7 +104,7 @@ $(function() {
   }
 
   $(".main-content").css({
-    minHeight: $(window).outerHeight() - 95
+    minHeight: $(window).outerHeight() - 68
   })
 
   $(".nav-collapse-toggle").click(function() {

@@ -2,9 +2,6 @@
     <div class="footer-left">
         Copyright &copy; 2023 <div class="bullet"></div> Ahmad Hidayat | UKK Rekayasa Perangkat Lunak
     </div>
-    <div class="footer-right">
-
-    </div>
 </footer>
 </div>
 </div>
@@ -39,7 +36,7 @@
 <script>
     $(document).ready( function () {
     $('#raporTable').DataTable({
-        resposive: true,
+        responsive: true,
         ordering: false,
         info: false,
     });
