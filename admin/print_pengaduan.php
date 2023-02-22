@@ -9,7 +9,7 @@ if (!isset($_SESSION['login_admin'])) {
     header("Location: dashboard.php");
 }
 
-$id = $_SESSION['id'];
+$id = $_SESSION['id_petugas'];
 
 $title = "Print Laporan";
 

@@ -1,11 +1,8 @@
 <?php
 
-include 'koneksi.php';
+include 'core/conn.php';
 
-session_start();
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-}
+include 'core/init_user.php';
 
 $id = $_GET['id'];
 
@@ -21,7 +18,7 @@ include 'partials/nav.php';
 
 <div class="container">
     <div class="user_pengaduan">
-        <form action="crud_pengaduan.php" method="post" class="edit_pengaduan" enctype="multipart/form-data">
+        <form action="functions/crud_pengaduan.php" method="post" class="edit_pengaduan" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $data['id'] ?>">
             <div class="form_group">
                 <label for="">Judul Pengaduan</label>

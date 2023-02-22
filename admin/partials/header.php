@@ -51,7 +51,7 @@
                             <div class="d-sm-none d-lg-inline-block">Hi, <?php echo $_SESSION['name']; ?></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="logout_pa.php" class="dropdown-item has-icon text-danger">
+                            <a href="../auth/logout_pa.php" class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
                         </div>
@@ -72,7 +72,7 @@
                         if ($_SESSION['level'] == 'admin') {
                         ?>
 
-                            <li class="<?php if ($title == "Dashboard") {
+                            <li class="<?php if ($title == "Home") {
                                             echo "active";
                                         } else {
                                             echo "";

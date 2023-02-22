@@ -1,11 +1,9 @@
 <?php
 
-include '../koneksi.php';
+include '../core/conn.php';
 
-session_start();
-if (!isset($_SESSION['login_admin'])) {
-    header("Location: login_pa.php");
-}
+include '../core/init_admin.php';
+
 
 $data1 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan");
 $total_report = mysqli_num_rows($data1);
@@ -25,7 +23,7 @@ $total_user = mysqli_num_rows($data5);
 $data6 = mysqli_query($koneksi, "SELECT * FROM dat_petugas");
 $total_admin = mysqli_num_rows($data6);
 
-$id = $_SESSION['id'];
+$id = $_SESSION['id_petugas'];
 
 $title = "Home";
 

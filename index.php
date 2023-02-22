@@ -28,7 +28,7 @@
                         <li><a href="">Tentang Kami</a></li>
                         <li><a href="">Kategori</a></li>
                         <li><a href="">How it Works?</a></li>
-                        <a href="login.php" class="btn_login">
+                        <a href="auth/login.php" class="btn_login">
                             Masuk<i class="fa-solid fa-arrow-right-to-bracket"></i>
                         </a>
                     </ul>

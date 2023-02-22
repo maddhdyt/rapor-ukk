@@ -16,13 +16,10 @@
                     <a href="#" class="nav_link">Tentang Kami</a>
                 </div>
             </div>
-            <form class="contact_form">
-                <h2>Kirim Masukan</h2>
-                <input type="text" placeholder="Nama" class="form_control">
-                <input type="text" placeholder="Email" class="form_control">
-                <textarea name="" id="" class="form_control text_area" placeholder="Masukanmu"></textarea>
-                <input type="submit" value="Kirim" class="btn_submit">
-            </form>
+            <div class="contact_form">
+                <h2>Kontak kami</h2>
+                
+            </div>
         </div>
         <div class="copyright">
             <p>&copy;Copyright 2023 Ahmad Hidayat - UKK Rekayasa Perangkat Lunak</p>

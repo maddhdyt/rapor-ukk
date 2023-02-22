@@ -1,6 +1,6 @@
 <?php
 
-include '../koneksi.php';
+include '../core/conn.php';
 
 session_start();
 if (isset($_POST['btnSimpan'])) {
@@ -19,10 +19,10 @@ if (isset($_POST['btnSimpan'])) {
     $simpan = mysqli_query($koneksi, "UPDATE dat_pengaduan SET status_pengaduan = '$status_pengaduan' WHERE id = '$id_pengaduan'");
 
     if ($simpan) {
-        echo "<script>alert('Data berhasil disimpan'); document.location='kelola_pengaduan.php'</script>";
+        echo "<script>alert('Data berhasil disimpan'); document.location='../admin/kelola_pengaduan.php'</script>";
     } else {
         echo "<script>alert('Data gagal disimpan');
-        document.location='kelola_pengaduan.php';</script>
+        document.location='../admin/kelola_pengaduan.php';</script>
         </script>";
     }
 }

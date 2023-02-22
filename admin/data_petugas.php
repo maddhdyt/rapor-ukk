@@ -1,15 +1,10 @@
 <?php
 
-include '../koneksi.php';
+include '../core/conn.php';
 
-session_start();
-if (!isset($_SESSION['login_admin'])) {
-    header("Location: login_pa.php");
-} else if ($_SESSION['level'] == 'petugas') {
-    header("Location: dashboard.php");
-}
+include '../core/init_admin_only.php';
 
-$id = $_SESSION['id'];
+$id = $_SESSION['id_petugas'];
 
 $title = "Data Petugas";
 
@@ -49,7 +44,7 @@ include 'partials/header.php';
                             <td><?= $data['username']; ?></td>
 
                             <td>
-                                <form action="crud_petugas.php" method="post">
+                                <form action="../functions/crud_petugas.php" method="post">
                                     <input type="hidden" name="id" value="<?= $data['id'] ?> ">
                                     <a href="edit_petugas.php?id=<?= $data['id'] ?>" class="btn btn-secondary text-primary">Ubah</a>
                                     <button type="submit" name="btnDelete" class="btn btn-danger ml-1">Hapus</button>

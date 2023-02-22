@@ -541,7 +541,8 @@ nav .container .nav_toggle:hover {
   padding: 25px 30px;
   border-radius: 12px;
   background: #ffffff;
-  box-shadow: 0px 0px 4px 1px #dddddd;
+  border: 1px solid #dddddd;
+  border-left: 5px solid #254074;
   flex-direction: column;
 }
 .user_history .history_list ._card .aduan_title {
@@ -567,13 +568,25 @@ nav .container .nav_toggle:hover {
   gap: 30px;
   margin-top: 40px;
 }
-.user_history .history_list ._card .btn_control ._detail {
-  padding: 12px 30px;
+.user_history .history_list ._card .btn_control ._status ._box {
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px 15px;
   font-size: 12px;
-  color: #ffffff;
-  background-color: #254074;
-  border-radius: 12px;
-  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+}
+.user_history .history_list ._card .btn_control ._status .process {
+  background-color: rgba(255, 183, 0, 0.3137254902);
+  color: #ff5c00;
+}
+.user_history .history_list ._card .btn_control ._status .done {
+  background-color: rgba(0, 159, 40, 0.2196078431);
+  color: #009f28;
+}
+.user_history .history_list ._card .btn_control ._status .reject {
+  background-color: rgba(159, 0, 0, 0.2196078431);
+  color: #ba0000;
 }
 .user_history .history_list ._card .btn_control .drop_active .action_menu {
   display: flex !important;
@@ -595,8 +608,8 @@ nav .container .nav_toggle:hover {
 .user_history .history_list ._card .btn_control ._menu .action_menu {
   position: absolute;
   z-index: 2;
-  right: 0;
-  top: 50px;
+  right: 30px;
+  top: 0;
   padding: 20px;
   border-radius: 12px;
   background-color: #ffffff;
@@ -604,9 +617,12 @@ nav .container .nav_toggle:hover {
   width: -moz-max-content;
   width: max-content;
   display: none;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
 }
-.user_history .history_list ._card .btn_control ._menu .action_menu button, .user_history .history_list ._card .btn_control ._menu .action_menu a {
+.user_history .history_list ._card .btn_control ._menu .action_menu button,
+.user_history .history_list ._card .btn_control ._menu .action_menu a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -618,12 +634,18 @@ nav .container .nav_toggle:hover {
   cursor: pointer;
   background-color: transparent;
   gap: 10px;
+  font-size: 14px;
   color: #254074;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-.user_history .history_list ._card .btn_control ._menu .action_menu button i, .user_history .history_list ._card .btn_control ._menu .action_menu a i {
-  font-size: 18px;
+.user_history .history_list ._card .btn_control ._menu .action_menu button i,
+.user_history .history_list ._card .btn_control ._menu .action_menu a i {
+  font-size: 16px;
 }
-.user_history .history_list ._card .btn_control ._menu .action_menu button:last-child, .user_history .history_list ._card .btn_control ._menu .action_menu a:last-child {
+.user_history .history_list ._card .btn_control ._menu .action_menu button:last-child,
+.user_history .history_list ._card .btn_control ._menu .action_menu a:last-child {
   color: #ff0000;
 }
 
@@ -980,10 +1002,6 @@ nav .container .nav_toggle:hover {
   font-size: 14px;
   font-weight: 500;
   text-align: center;
-}
-.pengaduan_detail_wrapper ._info ._status .cata {
-  background-color: #254074;
-  color: #ffffff;
 }
 .pengaduan_detail_wrapper ._info ._status .process {
   background-color: rgba(255, 183, 0, 0.3137254902);

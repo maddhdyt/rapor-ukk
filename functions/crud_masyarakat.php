@@ -1,7 +1,8 @@
 <?php
-session_start();
-include '../koneksi.php';
 
+include '../core/conn.php';
+
+session_start();
 if (isset($_POST['btnDaftar'])) {
     $nik = $_POST['nik'];
     $nama = $_POST['nama'];
@@ -29,11 +30,11 @@ if (isset($_POST['btnDaftar'])) {
 
         if ($simpan) {
             echo "<script>alert('Data akun berhasil dibuat');
-            document.location='data_masyarakat.php';
+            document.location='../admin/data_masyarakat.php';
             </script>";
         } else {
             echo "<script>alert('Data akun gagal dibuat');
-            document.location='data_masyarakat.php';
+            document.location='../admin/tambah_masyarakat.php';
             </script>";
         }
     }
@@ -51,11 +52,11 @@ if (isset($_POST['btnUpdate'])) {
 
     if ($update) {
         echo "<script>alert('Data akun berhasil diupdate');
-            document.location='data_masyarakat.php';
+            document.location='../admin/data_masyarakat.php';
             </script>";
     } else {
         echo "<script>alert('Data akun gagal diupdate');
-            document.location='edit_masyarakat.php';
+            document.location='../admin/edit_masyarakat.php';
             </script>";
     }
 }

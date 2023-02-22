@@ -1,11 +1,8 @@
 <?php
 
-include 'koneksi.php';
+include 'core/conn.php';
 
-session_start();
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-}
+include 'core/init_user.php';
 
 $title = "Edit Profile";
 include 'partials/header.php';

@@ -1,7 +1,8 @@
 <?php
-session_start();
-include '../koneksi.php';
 
+include '../core/conn.php';
+
+session_start();
 if (isset($_POST['btnDaftar'])) {
     $name = $_POST['nama_petugas'];
     $telp = $_POST['telp'];
@@ -24,11 +25,11 @@ if (isset($_POST['btnDaftar'])) {
 
         if ($simpan) {
             echo "<script>alert('Data akun berhasil dibuat');
-            document.location='data_petugas.php';
+            document.location='../admin/data_petugas.php';
             </script>";
         } else {
             echo "<script>alert('Data akun gagal dibuat');
-            document.location='data_petugas.php';
+            document.location='../admin/tambah_petugas.php';
             </script>";
         }
     }
@@ -49,7 +50,7 @@ if (isset($_POST['btnUbah'])) {
     } else {
         mysqli_query($koneksi, "UPDATE dat_petugas SET nama_petugas = '$name', telp = '$telp', level = '$level', username = '$username', password = '$password' WHERE id = $id");
         echo "<script>alert('Data akun berhasil diupdate');
-            document.location='data_petugas.php';
+            document.location='../admin/data_petugas.php';
             </script>";
     }
 }

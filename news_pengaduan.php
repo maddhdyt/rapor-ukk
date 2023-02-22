@@ -1,6 +1,6 @@
 <?php
 
-include 'koneksi.php';
+include 'core/conn.php';
 
 $title = "Pengaduan Masyarakat";
 include 'partials/header.php';

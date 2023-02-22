@@ -2,12 +2,7 @@
 
 include '../koneksi.php';
 
-session_start();
-if (!isset($_SESSION['login_admin'])) {
-    header("Location: login_pa.php");
-} else if($_SESSION['level'] == 'petugas') {
-    header("Location: dashboard.php");
-}
+include '../core/init_admin_only.php.php';
 
 $title = "Data Masyarakat";
 
@@ -23,7 +18,7 @@ include 'partials/header.php';
                 <div class="card-header">
                     <h4>Registrasi Masyarakat</h4>
                 </div>
-                <form action="crud_masyarakat.php" method="post" enctype="multipart/form-data" class="card-body">
+                <form action="../functions/crud_masyarakat.php" method="post" enctype="multipart/form-data" class="card-body">
                     <div class="form-group">
                         <label>NIK</label>
                         <input name="nik" type="text" class="form-control" value="">

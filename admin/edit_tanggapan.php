@@ -1,11 +1,8 @@
 <?php
 
-include '../koneksi.php';
+include '../core/conn.php';
 
-session_start();
-if (!isset($_SESSION['login_admin'])) {
-    header("Location: login_pa.php");
-}
+include '../core/init_admin.php';
 
 $id = $_GET['id'];
 
@@ -29,7 +26,7 @@ include 'partials/header.php';
                 <div class="card-header">
                     <h4>Edit Tanggapan</h4>
                 </div>
-                <form action="crud_manage_tanggapan.php" method="post" enctype="multipart/form-data" class="card-body">
+                <form action="../functions/crud_manage_tanggapan.php" method="post" enctype="multipart/form-data" class="card-body">
                     <input type="hidden" name="id_pengaduan" value="<?php echo $id ?>">
                     <div class="form-group">
                         <label>Konfirmasi</label>

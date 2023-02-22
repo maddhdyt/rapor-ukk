@@ -1,10 +1,10 @@
-<?php 
+<?php
 
-include 'koneksi.php';
+include '../core/conn.php';
 
 session_start();
-if(isset($_SESSION['login'])) {
-    header("Location: user_dashboard.php");
+if (isset($_SESSION['login'])) {
+    header("Location: ../user_dashboard.php");
 }
 
 if (isset($_POST['btnMasuk'])) {
@@ -17,7 +17,7 @@ if (isset($_POST['btnMasuk'])) {
         $baris = mysqli_fetch_assoc($data);
         if ($password == $baris['password']) {
 
-            header("Location: user_dashboard.php");
+            header("Location: ../user_dashboard.php");
             $_SESSION['id'] = $baris['id'];
             $_SESSION['login'] = true;
             $_SESSION['nik'] = $baris['nik'];
@@ -33,9 +33,24 @@ if (isset($_POST['btnMasuk'])) {
 }
 
 $title = "Login";
-    include 'partials/header.php';
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $title ?> - RAPOR!</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0297ba9f6f.js" crossorigin="anonymous"></script>
+</head>
 
 <body>
     <div class="container">
@@ -57,11 +72,11 @@ $title = "Login";
             </form>
             <div class="link">
                 <div class="to_another">Belum punya akun? <a href="register.php">Daftar</a></div>
-                <a href="index.php" class="to_home"><i class="fa-solid fa-arrow-right-from-bracket"></i>Kembali</a>
+                <a href="../index.php" class="to_home"><i class="fa-solid fa-arrow-right-from-bracket"></i>Kembali</a>
             </div>
         </div>
     </div>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>

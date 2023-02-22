@@ -1,10 +1,10 @@
 <?php
 
-include '../koneksi.php';
+include '../core/conn.php';
 
 session_start();
 if (isset($_SESSION['login_admin'])) {
-    header("Location: dashboard.php");
+    header("Location: ../admin/dashboard.php");
 }
 
 if (isset($_POST['btnMasuk'])) {
@@ -17,8 +17,8 @@ if (isset($_POST['btnMasuk'])) {
         $baris = mysqli_fetch_assoc($data);
         if ($password == $baris['password']) {
 
-            header("Location: dashboard.php");
-            $_SESSION['id'] = $baris['id'];
+            header("Location: ../admin/dashboard.php");
+            $_SESSION['id_petugas'] = $baris['id'];
             $_SESSION['login_admin'] = true;
             $_SESSION['name'] = $baris['nama_petugas'];
             $_SESSION['telp'] = $baris['telp'];
@@ -41,7 +41,7 @@ if (isset($_POST['btnMasuk'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - RAPOR!</title>
+    <title>Login Admin - RAPOR!</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

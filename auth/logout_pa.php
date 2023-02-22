@@ -5,5 +5,5 @@ session_unset();
 session_destroy();
 
 echo "<script>alert('Logout berhasil');
-            document.location='index.php';
+            document.location='login_pa.php';
             </script>";

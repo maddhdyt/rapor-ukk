@@ -2,10 +2,7 @@
 
 include '../koneksi.php';
 
-session_start();
-if (!isset($_SESSION['login_admin'])) {
-    header("Location: login_pa.php");
-}
+include '../core/init_admin_only.php.php';
 
 $title = "Data Petugas";
 
@@ -21,7 +18,7 @@ include 'partials/header.php';
                 <div class="card-header">
                     <h4>Registrasi Petugas</h4>
                 </div>
-                <form action="crud_petugas.php" method="post" enctype="multipart/form-data" class="card-body">
+                <form action="../functions/crud_petugas.php" method="post" enctype="multipart/form-data" class="card-body">
                     <div class="form-group">
                         <label>Nama</label>
                         <input name="nama_petugas" type="text" class="form-control" value="">
