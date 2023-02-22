@@ -5,7 +5,7 @@ include '../core/conn.php';
 session_start();
 if (isset($_POST['btnSimpan'])) {
 
-    $id_petugas = $_SESSION['id'];
+    $id_petugas = $_SESSION['id_petugas'];
     $id_pengaduan = $_POST['id'];
     $tgl_tanggapan = date('Y-m-d');
 
