@@ -28,7 +28,7 @@ include 'partials/header.php';
             <div class="icon_profile" onclick="showMenuProfile()">
                 <i class="fa-solid fa-user"></i>
                 <div class="profile_menu">
-                    <a href="edit_profile.php"><i class="fa-solid fa-pen-to-square"></i>Edit Profile</a>
+                    <a href="edit_profile.php?id=<?= $_SESSION['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit Profile</a>
                     <a href="auth/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
                 </div>
             </div>

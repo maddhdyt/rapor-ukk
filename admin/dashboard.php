@@ -36,7 +36,7 @@ include 'partials/header.php';
     <section class="section">
         <div class="row mt-4">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
+                <div class="card card-statistic-1" style="border-radius: 8px;">
                     <div class="card-icon bg-primary">
                         <i class="far fa-newspaper"></i>
                     </div>
@@ -51,7 +51,7 @@ include 'partials/header.php';
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
+                <div class="card card-statistic-1" style="border-radius: 8px;">
                     <div class="card-icon bg-warning">
                         <i class="fas fa-cogs"></i>
                     </div>
@@ -66,7 +66,7 @@ include 'partials/header.php';
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
+                <div class="card card-statistic-1" style="border-radius: 8px;">
                     <div class="card-icon bg-success">
                         <i class="far fa-folder-open"></i>
                     </div>
@@ -81,7 +81,7 @@ include 'partials/header.php';
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
+                <div class="card card-statistic-1" style="border-radius: 8px;">
                     <div class="card-icon bg-danger">
                         <i class="fas fa-ban"></i>
                     </div>
@@ -96,7 +96,7 @@ include 'partials/header.php';
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
+                <div class="card card-statistic-1" style="border-radius: 8px;">
                     <div class="card-icon bg-info">
                         <i class="fas fa-users"></i>
                     </div>
@@ -111,7 +111,7 @@ include 'partials/header.php';
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
+                <div class="card card-statistic-1" style="border-radius: 8px;">
                     <div class="card-icon bg-info">
                         <i class="fas fa-users-cog"></i>
                     </div>

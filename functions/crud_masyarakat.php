@@ -19,11 +19,17 @@ if (isset($_POST['btnDaftar'])) {
     $cek_username = mysqli_query($koneksi, "SELECT username FROM dat_masyarakat WHERE username = '$username'");
 
     if (mysqli_fetch_assoc($cek_nik)) {
-        echo "<script>alert('NIK sudah digunakan')</script>";
+        echo "<script>alert('NIK sudah digunakan');
+        history.back();
+        </script>";
     } else if (mysqli_fetch_assoc($cek_username)) {
-        echo "<script>alert('Username sudah digunakan')</script>";
+        echo "<script>alert('Username sudah digunakan');
+        history.back();
+        </script>";
     } else if ($password != $password2) {
-        echo "<script>alert('Password tidak sama')</script>";
+        echo "<script>alert('Password tidak sama');
+        history.back();
+        </script>";
     } else {
 
         $simpan = mysqli_query($koneksi, "INSERT INTO dat_masyarakat VALUES ('', '$nik', '$nama','$telp', '$alamat', '$username', '$password')");

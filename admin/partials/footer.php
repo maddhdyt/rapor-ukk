@@ -34,20 +34,20 @@
 
 
 <script>
-    $(document).ready( function () {
-    $('#raporTable').DataTable({
-        responsive: true,
-        ordering: false,
-        info: false,
+    $(document).ready(function() {
+        $('#raporTable').DataTable({
+            responsive: true,
+            ordering: false,
+            info: false,
+        });
+        $('#raporTablePrint').DataTable({
+            responsive: true,
+            paging: false,
+            searching: false,
+            ordering: false,
+            info: false,
+        });
     });
-    $('#raporTablePrint').DataTable({
-        responsive: true,
-        paging: false,
-        searching: false,
-        ordering: false,
-        info: false,
-    });
-});
 </script>
 </body>
 

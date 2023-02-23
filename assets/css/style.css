@@ -595,6 +595,7 @@ nav .container .nav_toggle:hover {
   cursor: pointer;
   position: relative;
   height: 100%;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;

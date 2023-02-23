@@ -3490,6 +3490,9 @@ pre {
   margin-left: 45px;
 }
 
+.main-wrapper{
+    background-color: #eeeeee;
+}
 .main-wrapper-1 .section .section-header {
   margin-left: -30px;
   margin-right: -30px;
@@ -4228,7 +4231,6 @@ body.layout-3 .main-footer {
   padding-top: 80px;
   width: 100%;
   position: relative;
-  background-color: #eeeeee;
 }
 
 .main-footer {

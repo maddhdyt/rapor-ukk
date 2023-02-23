@@ -62,3 +62,70 @@ if (isset($_POST['btnUpdate'])) {
             </script>";
     }
 }
+
+if (isset($_POST['btnUpdateProfile'])) {
+    $id = $_POST['id'];
+    $nik = $_POST['nik'];
+    $nama = $_POST['nama'];
+    $telp = $_POST['telp'];
+    $alamat = $_POST['alamat'];
+    $username = $_POST['username'];
+    $old_pass = $_POST['old_pass'];
+    $password = $_POST['password'];
+    $password2 = $_POST['password2'];
+    // img
+    // $previous = $_POST['previous'];
+    // $exp = explode(".", $image_name);
+    // $end = end($exp);
+
+    $namafile = $_FILES['gambar']['name'];
+    $ukuran = $_FILES['gambar']['size'];
+    $dir = "../assets/img/";
+    $random = rand();
+    $tmpFile = $_FILES['gambar']['tmp_name'];
+
+    if ($password != $password2) {
+        echo "<script>alert('Password tidak sama')</script>";
+    } else if ($password == "") {
+        move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
+        $gambar = $random . '_' . $namafile;
+        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', gambar = '$gambar', username = '$username', password = '$old_pass' WHERE id = $id");
+        echo "<script>alert('Data akun berhasil diupdate');</script>";
+    } else {
+        move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
+        $gambar = $random . '_' . $namafile;
+        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', gambar = '$gambar', username = '$username', password = '$password' WHERE id = $id");
+        echo "<script>alert('Data akun berhasil diupdate');</script>";
+    }
+
+    
+}
+
+
+
+if(isset($_POST['edit'])){
+    $user_id = $_POST['user_id'];
+    $image_name = $_FILES['gambar']['name'];
+    $image_temp = $_FILES['gambar']['tmp_name'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $previous = $_POST['previous'];
+    $exp = explode(".", $image_name);
+    $end = end($exp);
+    $name = time().".".$end;
+    if(!is_dir("./upload"))
+        mkdir("upload");
+    $path = "upload/".$name;
+    $allowed_ext = array("gif", "jpg", "jpeg", "png");
+    if(in_array($end, $allowed_ext)){
+        if(unlink($previous)){
+            if(move_uploaded_file($image_temp, $path)){
+                mysqli_query($conn, "UPDATE `user` set `firstname` = '$firstname', `lastname` = '$lastname', `photo` = '$path' WHERE `user_id` = '$user_id'");
+                echo "<script>alert('User account updated!')</script>";
+                header("location: index.php");
+            }
+        }		
+    }else{
+        echo "<script>alert('Image only')</script>";
+    }
+}

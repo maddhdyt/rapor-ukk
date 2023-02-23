@@ -15,7 +15,7 @@ include 'partials/header.php';
     <div class="card mt-3" style="border-radius: 8px !important;">
         <div class="card-body">
             <a href="../functions/print_report.php" class="btn btn-primary mb-4">
-                Cetak Laporan
+            <i class="fa-solid fa-print text-light fs-2 mr-2"></i> Cetak Laporan
             </a>
             <table id="raporTable" class="display nowrap" style="width: 100%;">
                 <thead>
