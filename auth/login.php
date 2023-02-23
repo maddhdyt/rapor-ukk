@@ -22,6 +22,7 @@ if (isset($_POST['btnMasuk'])) {
             $_SESSION['login'] = true;
             $_SESSION['nik'] = $baris['nik'];
             $_SESSION['nama'] = $baris['nama'];
+            $_SESSION['username'] = $baris['username'];
             $_SESSION['email'] = $baris['email'];
             exit;
         } else {

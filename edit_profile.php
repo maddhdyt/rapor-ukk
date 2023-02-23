@@ -28,16 +28,28 @@ include 'partials/nav.php';
             <input type="hidden" name="previous" value="<?= $data['gambar']?>">
             <input type="hidden" name="old_pass" value="<?= $data['password']?>">
             <div class="form_group">
+                <label for="">Update foto profil</label>
+                <div class="profile_input">
+                    <div class="preview">
+                        <i class="fa-solid fa-user"></i>
+                        <img src="assets/img/<?= $data['profile'] ?>">
+                    </div>
+                    <div class="file_name">
+                    <input type="file" name="gambar" accept="image/*" value="true">
+                    </div>
+                </div>
+            </div>
+            <div class="form_group">
                 <label for="">Username</label>
                 <input type="text" class="form_control" name="username" value="<?= $data['username'] ?>">
             </div>
             <div class="form_group">
-                <label for="">NIK</label>
-                <input type="text" class="form_control" name="nik" value="<?= $data['nik'] ?>">
-            </div>
-            <div class="form_group">
                 <label for="">Nama Lengkap</label>
                 <input type="text" class="form_control" name="nama" value="<?= $data['nama'] ?>">
+            </div>
+            <div class="form_group">
+                <label for="">NIK</label>
+                <input type="text" class="form_control" name="nik" value="<?= $data['nik'] ?>">
             </div>
             <div class="form_group">
                 <label for="">No Telp</label>
@@ -47,24 +59,12 @@ include 'partials/nav.php';
                 <label for="">Alamat</label>
                 <input type="text" class="form_control" name="alamat" value="<?= $data['alamat'] ?>">
             </div>
-            <div class="form_group">
-                <label for="">Update foto profil</label>
-                <div class="profile_input">
-                    <div class="preview">
-                        <i class="fa-solid fa-user"></i>
-                        <img src="assets/img/<?= $data['gambar'] ?>">
-                    </div>
-                    <div class="file_name">
-                    <input type="file" name="gambar" accept="image/*" value="true">
-                    </div>
-                </div>
-            </div>
-            <div class="form_group">
+            <div class="form_group col-2">
                 <label for="">Ubah Password</label>
                 <input type="password" name="password" class="form_control" placeholder="Password Baru">
                 <input type="password" name="password2" class="form_control" placeholder="Konfirmasi Password">
             </div>
-            <div class="form_group">
+            <div class="form_group col-2">
                 <input type="submit" name="btnUpdateProfile" value="Simpan Perubahan" class="btn_submit"></input>
             </div>
         </form>

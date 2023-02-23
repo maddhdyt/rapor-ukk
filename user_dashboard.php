@@ -20,40 +20,69 @@ include 'partials/header.php';
     <nav class="nav_user">
         <div class="container">
             <div class="head_title">
-                <a href="index.php" class="btn_back to_home">
-                    <i class="fa-solid fa-house"></i>
+                <a class="btn_back" onclick="history.back ()">
+                    <i class="fa-solid fa-chevron-left"></i>
                 </a>
-                <h2>Halo, <span><?php echo $_SESSION['nama']; ?></span>!</h2>
             </div>
-            <div class="icon_profile" onclick="showMenuProfile()">
-                <i class="fa-solid fa-user"></i>
-                <div class="profile_menu">
-                    <a href="edit_profile.php?id=<?= $_SESSION['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit Profile</a>
-                    <a href="auth/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
-                </div>
+            <div class="logo">
+                <a href="#">RAPOR!</a>
+            </div>
+            <div class="nav_itemsV2">
+                <ul>
+                    <li><a href="">Beranda</a></li>
+                    <li><a href="">Tentang Kami</a></li>
+                    <li><a href="">Kategori</a></li>
+                    <li><a href="">How it Works?</a></li>
+                    <a href="auth/logout.php" class="btn_login">
+                        Logout<i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                </ul>
+            </div>
+            <div class="nav_toggleV2" onclick="showNavbarV2()">
+                <i class="fa-solid fa-bars"></i>
             </div>
         </div>
     </nav>
 </header>
 <div class="container">
     <section class="dashboard_user_menu">
-        <div class="_title">
-            <h2>Selamat datang di RAPOR!</h2>
-            <p>Punya keluhan? Lapor disini</p>
+        <div class="user_info">
+            <div class="user">
+                <div class="_pic">
+                    <img src="assets/img/152677374_WhatsApp Image 2023-02-18 at 12.30.31 PM.jpeg" alt="">
+                </div>
+                <h1><?php echo $_SESSION['nama']; ?></h1>
+                <span>@<?php echo $_SESSION['username']; ?></span>
+            </div>
+            <div class="statistic">
+                <div class="_card">
+                    <h2>Jumlah Pengaduan</h2>
+                    <span>4</span>
+                </div>
+                <div class="_card">
+                    <h2>Jumlah Pengaduan</h2>
+                    <span>4</span>
+                </div>
+                <div class="_card">
+                    <h2>Jumlah Pengaduan</h2>
+                    <span>4</span>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="" class="_btn">Edit Profile</a>
+                <a href="" class="_btn"><i class="fa-solid fa-clock-rotate-left"></i></a>
+            </div>
         </div>
         <div id="options">
             <div class="user_menu">
                 <div class="_card">
                     <div class="_title">
-                        <h2>Tulis Pengaduan</h2>
+                        <h2>Ajukan Pengaduan</h2>
                         <p>Pengaduan akan dikirim dan diverifikasi oleh admin </p>
                     </div>
                     <div class="btn_group">
-                        <div class="_icon">
-                            <img src="assets/img/document.png" alt="">
-                        </div>
                         <a href="form_pengaduan.php" class="_btn">
-                            <i class="fa-solid fa-plus"></i><span>Laporan</span>
+                            <i class="fa-solid fa-plus"></i><span>Pengaduan</span>
                         </a>
                     </div>
                 </div>
@@ -63,11 +92,8 @@ include 'partials/header.php';
                         <p>Kamu bisa melihat aduan terkini yang telah dilaporkan masyarakat</p>
                     </div>
                     <div class="btn_group">
-                        <div class="_icon">
-                            <img src="assets/img/newspaper.png" alt="">
-                        </div>
                         <a href="news_pengaduan.php" class="_btn">
-                            <span>Jelajahi</span>
+                            <i class="fa-solid fa-magnifying-glass"></i><span>Jelajahi</span>
                         </a>
                     </div>
                 </div>

@@ -4,6 +4,9 @@ function showMenuProfile() {
 function showNavbar() {
     document.querySelector('.nav_items').classList.toggle("nav_drop")
 }
+function showNavbarV2() {
+    document.querySelector('.nav_itemsV2').classList.toggle("nav_drop")
+}
 function showPassword() {
     let inputPassword = document.getElementsByClassName('input_password')
     for (var i = 0; i < inputPassword.length; i++) {

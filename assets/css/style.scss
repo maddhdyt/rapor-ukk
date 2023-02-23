@@ -331,13 +331,49 @@ nav {
         }
       }
     }
+    .nav_itemsV2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 100px 0 50px 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #ffffff;
+      transition: all 600ms;
+      transform: translateX(-100%);
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 50px;
+
+        li {
+          list-style: none;
+          font-size: 14px;
+          font-weight: 500;
+          opacity: 0.8;
+
+          a {
+            text-decoration: none;
+            color: #444444;
+
+            &:hover {
+              color: #254074;
+            }
+          }
+        }
+      }
+    }
 
     .btn_login {
       width: fit-content;
       @include flex(center, center);
       padding: 14px 20px;
-      background-color: $bg_primary;
-      color: $primary_color;
+      background-color: #ba000033;
+      color: #ba0000;
       font-weight: 500;
       text-decoration: none;
       gap: 10px;
@@ -350,7 +386,7 @@ nav {
       }
 
       &:hover {
-        background-color: $primary_color;
+        background-color: #ba0000;
         color: #ffffff;
       }
     }
@@ -362,6 +398,25 @@ nav {
       padding: 10px 15px;
       color: $primary_color;
       transition: all 400ms;
+      cursor: pointer;
+
+      i {
+        font-size: 24px;
+      }
+
+      &:hover {
+        background-color: $primary_color;
+        color: #ffffff;
+      }
+    }
+    .nav_toggleV2 {
+      z-index: 9999;
+      border-radius: 12px;
+      background-color: $bg_primary;
+      padding: 10px 15px;
+      color: $primary_color;
+      transition: all 400ms;
+      cursor: pointer;
 
       i {
         font-size: 24px;
@@ -413,10 +468,9 @@ nav {
 
   ._card {
     border-radius: 12px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 4px 1px #dddddd;
+    background-color: $primary_color;
     padding: 30px;
-    height: 280px;
+    height: 250px;
     @include flex(flex-start, space-between);
     flex-direction: column;
 
@@ -424,33 +478,28 @@ nav {
       h2 {
         font-weight: 600;
         font-size: 24px;
-        color: #444444;
+        color: #ffffff;
       }
 
       p {
         font-size: 14px;
         margin-top: 8px;
-        color: #444444;
+        color: #ffffff;
       }
     }
 
     .btn_group {
       width: 100%;
-      @include flex(flex-end, space-between);
-
-      ._icon {
-        height: 80px;
-        width: 80px;
-        @include img_fit();
-      }
+      @include flex(flex-end, flex-end);
 
       ._btn {
         @include base_btn();
         @include flex(center, flex-start);
+        background-color: #ffffff6d;
         gap: 15px;
 
         i {
-          color: #ffffff;
+          color: #fff;
           font-size: 18px;
         }
       }
@@ -486,6 +535,7 @@ nav {
         text-decoration: none;
         cursor: pointer;
         transition: all 400ms;
+        z-index: 9999;
 
         &:hover {
           background-color: #ffffff;
@@ -565,7 +615,93 @@ nav {
 }
 
 .dashboard_user_menu {
-  padding: 40px 0 70px 0;
+  padding: 30px 0 70px 0;
+
+  .user_info {
+    width: 100%;
+    margin-bottom: 70px;
+    .user {
+      margin: 0 auto;
+      padding: 20px;
+      width: fit-content;
+      @include flex(center, center);
+      flex-direction: column;
+      ._pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 8px 2px #dddddd;
+        padding: 10px;
+        @include img_fit();
+        img {
+          border-radius: 12px;
+        }
+      }
+      h1 {
+        font-weight: 600;
+        font-size: 24px;
+        color: #292c33;
+        margin-top: 20px;
+      }
+      span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #444444;
+        margin-top: 8px;
+      }
+    }
+    .statistic {
+      @include grid(1, 1, 25px);
+      margin-top: 40px;
+      ._card {
+        border-radius: 12px;
+        background-color: $bg_primary;
+        padding: 40px 0;
+        text-align: center;
+        transition: all 500ms;
+        cursor: pointer;
+        &:hover {
+          background-color: #ffffff;
+          box-shadow: 0px 0px 4px 1px #dddddd;
+        }
+        h2 {
+          font-weight: 600;
+          font-size: 18px;
+          color: #292c33;
+          margin-bottom: 15px;
+        }
+        span {
+          font-weight: 600;
+          font-size: 32px;
+          color: $primary_color;
+        }
+      }
+    }
+    .menu {
+      display: flex;
+      width: 100%;
+      gap: 25px;
+      margin-top: 30px;
+      i {
+        font-size: 20px;
+      }
+      ._btn {
+        @include flex(center, center);
+        text-decoration: none;
+        border-radius: 12px;
+        background-color: $bg_primary;
+        height: 60px;
+        padding: 0 30px;
+        font-size: 16px;
+        font-weight: 500;
+        color: $primary_color;
+        flex-grow: 1;
+        &:last-child {
+          flex-grow: 0;
+        }
+      }
+    }
+  }
 
   ._title {
     margin-bottom: 25px;
@@ -824,9 +960,7 @@ nav {
 
 // Edit Pengaduan
 .edit_pengaduan {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  @include grid(1, 1, 20px);
   margin-top: 25px;
 
   .form_group {
@@ -862,6 +996,7 @@ nav {
     }
 
     .btn_submit {
+      background-color: red;
       align-self: flex-end;
       width: fit-content;
       padding: 18px 20px;
@@ -875,7 +1010,6 @@ nav {
     }
 
     .profile_input {
-      width: 100%;
       display: flex;
       align-items: center;
       gap: 30px;
@@ -903,6 +1037,7 @@ nav {
         padding: 15px 40px;
         background-color: $bg_primary;
         color: #444444;
+        flex-basis: content;
       }
     }
   }
@@ -1212,6 +1347,11 @@ nav {
       align-items: center;
     }
   }
+  .nav_itemsV2 {
+    ul {
+      width: 80% !important;
+    }
+  }
 
   .nav_toggle {
     display: none;
@@ -1240,19 +1380,17 @@ nav {
 
     ._card {
       padding: 40px;
-      height: 300px;
-
-      .btn_group {
-        ._icon {
-          width: 80px;
-          height: 80px;
-        }
-      }
+      height: 250px;
     }
   }
 
   // Dashboard User
   .dashboard_user_menu {
+    .user_info {
+      .statistic {
+        @include grid(3, 1, 25px);
+      }
+    }
     ._title {
       h2 {
         font-size: 32px;
@@ -1269,13 +1407,12 @@ nav {
       .head_title {
         gap: 25px;
 
-        .back_to_home {
-          width: 50px;
-          height: 50px;
-
-          i {
-            font-size: 20px;
-          }
+        .logo {
+          font-size: 28px;
+          font-weight: 800;
+          text-decoration: none;
+          color: $primary_color;
+          letter-spacing: 0.05em;
         }
 
         h1 {
@@ -1352,6 +1489,12 @@ nav {
   //     }
   //   }
   // }
+  .edit_pengaduan {
+    @include grid(2, 1, 20px);
+    .col-2 {
+      @include col_span(2);
+    }
+  }
 
   // Footer
   footer {
