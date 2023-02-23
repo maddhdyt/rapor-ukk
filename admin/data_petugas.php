@@ -14,11 +14,11 @@ include 'partials/header.php';
 
 <!-- Main Content -->
 <div class="main-content">
-    <a href="tambah_petugas.php" class="btn btn-primary mt-3">
-        Tambah Petugas
-    </a>
     <div class="card mt-3">
         <div class="card-body">
+            <a href="tambah_petugas.php" class="btn btn-primary mb-4">
+                Tambah Petugas
+            </a>
             <table id="raporTable" class="display nowrap" style="width: 100%;">
                 <thead>
                     <tr>

@@ -92,7 +92,7 @@
                                             echo "active";
                                         } else {
                                             echo "";
-                                        } ?>"><a class="nav-link" href="print_pengaduan.php"><i class="fa-solid fa-print"></i><span>Print Laporan</span></a></li>
+                                        } ?>"><a class="nav-link" href="pengaduan_report.php"><i class="fa-solid fa-print"></i><span>Print Laporan</span></a></li>
 
                             <li class="menu-header">Registrasi</li>
                             <li class="<?php if ($title == "Data Masyarakat") {

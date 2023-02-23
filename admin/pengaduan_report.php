@@ -2,9 +2,9 @@
 
 include '../core/conn.php';
 
-include '../core/init_admin.php';
+include '../core/init_admin_only.php';
 
-$title = "Kelola Pengaduan";
+$title = "Print Laporan";
 
 include 'partials/header.php';
 
@@ -14,6 +14,9 @@ include 'partials/header.php';
 <div class="main-content">
     <div class="card mt-3" style="border-radius: 8px !important;">
         <div class="card-body">
+            <a href="../functions/print_report.php" class="btn btn-primary mb-4">
+                Cetak Laporan
+            </a>
             <table id="raporTable" class="display nowrap" style="width: 100%;">
                 <thead>
                     <tr>
@@ -23,33 +26,46 @@ include 'partials/header.php';
                         <th>Nama Pengadu</th>
                         <th>Judul</th>
                         <th>Gambar</th>
-                        <th>Action</th>
+                        <th>Tanggal Tanggapan</th>
+                        <th>Tanggapan</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $no = 1;
-                    $show = mysqli_query($koneksi, "SELECT dat_pengaduan.id, dat_pengaduan.tgl_pengaduan, dat_pengaduan.judul, dat_pengaduan.gambar, dat_pengaduan.status_pengaduan, dat_pengaduan.deskripsi, dat_masyarakat.nik, dat_masyarakat.nama FROM dat_pengaduan INNER JOIN dat_masyarakat ON dat_pengaduan.nik = dat_masyarakat.nik WHERE status_pengaduan = 'Diproses'");
+
+                    $show = mysqli_query($koneksi, "SELECT dat_pengaduan.id AS id_pengaduan,
+                    dat_pengaduan.nik,
+                    dat_pengaduan.judul,
+                    dat_pengaduan.gambar, 
+                    dat_pengaduan.deskripsi,
+                    dat_pengaduan.tgl_pengaduan,
+                    dat_pengaduan.status_pengaduan, 
+                    dat_masyarakat.*, dat_tanggapan.*,
+                    dat_petugas.* FROM dat_pengaduan INNER JOIN dat_masyarakat ON dat_pengaduan.nik = dat_masyarakat.nik INNER JOIN dat_tanggapan ON dat_pengaduan.id = dat_tanggapan.id_pengaduan
+                    INNER JOIN dat_petugas ON dat_tanggapan.id_petugas = dat_petugas.id
+                    WHERE dat_pengaduan.status_pengaduan = 'Diterima' OR
+                    dat_pengaduan.status_pengaduan = 'Ditolak' ORDER BY dat_tanggapan.id DESC");
                     while ($data = mysqli_fetch_assoc($show)) :
                     ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><div class="<?php if ($data['status_pengaduan'] == 'Diterima') {
+                            <td>
+                                <div class="<?php if ($data['status_pengaduan'] == 'Diterima') {
                                                 echo "stat_done";
                                             } else if ($data['status_pengaduan'] == 'Diproses') {
                                                 echo "stat_procc";
                                             } else {
                                                 echo "stat_reject";
-                                            } ?>"><?= $data['status_pengaduan']; ?></div></td>
+                                            } ?>"><?= $data['status_pengaduan']; ?></div>
+                            </td>
                             <td><?= $data['tgl_pengaduan']; ?></td>
                             <td><?= $data['nama']; ?></td>
                             <td><?= $data['judul']; ?></td>
                             <td><img class="rounded" src="../assets/img/<?= $data['gambar'] ?>" alt="" width="80px" height="50px"></td>
+                            <td><?= $data['tgl_tanggapan']; ?></td>
+                            <td><?= $data['tanggapan']; ?></td>
 
-                            <td>
-                                <a href="../detail_pengaduan.php?id=<?php echo $data['id']; ?>" class="btn btn-secondary text-primary">Detail</a>
-                                <a href="form_validasi.php?id=<?php echo $data['id']; ?>" class="btn btn-primary ml-1">Tanggapi</a>
-                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>

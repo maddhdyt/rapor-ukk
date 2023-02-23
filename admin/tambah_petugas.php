@@ -1,8 +1,8 @@
 <?php
 
-include '../koneksi.php';
+include '../core/conn.php';
 
-include '../core/init_admin_only.php.php';
+include '../core/init_admin_only.php';
 
 $title = "Data Petugas";
 
