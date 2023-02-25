@@ -1,3 +1,47 @@
+.error_alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  background-color: rgba(159, 0, 0, 0.2196078431);
+  color: #ba0000;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.error_alert i {
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  right: 25px;
+}
+
+.success_alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  background-color: rgba(0, 159, 40, 0.2862745098);
+  color: #046c1e;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.success_alert i {
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  right: 25px;
+}
+
+.hide_alert {
+  display: none !important;
+}
+
 .nav_drop {
   transform: translateX(0%) !important;
 }
@@ -123,18 +167,21 @@ footer .copyright p {
   width: 100%;
   margin: 100px auto;
 }
-.form_enter_container .form .form_title {
+.form_enter_container .form_title {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
-.form_enter_container .form .form_title h1 {
+.form_enter_container .form_title h1 {
   font-size: 32px;
   font-weight: 700;
   color: #254074;
 }
-.form_enter_container .form .form_title p {
+.form_enter_container .form_title p {
   color: #444444;
   margin-top: 10px;
+}
+.form_enter_container .form {
+  margin-top: 20px;
 }
 .form_enter_container .form .form_group {
   margin-bottom: 20px;
@@ -280,6 +327,14 @@ nav .container .nav_itemsV2 ul li a {
 nav .container .nav_itemsV2 ul li a:hover {
   color: #254074;
 }
+nav .container .nav_itemsV2 ul .btn_login {
+  background-color: rgba(186, 0, 0, 0.2);
+  color: #ba0000;
+}
+nav .container .nav_itemsV2 ul .btn_login:hover {
+  background-color: #ba0000;
+  color: #ffffff;
+}
 nav .container .btn_login {
   width: -moz-fit-content;
   width: fit-content;
@@ -287,8 +342,8 @@ nav .container .btn_login {
   align-items: center;
   justify-content: center;
   padding: 14px 20px;
-  background-color: rgba(186, 0, 0, 0.2);
-  color: #ba0000;
+  background-color: rgba(37, 65, 116, 0.1254901961);
+  color: #254074;
   font-weight: 500;
   text-decoration: none;
   gap: 10px;
@@ -300,7 +355,7 @@ nav .container .btn_login i {
   font-size: 20px;
 }
 nav .container .btn_login:hover {
-  background-color: #ba0000;
+  background-color: #254074;
   color: #ffffff;
 }
 nav .container .nav_toggle {
@@ -614,7 +669,10 @@ nav .container .nav_toggleV2:hover {
   display: flex;
   width: 100%;
   gap: 25px;
-  margin-top: 30px;
+  margin-top: 25px;
+}
+.dashboard_user_menu .user_info .menu a {
+  font-size: 14px !important;
 }
 .dashboard_user_menu .user_info .menu i {
   font-size: 20px;
@@ -894,7 +952,6 @@ nav .container .nav_toggleV2:hover {
   resize: vertical;
 }
 .edit_pengaduan .form_group .btn_submit {
-  background-color: red;
   align-self: flex-end;
   width: -moz-fit-content;
   width: fit-content;
@@ -936,6 +993,7 @@ nav .container .nav_toggleV2:hover {
   position: absolute;
 }
 .edit_pengaduan .form_group .profile_input .file_name {
+  flex-grow: 1;
   border-radius: 12px;
   padding: 15px 40px;
   background-color: rgba(37, 65, 116, 0.1254901961);
@@ -1334,12 +1392,9 @@ nav .container .nav_toggleV2:hover {
   }
   .edit_pengaduan {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr));
     grid-template-rows: repeat(1, minmax(0, 1fr));
     gap: 20px;
-  }
-  .edit_pengaduan .col-2 {
-    grid-column: span 2/span 2;
   }
   footer .footer_content {
     display: grid;

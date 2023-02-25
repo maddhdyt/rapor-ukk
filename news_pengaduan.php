@@ -13,7 +13,6 @@ include 'partials/nav.php';
             </div>
             <div class="_list">
                 <?php
-
                 $show = mysqli_query($koneksi, "SELECT dat_pengaduan.id, dat_pengaduan.tgl_pengaduan, dat_pengaduan.judul, dat_pengaduan.gambar, dat_pengaduan.deskripsi, dat_masyarakat.nik, dat_masyarakat.nama FROM dat_pengaduan INNER JOIN dat_masyarakat ON dat_pengaduan.nik = dat_masyarakat.nik ORDER BY id DESC LIMIT 6");
                 while ($data = mysqli_fetch_assoc($show)) :
                 ?>

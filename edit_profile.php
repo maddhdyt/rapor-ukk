@@ -6,6 +6,10 @@ include 'core/init_user.php';
 
 $id = $_GET['id'];
 
+if ($id != $_SESSION['id']) {
+    header("Location: /rapor-ukk/user_dashboard.php");
+}
+
 $show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = $id");
 
 $data = mysqli_fetch_assoc($show);

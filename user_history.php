@@ -4,6 +4,12 @@ include 'core/conn.php';
 
 include 'core/init_user.php';
 
+$id = $_GET['id'];
+
+if ($id != $_SESSION['id']) {
+    header("Location: /rapor-ukk/user_dashboard.php");
+}
+
 $title = "History Pengaduan";
 
 include 'partials/header.php';

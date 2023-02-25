@@ -7,31 +7,31 @@ if (isset($_SESSION['login'])) {
     header("Location: ../user_dashboard.php");
 }
 
-if (isset($_POST['btnMasuk'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+// if (isset($_POST['btnMasuk'])) {
+//     $username = $_POST['username'];
+//     $password = $_POST['password'];
 
-    $data = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE username = '$username'");
+//     $data = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE username = '$username'");
 
-    if (mysqli_num_rows($data) === 1) {
-        $baris = mysqli_fetch_assoc($data);
-        if ($password == $baris['password']) {
+//     if (mysqli_num_rows($data) === 1) {
+//         $baris = mysqli_fetch_assoc($data);
+//         if ($password == $baris['password']) {
 
-            header("Location: ../user_dashboard.php");
-            $_SESSION['id'] = $baris['id'];
-            $_SESSION['login'] = true;
-            $_SESSION['nik'] = $baris['nik'];
-            $_SESSION['nama'] = $baris['nama'];
-            $_SESSION['username'] = $baris['username'];
-            $_SESSION['email'] = $baris['email'];
-            exit;
-        } else {
-            echo "<script>alert('username atau password salah')</script>";
-        }
-    } else {
-        echo "<script>alert('username atau password salah')</script>";
-    }
-}
+//             header("Location: ../user_dashboard.php");
+//             $_SESSION['id'] = $baris['id'];
+//             $_SESSION['login'] = true;
+//             $_SESSION['nik'] = $baris['nik'];
+//             $_SESSION['nama'] = $baris['nama'];
+//             $_SESSION['username'] = $baris['username'];
+//             $_SESSION['profile'] = $baris['profile'];
+//             exit;
+//         } else {
+//             echo "<script>alert('username atau password salah')</script>";
+//         }
+//     } else {
+//         echo "<script>alert('username atau password salah')</script>";
+//     }
+// }
 
 $title = "Login";
 
@@ -47,8 +47,7 @@ $title = "Login";
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/0297ba9f6f.js" crossorigin="anonymous"></script>
 </head>
@@ -56,16 +55,45 @@ $title = "Login";
 <body>
     <div class="container">
         <div class="form_enter_container">
+            <div class="form_title">
+                <h1>RAPOR!</h1>
+                <p>Login terlebih dahulu untuk melanjutkan</p>
+            </div>
+            <?php
+            if (isset($_POST['btnMasuk'])) : ?>
+                <?php
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $password = md5($password);  
+
+                $data = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE username = '$username'");
+                if (mysqli_num_rows($data) === 1) : ?>
+                    <?php $baris = mysqli_fetch_assoc($data);
+                    if ($password == $baris['password']) : ?>
+                        <div class="success_alert alert"> Login berhasil... <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
+                        <?php
+                        $_SESSION['id'] = $baris['id'];
+                        $_SESSION['login'] = true;
+                        $_SESSION['nik'] = $baris['nik'];
+                        $_SESSION['nama'] = $baris['nama'];
+                        $_SESSION['username'] = $baris['username'];
+                        $_SESSION['profile'] = $baris['profile'];
+                        header("refresh:2; url=../user_dashboard.php");
+                        exit; ?>
+                    <?php else : ?>
+                        <div class="error_alert alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
+                    <?php endif; ?>
+                <?php else : ?>
+                    <div class="error_alert alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
+                <?php endif; ?>
+            <?php endif; ?>
+
             <form class="form" action="" method="post">
-                <div class="form_title">
-                    <h1>RAPOR!</h1>
-                    <p>Login terlebih dahulu untuk melanjutkan</p>
+                <div class="form_group">
+                    <input type="text" placeholder="Username" id="input username" class="form_control" name="username" value="<?php $_POST['username'] ?? null; ?>">
                 </div>
                 <div class="form_group">
-                    <input type="text" placeholder="Username" id="input username" class="form_control" name="username">
-                </div>
-                <div class="form_group">
-                    <input type="password" placeholder="Password" class="form_control input_password" name="password"><i class="fa-regular fa-eye" onclick="showPassword()"></i>
+                    <input type="password" placeholder="Password" class="form_control input_password" name="password" value="<?php $_POST['password'] ?? null; ?>"><i class="fa-regular fa-eye" onclick="showPassword()"></i>
                 </div>
                 <div class="form_group">
                     <input type="submit" value="Login" class="btn_submit" name="btnMasuk"></input>

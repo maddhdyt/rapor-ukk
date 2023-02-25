@@ -6,6 +6,19 @@ include 'core/init_user.php';
 
 $nik = $_SESSION['nik'];
 
+$show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE nik = $nik");
+$data = mysqli_fetch_assoc($show);
+
+$data1 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE nik = $nik");
+$total_report = mysqli_num_rows($data1);
+
+$data2 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE status_pengaduan = 'Diterima' OR status_pengaduan = 'Ditolak' AND nik = $nik");
+$done_report = mysqli_num_rows($data2);
+
+$data3 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE status_pengaduan = 'Diproses' AND nik = $nik");
+$process_report = mysqli_num_rows($data3);
+
+
 $title = "Dashboard Masyarakat";
 
 include 'partials/header.php';
@@ -20,7 +33,7 @@ include 'partials/header.php';
     <nav class="nav_user">
         <div class="container">
             <div class="head_title">
-                <a class="btn_back" onclick="history.back ()">
+                <a href="index.php" class="btn_back">
                     <i class="fa-solid fa-chevron-left"></i>
                 </a>
             </div>
@@ -49,7 +62,7 @@ include 'partials/header.php';
         <div class="user_info">
             <div class="user">
                 <div class="_pic">
-                    <img src="assets/img/152677374_WhatsApp Image 2023-02-18 at 12.30.31 PM.jpeg" alt="">
+                    <img src="assets/img/<?php echo $data['profile'] ?>">
                 </div>
                 <h1><?php echo $_SESSION['nama']; ?></h1>
                 <span>@<?php echo $_SESSION['username']; ?></span>
@@ -57,20 +70,20 @@ include 'partials/header.php';
             <div class="statistic">
                 <div class="_card">
                     <h2>Jumlah Pengaduan</h2>
-                    <span>4</span>
+                    <span><?= $total_report ?></span>
                 </div>
                 <div class="_card">
-                    <h2>Jumlah Pengaduan</h2>
-                    <span>4</span>
+                    <h2>Pengaduan Diproses</h2>
+                    <span><?= $process_report ?></span>
                 </div>
                 <div class="_card">
-                    <h2>Jumlah Pengaduan</h2>
-                    <span>4</span>
+                    <h2>Pengaduan Selesai</h2>
+                    <span><?= $done_report ?></span>
                 </div>
             </div>
             <div class="menu">
-                <a href="" class="_btn">Edit Profile</a>
-                <a href="" class="_btn"><i class="fa-solid fa-clock-rotate-left"></i></a>
+                <a href="edit_profile.php?id=<?= $_SESSION['id']; ?>" class="_btn">Edit Profile</a>
+                <a href="user_history.php?id=<?= $_SESSION['id']; ?>" class="_btn"><i class="fa-solid fa-clock-rotate-left"></i></a>
             </div>
         </div>
         <div id="options">

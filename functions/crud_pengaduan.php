@@ -89,13 +89,17 @@ if (isset($_POST['btnUpdateProfile'])) {
     } else if ($password == "") {
         move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
         $gambar = $random . '_' . $namafile;
-        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', gambar = '$gambar', username = '$username', password = '$old_pass' WHERE id = $id");
-        echo "<script>alert('Data akun berhasil diupdate');</script>";
+        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$gambar', username = '$username', password = '$old_pass' WHERE id = $id");
+        echo "<script>alert('Data akun berhasil diupdate'); 
+        document.location='../user_dashboard.php';
+        </script>";
     } else {
         move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
         $gambar = $random . '_' . $namafile;
-        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', gambar = '$gambar', username = '$username', password = '$password' WHERE id = $id");
-        echo "<script>alert('Data akun berhasil diupdate');</script>";
+        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$gambar', username = '$username', password = '$password' WHERE id = $id");
+        echo "<script>alert('Data akun berhasil diupdate'); 
+        document.location='../user_dashboard.php';
+        </script>";
     }
 
     

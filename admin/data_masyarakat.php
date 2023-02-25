@@ -14,7 +14,7 @@ include 'partials/header.php';
 
 <!-- Main Content -->
 <div class="main-content">
-    <div class="card mt-3">
+    <div class="card mt-3" style="border-radius: 8px;">
         <div class="card-body">
             <a href="tambah_masyarakat.php" class="btn btn-primary mb-4">
                 Tambah Masyarakat

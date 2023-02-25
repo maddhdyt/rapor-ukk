@@ -1,3 +1,6 @@
+function hideAlert() {
+    document.querySelector('.alert').classList.add("hide_alert")
+}
 function showMenuProfile() {
     document.querySelector('.profile_menu').classList.toggle("nav_drop")
 }

@@ -31,8 +31,7 @@ if (isset($_POST['btnDaftar'])) {
         history.back();
         </script>";
     } else {
-
-        $simpan = mysqli_query($koneksi, "INSERT INTO dat_masyarakat VALUES ('', '$nik', '$nama','$telp', '$alamat', '$username', '$password')");
+        $simpan = mysqli_query($koneksi, "INSERT INTO dat_masyarakat VALUES ('', '$nik', '$nama','$telp', '$alamat', '', '$username', '$password')");
 
         if ($simpan) {
             echo "<script>alert('Data akun berhasil dibuat');

@@ -47,8 +47,45 @@ $bg_primary: #25417420;
   outline: none;
   color: #444444;
 }
-
+// Control Effect
+.error_alert {
+  @include flex(center, space-between);
+  padding: 20px 25px;
+  background-color: #9f000038;
+  color: #ba0000;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  position: relative;
+  i {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    right: 25px;
+  }
+}
+.success_alert {
+  @include flex(center, space-between);
+  padding: 20px 25px;
+  background-color: #009f2849;
+  color: #046c1e;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  position: relative;
+  i {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    right: 25px;
+  }
+}
 // JS Control
+.hide_alert {
+  display: none !important;
+}
 .nav_drop {
   transform: translateX(0%) !important;
 }
@@ -188,23 +225,39 @@ footer {
 .form_enter_container {
   width: 100%;
   margin: 100px auto;
+  .form_title {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: $primary_color;
+    }
+
+    p {
+      color: #444444;
+      margin-top: 10px;
+    }
+  }
 
   .form {
-    .form_title {
-      text-align: center;
-      margin-bottom: 35px;
+    margin-top: 20px;
+    // .form_title {
+    //   text-align: center;
+    //   margin-bottom: 35px;
 
-      h1 {
-        font-size: 32px;
-        font-weight: 700;
-        color: $primary_color;
-      }
+    //   h1 {
+    //     font-size: 32px;
+    //     font-weight: 700;
+    //     color: $primary_color;
+    //   }
 
-      p {
-        color: #444444;
-        margin-top: 10px;
-      }
-    }
+    //   p {
+    //     color: #444444;
+    //     margin-top: 10px;
+    //   }
+    // }
 
     .form_group {
       margin-bottom: 20px;
@@ -365,6 +418,14 @@ nav {
             }
           }
         }
+        .btn_login {
+          background-color: #ba000033;
+          color: #ba0000;
+          &:hover {
+            background-color: #ba0000;
+            color: #ffffff;
+          }
+        }
       }
     }
 
@@ -372,8 +433,8 @@ nav {
       width: fit-content;
       @include flex(center, center);
       padding: 14px 20px;
-      background-color: #ba000033;
-      color: #ba0000;
+      background-color: $bg_primary;
+      color: $primary_color;
       font-weight: 500;
       text-decoration: none;
       gap: 10px;
@@ -386,7 +447,7 @@ nav {
       }
 
       &:hover {
-        background-color: #ba0000;
+        background-color: $primary_color;
         color: #ffffff;
       }
     }
@@ -681,7 +742,10 @@ nav {
       display: flex;
       width: 100%;
       gap: 25px;
-      margin-top: 30px;
+      margin-top: 25px;
+      a {
+        font-size: 14px !important;
+      }
       i {
         font-size: 20px;
       }
@@ -996,7 +1060,6 @@ nav {
     }
 
     .btn_submit {
-      background-color: red;
       align-self: flex-end;
       width: fit-content;
       padding: 18px 20px;
@@ -1033,6 +1096,7 @@ nav {
       }
 
       .file_name {
+        flex-grow: 1;
         border-radius: 12px;
         padding: 15px 40px;
         background-color: $bg_primary;
@@ -1490,10 +1554,7 @@ nav {
   //   }
   // }
   .edit_pengaduan {
-    @include grid(2, 1, 20px);
-    .col-2 {
-      @include col_span(2);
-    }
+    @include grid(1, 1, 20px);
   }
 
   // Footer
