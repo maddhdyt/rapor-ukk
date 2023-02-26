@@ -39,7 +39,7 @@ include 'partials/nav.php';
                         <img src="assets/img/<?= $data['profile'] ?>">
                     </div>
                     <div class="file_name">
-                    <input type="file" name="gambar" accept="image/*" value="true">
+                    <input type="file" name="gambar" accept="image/*" value="true" required>
                     </div>
                 </div>
             </div>

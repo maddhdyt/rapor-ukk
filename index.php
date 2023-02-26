@@ -42,7 +42,7 @@
             <div class="header_content">
                 <div class="_title">
                     <h1>
-                        APLIKASI PENGADUAN MASYARAKAT RANCAKALONG
+                        APLIKASI PENGADUAN MASYARAKAT
                     </h1>
                     <p>
                         Laporkan keluhan kerusakan, kejahatan, peristiwa dll di kecamatan Rancakalong dengan menulis

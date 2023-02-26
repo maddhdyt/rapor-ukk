@@ -10,7 +10,9 @@ if (isset($_POST['btnDaftar'])) {
     $alamat = $_POST['alamat'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $password = md5($password);
     $password2 = $_POST['password2'];
+    $password2 = md5($password2);
 
     // initialize
 

@@ -12,7 +12,7 @@ $data = mysqli_fetch_assoc($show);
 $data1 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE nik = $nik");
 $total_report = mysqli_num_rows($data1);
 
-$data2 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE status_pengaduan = 'Diterima' OR status_pengaduan = 'Ditolak' AND nik = $nik");
+$data2 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE nik = $nik AND status_pengaduan = 'Diterima' OR status_pengaduan = 'Ditolak'");
 $done_report = mysqli_num_rows($data2);
 
 $data3 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE status_pengaduan = 'Diproses' AND nik = $nik");
@@ -114,7 +114,7 @@ include 'partials/header.php';
     </section>
     <section class="user_history">
         <div class="_title">
-            <h2>History pengaduan</h2><a href="user_history.php">Lihat semua</a>
+            <h2>History pengaduan</h2><a href="user_history.php?id=<?= $_SESSION['id']; ?>">Lihat semua</a>
         </div>
         <div class="history_list">
             <?php
