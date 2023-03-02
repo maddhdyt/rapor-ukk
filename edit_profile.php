@@ -28,9 +28,8 @@ include 'partials/nav.php';
                 pastikan data diri yang kamu masukan benar!</p>
         </div>
         <form action="functions/crud_pengaduan.php" method="post" class="edit_pengaduan" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?= $data['id']?>">
-            <input type="hidden" name="previous" value="<?= $data['gambar']?>">
-            <input type="hidden" name="old_pass" value="<?= $data['password']?>">
+            <input type="hidden" name="id" value="<?= $data['id']; ?>">
+            <input type="hidden" name="old_pic" value="<?= $data['profile']; ?>">
             <div class="form_group">
                 <label for="">Update foto profil</label>
                 <div class="profile_input">
@@ -39,7 +38,7 @@ include 'partials/nav.php';
                         <img src="assets/img/<?= $data['profile'] ?>">
                     </div>
                     <div class="file_name">
-                    <input type="file" name="gambar" accept="image/*" value="true" required>
+                    <input type="file" name="gambar" accept="image/*" value="true">
                     </div>
                 </div>
             </div>
@@ -62,11 +61,6 @@ include 'partials/nav.php';
             <div class="form_group">
                 <label for="">Alamat</label>
                 <input type="text" class="form_control" name="alamat" value="<?= $data['alamat'] ?>">
-            </div>
-            <div class="form_group col-2">
-                <label for="">Ubah Password</label>
-                <input type="password" name="password" class="form_control" placeholder="Password Baru">
-                <input type="password" name="password2" class="form_control" placeholder="Konfirmasi Password">
             </div>
             <div class="form_group col-2">
                 <input type="submit" name="btnUpdateProfile" value="Simpan Perubahan" class="btn_submit"></input>

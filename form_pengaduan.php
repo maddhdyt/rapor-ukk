@@ -1,6 +1,7 @@
 <?php
 
 include 'core/conn.php';
+include 'functions/alert.php';
 
 include 'core/init_user.php';
 
@@ -15,7 +16,32 @@ include 'partials/nav.php';
             <p>Tuliskan pengaduanmu dengan mengisi form dibawah ini,
                 pastikan menulis laporan dengan jelas!</p>
         </div>
-        <form action="functions/crud_pengaduan.php" method="post" class="form_pengaduan" enctype="multipart/form-data">
+        <?php 
+            if (isset($_POST['btnSave'])) {
+                $nik = $_SESSION['nik'];
+                $judul = $_POST['judul'];
+                $deskripsi = $_POST['deskripsi'];
+                $tgl_pengaduan = date('Y-m-d');
+            
+                $namafile = $_FILES['gambar']['name'];
+                $ukuran = $_FILES['gambar']['size'];
+                $dir = "assets/img/";
+                $random = rand();
+                $tmpFile = $_FILES['gambar']['tmp_name'];
+            
+                if ($ukuran < 1044070) {
+                    move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
+                    $gambar = $random . '_' . $namafile;
+                    mysqli_query($koneksi, "INSERT INTO dat_pengaduan (id, nik, judul, deskripsi, gambar, tgl_pengaduan, status_pengaduan)
+                    VALUES('', '$nik', '$judul', '$deskripsi', '$gambar', '$tgl_pengaduan', 'Diproses')");
+                    echo "<div class='alert success_alert'>Pengaduan berhasil dikirim<i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
+                    header("refresh:1; url=user_dashboard.php");
+                } else {
+                    echo "<div class='alert error_alert'>Gagal mengirim, file terlalu besar<i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
+                }
+            }
+        ?>
+        <form action="" method="post" class="form_pengaduan" enctype="multipart/form-data">
             <div class="form_group">
                 <input type="text" name="judul" placeholder="Judul pengaduan" class="form_control" required>
             </div>
