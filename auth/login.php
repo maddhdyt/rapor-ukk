@@ -90,10 +90,10 @@ $title = "Login";
 
             <form class="form" action="" method="post">
                 <div class="form_group">
-                    <input type="text" placeholder="Username" id="input username" class="form_control" name="username" value="<?php echo $_POST['username'] ?? null; ?>">
+                    <input type="text" placeholder="Username" id="input username" class="form_control" name="username" value="<?php echo $_POST['username'] ?? null; ?>" required>
                 </div>
                 <div class="form_group">
-                    <input type="password" placeholder="Password" class="form_control input_password" name="password" value="<?php echo $_POST['password'] ?? null; ?>"><i class="fa-regular fa-eye" onclick="showPassword()"></i>
+                    <input type="password" placeholder="Password" class="form_control input_password" name="password" value="<?php echo $_POST['password'] ?? null; ?>" required><i class="fa-regular fa-eye" onclick="showPassword()"></i>
                 </div>
                 <div class="form_group">
                     <input type="submit" value="Login" class="btn_submit" name="btnMasuk"></input>

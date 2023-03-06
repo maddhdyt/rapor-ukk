@@ -1,8 +1,8 @@
 <?php
 
+include 'core/init_user.php';
 include 'core/conn.php';
 
-include 'core/init_user.php';
 
 $nik = $_SESSION['nik'];
 
@@ -32,13 +32,13 @@ include 'partials/header.php';
 <header>
     <nav class="nav_user">
         <div class="container">
-            <div class="head_title">
+            <!-- <div class="head_title">
                 <a href="index.php" class="btn_back">
                     <i class="fa-solid fa-chevron-left"></i>
                 </a>
-            </div>
+            </div> -->
             <div class="logo">
-                <a href="#">RAPOR!</a>
+                <a href="index.php">RAPOR!</a>
             </div>
             <div class="nav_itemsV2">
                 <ul>
@@ -62,28 +62,32 @@ include 'partials/header.php';
         <div class="user_info">
             <div class="user">
                 <div class="_pic">
-                    <img src="assets/img/<?php echo $data['profile'] ?>">
+                    <i class="fa-solid fa-user"></i>
+                    <img src="assets/img/<?= $data['profile'] ?>" onerror="this.style.display='none'">
                 </div>
-                <h1><?php echo $_SESSION['nama']; ?></h1>
-                <span>@<?php echo $_SESSION['username']; ?></span>
-            </div>
-            <div class="statistic">
-                <div class="_card">
-                    <h2>Jumlah Pengaduan</h2>
-                    <span><?= $total_report ?></span>
+                <div class="_info">
+                    <h1><?= $data['nama']; ?></h1>
+                    <span>@<?= $data['username']; ?></span>
                 </div>
-                <div class="_card">
-                    <h2>Pengaduan Diproses</h2>
-                    <span><?= $process_report ?></span>
-                </div>
-                <div class="_card">
-                    <h2>Pengaduan Selesai</h2>
-                    <span><?= $done_report ?></span>
-                </div>
+
             </div>
             <div class="menu">
-                <a href="edit_profile.php?id=<?= $_SESSION['id']; ?>" class="_btn">Edit Profile</a>
+                <a href="edit_profile.php?id=<?= $_SESSION['id']; ?>" class="_btn"><i class="fa-solid fa-user-pen"></i></a>
                 <a href="user_history.php?id=<?= $_SESSION['id']; ?>" class="_btn"><i class="fa-solid fa-clock-rotate-left"></i></a>
+            </div>
+        </div>
+        <div class="statistic">
+            <div class="_card">
+                <h2>Jumlah Pengaduan</h2>
+                <span><?= $total_report ?></span>
+            </div>
+            <div class="_card">
+                <h2>Pengaduan Diproses</h2>
+                <span><?= $process_report ?></span>
+            </div>
+            <div class="_card">
+                <h2>Pengaduan Selesai</h2>
+                <span><?= $done_report ?></span>
             </div>
         </div>
         <div id="options">

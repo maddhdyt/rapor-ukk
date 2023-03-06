@@ -30,15 +30,17 @@ include 'partials/nav.php';
         <form action="functions/crud_pengaduan.php" method="post" class="edit_pengaduan" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $data['id']; ?>">
             <input type="hidden" name="old_pic" value="<?= $data['profile']; ?>">
+            <input type="hidden" name="old_pass" value="<?= $data['password']; ?>">
             <div class="form_group">
                 <label for="">Update foto profil</label>
                 <div class="profile_input">
                     <div class="preview">
                         <i class="fa-solid fa-user"></i>
-                        <img src="assets/img/<?= $data['profile'] ?>">
+                        <img src="assets/img/<?= $data['profile'] ?>" onerror="this.style.display='none'">
                     </div>
+                    
                     <div class="file_name">
-                    <input type="file" name="gambar" accept="image/*" value="true">
+                    <input type="file" name="gambar" id="gambar" accept="image/*" value="true">
                     </div>
                 </div>
             </div>
@@ -63,7 +65,7 @@ include 'partials/nav.php';
                 <input type="text" class="form_control" name="alamat" value="<?= $data['alamat'] ?>">
             </div>
             <div class="form_group col-2">
-                <input type="submit" name="btnUpdateProfile" value="Simpan Perubahan" class="btn_submit"></input>
+                <input type="submit" name="btnUpdateProfile" value="Simpan" class="btn_submit"></input>
             </div>
         </form>
     </div>

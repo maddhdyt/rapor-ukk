@@ -84,18 +84,19 @@ if (isset($_POST['btnUpdateProfile'])) {
     $tmpFile = $_FILES['gambar']['tmp_name'];
 
     if ($namafile === "") {
-        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$old_pic', username = '$username', WHERE id = $id");
+        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$old_pic', username = '$username', password = '$old_pass' WHERE id = $id");
         echo "<script>alert('Data Berhasil Diubah'); document.location='../user_dashboard.php';</script>";
     } else {
         $tampil = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = '$id'");
         $data = mysqli_fetch_assoc($tampil);
-        unlink("../assets/img/" . $data['profile']);
+
+        if (file_exists("../assets/img/" . $data['profile'])) {
+            unlink("../assets/img/" . $data['profile']);
+        }
 
         move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
         $gambar = $random . '_' . $namafile;
-        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$gambar', username = '$username', WHERE id = $id");
-        echo "<script>alert('Data akun berhasil diupdate'); 
-    document.location='../user_dashboard.php';
-    </script>";
+        mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$gambar', username = '$username', password = '$old_pass' WHERE id = $id");
+        echo "<script>alert('Data akun berhasil diupdate'); document.location='../user_dashboard.php'; </script>";
     }
 }

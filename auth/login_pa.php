@@ -59,10 +59,10 @@ if (isset($_POST['btnMasuk'])) {
                     <p>Login admin dan petugas untuk mengelola pengaduan</p>
                 </div>
                 <div class="form_group">
-                    <input type="text" placeholder="Username" id="input username" class="form_control" name="username">
+                    <input type="text" placeholder="Username" id="input username" class="form_control" name="username" required>
                 </div>
                 <div class="form_group">
-                    <input type="password" placeholder="Password" class="form_control input_password" name="password"><i class="fa-regular fa-eye" onclick="showPassword()"></i>
+                    <input type="password" placeholder="Password" class="form_control input_password" name="password" required><i class="fa-regular fa-eye" onclick="showPassword()"></i>
                 </div>
                 <div class="form_group">
                     <input type="submit" value="Login" class="btn_submit" name="btnMasuk"></input>

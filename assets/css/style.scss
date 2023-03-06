@@ -47,6 +47,7 @@ $bg_primary: #25417420;
   outline: none;
   color: #444444;
 }
+
 // Control Effect
 .error_alert {
   @include flex(center, space-between);
@@ -58,6 +59,7 @@ $bg_primary: #25417420;
   border-radius: 4px;
   margin-bottom: 20px;
   position: relative;
+
   i {
     cursor: pointer;
     font-size: 24px;
@@ -65,6 +67,7 @@ $bg_primary: #25417420;
     right: 25px;
   }
 }
+
 .success_alert {
   @include flex(center, space-between);
   padding: 20px 25px;
@@ -75,6 +78,7 @@ $bg_primary: #25417420;
   border-radius: 4px;
   margin-bottom: 20px;
   position: relative;
+
   i {
     cursor: pointer;
     font-size: 24px;
@@ -82,10 +86,12 @@ $bg_primary: #25417420;
     right: 25px;
   }
 }
+
 // JS Control
 .hide_alert {
   display: none !important;
 }
+
 .nav_drop {
   transform: translateX(0%) !important;
 }
@@ -166,41 +172,54 @@ footer {
       display: flex;
       flex-direction: column;
 
-      h2 {
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 10px;
+      ._title {
+        h2 {
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 18px;
+        }
       }
-
-      .form_control {
-        width: 100%;
-        border-radius: 12px;
-        background-color: #ffffff;
-        color: #888888;
-        font-size: 14px;
-        padding: 15px 20px;
-        outline: none;
-        border: none;
-        margin-top: 20px;
+      ._items{
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        p{
+          text-align: justify;
+          color: #ffffffcb;
+          font-size: 14px;
+          line-height: 28px;
+          text-decoration: none;
+        }
       }
+    }
 
-      .text_area {
-        height: 150px;
-        resize: none;
+    .nav_group {
+      display: flex;
+      flex-direction: column;
+
+      ._title {
+        h2 {
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 18px;
+        }
       }
-
-      .btn_submit {
-        border-radius: 12px;
-        border: none;
-        outline: none;
-        padding: 15px 25px;
-        background-color: #ffffff61;
-        color: #ffffff;
-        font-weight: 600;
-        margin-top: 20px;
-        align-self: end !important;
-        cursor: pointer;
+      ._items{
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        a{
+          text-align: justify;
+          color: #ffffffcb;
+          font-size: 14px;
+          line-height: 28px;
+          text-decoration: none;
+          &:hover{
+            color: #ffffff;
+          }
+        }
       }
     }
   }
@@ -225,6 +244,7 @@ footer {
 .form_enter_container {
   width: 100%;
   margin: 100px auto;
+
   .form_title {
     text-align: center;
     margin-bottom: 30px;
@@ -384,6 +404,7 @@ nav {
         }
       }
     }
+
     .nav_itemsV2 {
       position: absolute;
       top: 0;
@@ -418,9 +439,11 @@ nav {
             }
           }
         }
+
         .btn_login {
           background-color: #ba000033;
           color: #ba0000;
+
           &:hover {
             background-color: #ba0000;
             color: #ffffff;
@@ -470,6 +493,7 @@ nav {
         color: #ffffff;
       }
     }
+
     .nav_toggleV2 {
       z-index: 9999;
       border-radius: 12px;
@@ -613,6 +637,7 @@ nav {
         color: #292c33;
         font-weight: 600;
       }
+
       h2 {
         font-size: 16px;
         color: #292c33;
@@ -680,89 +705,120 @@ nav {
 
   .user_info {
     width: 100%;
-    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
     .user {
-      margin: 0 auto;
-      padding: 20px;
-      width: fit-content;
-      @include flex(center, center);
+      flex-grow: 1;
+      @include flex(center, flex-start);
       flex-direction: column;
+      gap: 25px;
+
       ._pic {
+        position: relative;
         width: 150px;
         height: 150px;
         border-radius: 12px;
         box-shadow: 0px 0px 8px 2px #dddddd;
-        padding: 10px;
         @include img_fit();
-        img {
-          border-radius: 12px;
-        }
-      }
-      h1 {
-        font-weight: 600;
-        font-size: 24px;
-        color: #292c33;
-        margin-top: 20px;
-      }
-      span {
-        font-weight: 400;
-        font-size: 14px;
-        color: #444444;
-        margin-top: 8px;
-      }
-    }
-    .statistic {
-      @include grid(1, 1, 25px);
-      margin-top: 40px;
-      ._card {
-        border-radius: 12px;
-        background-color: $bg_primary;
-        padding: 40px 0;
-        text-align: center;
-        transition: all 500ms;
-        cursor: pointer;
-        &:hover {
-          background-color: #ffffff;
-          box-shadow: 0px 0px 4px 1px #dddddd;
-        }
-        h2 {
-          font-weight: 600;
-          font-size: 18px;
-          color: #292c33;
-          margin-bottom: 15px;
-        }
-        span {
-          font-weight: 600;
-          font-size: 32px;
+        @include flex(center, center);
+        i{
+          font-size: 48px;
           color: $primary_color;
         }
+
+        img {
+          border-radius: 12px;
+          position: absolute;
+        }
       }
+
+      ._info {
+        text-align: center;
+        h1 {
+          font-weight: 600;
+          font-size: 24px;
+          color: #292c33;
+          margin-bottom: 8px;
+        }
+
+        span {
+          font-weight: 400;
+          font-size: 14px;
+          color: #444444;
+        }
+      }
+
     }
+
     .menu {
       display: flex;
       width: 100%;
+      margin-top: 30px;
+      
       gap: 25px;
-      margin-top: 25px;
+
       a {
         font-size: 14px !important;
       }
+
       i {
         font-size: 20px;
       }
+
       ._btn {
         @include flex(center, center);
         text-decoration: none;
         border-radius: 12px;
         background-color: $bg_primary;
-        height: 60px;
-        padding: 0 30px;
-        font-size: 16px;
+        height: 50px;
+        width: 50%;
         font-weight: 500;
         color: $primary_color;
-        flex-grow: 1;
-        &:last-child {
-          flex-grow: 0;
+        transition: all 500ms;
+        
+        i{
+          font-size: 18px;
         }
+
+        &:hover {
+          background-color: #ffffff;
+          box-shadow: 0px 0px 4px 1px #dddddd;
+        }
+      }
+    }
+  }
+
+  .statistic {
+    @include grid(1, 1, 25px);
+    margin: 40px 0 30px 0;
+
+    ._card {
+      border-radius: 12px;
+      background-color: $bg_primary;
+      padding: 40px 0;
+      text-align: center;
+      transition: all 500ms;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ffffff;
+        box-shadow: 0px 0px 4px 1px #dddddd;
+      }
+
+      h2 {
+        font-weight: 600;
+        font-size: 18px;
+        color: #292c33;
+        margin-bottom: 15px;
+      }
+
+      span {
+        font-weight: 600;
+        font-size: 32px;
+        color: $primary_color;
       }
     }
   }
@@ -1009,9 +1065,26 @@ nav {
       }
     }
 
+    input[type="file"] {
+      width: 100%;
+      cursor: pointer;
+      background-color: $bg_primary;
+      border-radius: 12px;
+    }
+
+    ::-webkit-file-upload-button {
+      cursor: pointer;
+      background: $primary_color;
+      color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 15px 40px;
+      margin-right: 20px;
+    }
+
     .btn_submit {
       width: fit-content;
-      padding: 18px 20px;
+      padding: 16px 24px;
       color: #ffffff;
       border: none;
       outline: none;
@@ -1063,7 +1136,7 @@ nav {
     .btn_submit {
       align-self: flex-end;
       width: fit-content;
-      padding: 18px 20px;
+      padding: 16px 24px;
       font-size: 14px;
       color: #ffffff;
       border: none;
@@ -1078,6 +1151,27 @@ nav {
       align-items: center;
       gap: 30px;
 
+      .tag {
+        cursor: pointer;
+        padding: 15px 40px;
+        flex-grow: 1;
+        border-radius: 12px;
+        background-color: $bg_primary;
+        color: #444444;
+        flex-basis: content;
+      }
+
+      .file_name {
+        flex-grow: 1;
+        display: flex;
+        cursor: pointer;
+        flex-grow: 1;
+        border-radius: 12px;
+        background-color: $bg_primary;
+        color: #444444;
+        flex-basis: content;
+      }
+
       .preview {
         width: 80px;
         height: 80px;
@@ -1088,7 +1182,8 @@ nav {
         @include img_fit();
 
         i {
-          font-size: 18px;
+          font-size: 24px;
+          color: $primary_color;
         }
 
         img {
@@ -1096,13 +1191,19 @@ nav {
         }
       }
 
-      .file_name {
-        flex-grow: 1;
+      input[type="file"] {
+        width: 100%;
+        cursor: pointer;
+      }
+
+      ::-webkit-file-upload-button {
+        cursor: pointer;
+        background: $primary_color;
+        color: #fff;
+        border: 1px solid #ddd;
         border-radius: 12px;
         padding: 15px 40px;
-        background-color: $bg_primary;
-        color: #444444;
-        flex-basis: content;
+        margin-right: 20px;
       }
     }
   }
@@ -1412,6 +1513,7 @@ nav {
       align-items: center;
     }
   }
+
   .nav_itemsV2 {
     ul {
       width: 80% !important;
@@ -1451,20 +1553,40 @@ nav {
 
   // Dashboard User
   .dashboard_user_menu {
-    .user_info {
-      .statistic {
-        @include grid(3, 1, 25px);
+    .user_info{
+      flex-direction: row;
+      .user{
+        flex-direction: row;
+        ._info{
+          text-align: start;
+        }
+      }
+      .menu{
+        flex-direction: column;
+        margin-top: 0px;
+        width: fit-content;
+        ._btn{
+          aspect-ratio: 1/1 !important;
+          width: fit-content;
+        }
       }
     }
+    .statistic {
+      @include grid(3, 1, 25px);
+    }
+    
+
     ._title {
       h2 {
         font-size: 32px;
       }
+
       p {
         font-size: 16px;
       }
     }
   }
+
   .nav_user {
     height: 120px;
 
@@ -1483,6 +1605,7 @@ nav {
         h1 {
           font-size: 24px;
         }
+
         h2 {
           font-size: 20px;
         }
@@ -1561,7 +1684,16 @@ nav {
   // Footer
   footer {
     .footer_content {
-      @include grid(2, 1, 50px);
+      @include grid(8, 1, 50px);
+    }
+    .footer_nav{
+      @include col_span(3)
+    }
+    .nav_group{
+      @include col_span(2)
+    }
+    .contact_form{
+      @include col_span(3)
     }
   }
 

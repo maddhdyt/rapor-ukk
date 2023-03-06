@@ -99,19 +99,19 @@ $title = "Register";
                     <input type="text" name="nama" placeholder="Nama Lengkap" class="form_control" value="<?php echo $_POST['nama'] ?? null; ?>" required>
                 </div>
                 <div class="form_group">
-                    <input type="text" name="telp" placeholder="No Telp" class="form_control" value="<?php echo $_POST['telp'] ?? null; ?>">
+                    <input type="text" name="telp" placeholder="No Telp" class="form_control" value="<?php echo $_POST['telp'] ?? null; ?>" required>
                 </div>
                 <div class="form_group">
-                    <input type="text" name="alamat" placeholder="Alamat" class="form_control" value="<?php echo $_POST['alamat'] ?? null; ?>">
+                    <input type="text" name="alamat" placeholder="Alamat" class="form_control" value="<?php echo $_POST['alamat'] ?? null; ?>" required>
                 </div>
                 <div class="form_group">
-                    <input type="text" name="username" placeholder="Username" class="form_control" value="<?php echo $_POST['username'] ?? null; ?>">
+                    <input type="text" name="username" placeholder="Username" class="form_control" value="<?php echo $_POST['username'] ?? null; ?>" required>
                 </div>
                 <div class="form_group">
-                    <input type="password" name="password" placeholder="Password" class="form_control input_password" value="<?php echo $_POST['password'] ?? null; ?>"><i class="fa-regular fa-eye" onclick="showPassword()"></i>
+                    <input type="password" name="password" placeholder="Password" class="form_control input_password" value="<?php echo $_POST['password'] ?? null; ?>" required><i class="fa-regular fa-eye" onclick="showPassword()"></i>
                 </div>
                 <div class="form_group">
-                    <input type="password" name="password2" placeholder="Konfirmasi Password" class="form_control input_password" value="<?php echo $_POST['password2'] ?? null; ?>"><i class="fa-regular fa-eye" onclick="showPassword()"></i>
+                    <input type="password" name="password2" placeholder="Konfirmasi Password" class="form_control input_password" value="<?php echo $_POST['password2'] ?? null; ?>" required><i class="fa-regular fa-eye" onclick="showPassword()"></i>
                 </div>
                 <div class="form_group">
                     <input type="submit" value="Daftar" class="btn_submit" name="btnDaftar"></input>
