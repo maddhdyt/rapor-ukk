@@ -1,3 +1,11 @@
+.null_alert {
+  text-align: center !important;
+  font-size: 16px;
+  margin-top: 20px;
+  color: #444444;
+  font-style: italic;
+}
+
 .error_alert {
   display: flex;
   align-items: center;
@@ -337,11 +345,11 @@ nav .container .nav_itemsV2 ul li a {
 nav .container .nav_itemsV2 ul li a:hover {
   color: #254074;
 }
-nav .container .nav_itemsV2 ul .btn_login {
+nav .container .nav_itemsV2 ul .btn_logout {
   background-color: rgba(186, 0, 0, 0.2);
   color: #ba0000;
 }
-nav .container .nav_itemsV2 ul .btn_login:hover {
+nav .container .nav_itemsV2 ul .btn_logout:hover {
   background-color: #ba0000;
   color: #ffffff;
 }
@@ -366,6 +374,29 @@ nav .container .btn_login i {
 }
 nav .container .btn_login:hover {
   background-color: #254074;
+  color: #ffffff;
+}
+nav .container .btn_logout {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  background-color: rgba(186, 0, 0, 0.1411764706);
+  color: rgba(186, 0, 0, 0.7176470588);
+  font-weight: 500;
+  text-decoration: none;
+  gap: 10px;
+  font-size: 14px;
+  border-radius: 12px;
+  transition: all 400ms;
+}
+nav .container .btn_logout i {
+  font-size: 20px;
+}
+nav .container .btn_logout:hover {
+  background-color: #ba0000;
   color: #ffffff;
 }
 nav .container .nav_toggle {
@@ -431,7 +462,7 @@ nav .container .nav_toggleV2:hover {
   border-radius: 12px;
   background-color: #254074;
   font-size: 14px;
-  padding: 18px 20px;
+  padding: 18px 24px;
   color: #ffffff;
   text-decoration: none;
 }
@@ -483,7 +514,7 @@ nav .container .nav_toggleV2:hover {
   border-radius: 12px;
   background-color: #254074;
   font-size: 14px;
-  padding: 18px 20px;
+  padding: 18px 24px;
   color: #ffffff;
   text-decoration: none;
   display: flex;
@@ -895,9 +926,14 @@ nav .container .nav_toggleV2:hover {
   border-radius: 12px;
   padding: 18px 20px;
   background-color: rgba(37, 65, 116, 0.1254901961);
-  border: none;
+  border: 1px solid transparent;
   outline: none;
   color: #444444;
+  transition: all 500ms;
+}
+.form_pengaduan .form_group .form_control:focus {
+  border: 1px solid #254074;
+  background-color: #fff;
 }
 .form_pengaduan .form_group i {
   position: absolute;
@@ -936,11 +972,11 @@ nav .container .nav_toggleV2:hover {
 }
 .form_pengaduan .form_group ::-webkit-file-upload-button {
   cursor: pointer;
-  background: #254074;
+  background: rgba(37, 65, 116, 0.8549019608);
   color: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 15px 40px;
+  padding: 15px 20px;
   margin-right: 20px;
 }
 .form_pengaduan .form_group .btn_submit {
@@ -978,14 +1014,15 @@ nav .container .nav_toggleV2:hover {
   font-size: 14px;
   border-radius: 12px;
   padding: 18px 20px;
-  background-color: #ffffff;
-  border: 1px solid #254074;
+  background-color: rgba(37, 65, 116, 0.1254901961);
+  border: 1px solid transparent;
   outline: none;
   color: #444444;
+  transition: all 500ms;
 }
-.edit_pengaduan .form_group .form_control:disabled {
-  background-color: rgba(37, 65, 116, 0.1254901961);
-  border: none;
+.edit_pengaduan .form_group .form_control:focus {
+  border: 1px solid #254074;
+  background-color: #fff;
 }
 .edit_pengaduan .form_group .text_area {
   height: 200px;
@@ -1006,8 +1043,9 @@ nav .container .nav_toggleV2:hover {
 }
 .edit_pengaduan .form_group .profile_input {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 .edit_pengaduan .form_group .profile_input .tag {
   cursor: pointer;
@@ -1019,6 +1057,7 @@ nav .container .nav_toggleV2:hover {
   flex-basis: content;
 }
 .edit_pengaduan .form_group .profile_input .file_name {
+  width: 100%;
   flex-grow: 1;
   display: flex;
   cursor: pointer;
@@ -1038,6 +1077,7 @@ nav .container .nav_toggleV2:hover {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-top: 10px;
 }
 .edit_pengaduan .form_group .profile_input .preview img {
   width: 100%;
@@ -1058,11 +1098,11 @@ nav .container .nav_toggleV2:hover {
 }
 .edit_pengaduan .form_group .profile_input ::-webkit-file-upload-button {
   cursor: pointer;
-  background: #254074;
+  background: rgba(37, 65, 116, 0.7960784314);
   color: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 15px 40px;
+  padding: 15px 20px;
   margin-right: 20px;
 }
 
@@ -1128,6 +1168,8 @@ nav .container .nav_toggleV2:hover {
 }
 .user_news .pagination {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 50px;
 }
@@ -1143,6 +1185,12 @@ nav .container .nav_toggleV2:hover {
   background-color: #254074;
   color: #ffffff;
   cursor: pointer;
+  position: relative;
+}
+.user_news .pagination .btn_control a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 .user_news .pagination .page {
   display: flex;
@@ -1153,19 +1201,33 @@ nav .container .nav_toggleV2:hover {
   border-radius: 12px;
   border: 1px solid #254074;
   background-color: #ffffff;
-  color: #254074;
   font-size: 14px;
   font-weight: 600;
   transition: all 400ms;
   cursor: pointer;
 }
+.user_news .pagination .page a {
+  width: 100%;
+  height: 100%;
+  color: #254074;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .user_news .pagination .page:hover {
   background-color: #254074;
   color: #ffffff;
 }
+.user_news .pagination .page:hover a {
+  color: #fff;
+}
 .user_news .pagination .active {
   background-color: #254074;
   color: #ffffff;
+}
+.user_news .pagination .active a {
+  color: #fff;
 }
 
 .pengaduan_detail_wrapper {
@@ -1222,7 +1284,7 @@ nav .container .nav_toggleV2:hover {
 }
 .pengaduan_detail_wrapper ._content .tanggapan ._title h2 {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   color: #222222;
 }
 .pengaduan_detail_wrapper ._content .tanggapan ._not_found {
@@ -1314,6 +1376,14 @@ nav .container .nav_toggleV2:hover {
   font-weight: 500;
   font-size: 14px;
   color: #444444;
+}
+.pengaduan_detail_wrapper ._info .tanggapan {
+  margin-top: 20px;
+}
+.pengaduan_detail_wrapper ._info .tanggapan p {
+  font-size: 14px !important;
+  text-align: start !important;
+  margin-top: 10px !important;
 }
 
 @media (min-width: 768px) {
@@ -1434,6 +1504,21 @@ nav .container .nav_toggleV2:hover {
   }
   .nav_user .container .icon_profile i {
     font-size: 18px;
+  }
+  .pagination {
+    justify-content: start !important;
+  }
+  .profile_input {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 30px;
+  }
+  .profile_input .preview {
+    margin-top: 0px !important;
+  }
+  .profile_input .file_name {
+    width: -moz-fit-content;
+    width: fit-content;
   }
   .history_list ._card {
     flex-direction: row !important;

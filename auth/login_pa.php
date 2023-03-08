@@ -7,30 +7,7 @@ if (isset($_SESSION['login_admin'])) {
     header("Location: ../admin/dashboard.php");
 }
 
-if (isset($_POST['btnMasuk'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
 
-    $data = mysqli_query($koneksi, "SELECT * FROM dat_petugas WHERE username = '$username'");
-
-    if (mysqli_num_rows($data) === 1) {
-        $baris = mysqli_fetch_assoc($data);
-        if ($password == $baris['password']) {
-
-            header("Location: ../admin/dashboard.php");
-            $_SESSION['id_petugas'] = $baris['id'];
-            $_SESSION['login_admin'] = true;
-            $_SESSION['name'] = $baris['nama_petugas'];
-            $_SESSION['telp'] = $baris['telp'];
-            $_SESSION['level'] = $baris['level'];
-            exit;
-        } else {
-            echo "<script>alert('username atau password salah')</script>";
-        }
-    } else {
-        echo "<script>alert('username atau password salah')</script>";
-    }
-}
 
 ?>
 
@@ -53,11 +30,37 @@ if (isset($_POST['btnMasuk'])) {
 <body>
     <div class="container">
         <div class="form_enter_container">
+            <div class="form_title">
+                <h1>RAPOR!</h1>
+                <p>Login admin dan petugas untuk mengelola pengaduan</p>
+            </div>
+            <?php
+            if (isset($_POST['btnMasuk'])) {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+
+                $data = mysqli_query($koneksi, "SELECT * FROM dat_petugas WHERE username = '$username'");
+
+                if (mysqli_num_rows($data) === 1) {
+                    $baris = mysqli_fetch_assoc($data);
+                    if ($password == $baris['password']) {
+                        echo "<div class='success_alert alert'> Login berhasil...</div>";
+                        header("refresh:2; url=../admin/dashboard.php");
+                        $_SESSION['id_petugas'] = $baris['id'];
+                        $_SESSION['login_admin'] = true;
+                        $_SESSION['name'] = $baris['nama_petugas'];
+                        $_SESSION['telp'] = $baris['telp'];
+                        $_SESSION['level'] = $baris['level'];
+                        exit;
+                    } else {
+                        echo "<div class='error_alert alert'> Username atau password salah <i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
+                    }
+                } else {
+                    echo "<div class='error_alert alert'> Username atau password salah <i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
+                }
+            }
+            ?>
             <form class="form" action="" method="post">
-                <div class="form_title">
-                    <h1>RAPOR!</h1>
-                    <p>Login admin dan petugas untuk mengelola pengaduan</p>
-                </div>
                 <div class="form_group">
                     <input type="text" placeholder="Username" id="input username" class="form_control" name="username" required>
                 </div>

@@ -40,20 +40,23 @@ include 'partials/header.php';
             <div class="logo">
                 <a href="index.php">RAPOR!</a>
             </div>
-            <div class="nav_itemsV2">
+            <div class="nav_items">
                 <ul>
                     <li><a href="">Beranda</a></li>
                     <li><a href="">Tentang Kami</a></li>
                     <li><a href="">Kategori</a></li>
                     <li><a href="">How it Works?</a></li>
-                    <a href="auth/logout.php" class="btn_login">
+                    <a href="auth/logout.php" class="btn_logout">
                         Logout<i class="fa-solid fa-arrow-right-to-bracket"></i>
                     </a>
                 </ul>
             </div>
-            <div class="nav_toggleV2" onclick="showNavbarV2()">
+            <div class="nav_toggle" onclick="showNavbar()">
                 <i class="fa-solid fa-bars"></i>
             </div>
+            <!-- <div class="nav_toggleV2" onclick="showNavbarV2()">
+                <i class="fa-solid fa-bars"></i>
+            </div> -->
         </div>
     </nav>
 </header>
@@ -124,6 +127,9 @@ include 'partials/header.php';
             <?php
             $nik = $_SESSION['nik'];
             $show = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE nik = $nik ORDER BY id DESC LIMIT 3");
+            if (mysqli_num_rows($show) <= 0) {
+                echo "<i class='null_alert'>Belum ada pengaduan</i>";
+            }
 
             while ($data = mysqli_fetch_assoc($show)) :
             ?>
@@ -148,7 +154,9 @@ include 'partials/header.php';
                             <form action="functions/crud_pengaduan.php" method="post" class="action_menu">
                                 <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
                                 <a href="detail_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-circle-info"></i>Detail</a>
-                                <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                                <?php if ($data['status_pengaduan'] == 'Diproses') : ?>
+                                    <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                                <?php endif; ?>
                                 <button type="submit" name="btnDelete"><i class="fa-solid fa-trash-can"></i>Hapus</button>
                             </form>
                         </div>

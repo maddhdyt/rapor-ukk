@@ -28,10 +28,10 @@ include 'partials/nav.php';
                 <label for="">Deskripsi Pengaduan</label>
                 <textarea name="deskripsi" id="" class="form_control text_area"><?= $data['deskripsi']?></textarea>
             </div>
-            <div class="form_group">
+            <!-- <div class="form_group">
                 <label for="">Gambar</label>
-                <input type="file" class="form_control" value="<?= $data['gambar']?>">
-            </div>
+                <input type="file" class="form_control">
+            </div> -->
             <div class="form_group">
                 <input type="submit" name="btnUpdate" value="Simpan" class="btn_submit"></input>
             </div>

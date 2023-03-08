@@ -12,9 +12,20 @@ $data = mysqli_fetch_assoc($show);
 
 $title = "Detail Pengaduan";
 include 'partials/header.php';
-include 'partials/nav.php';
 
 ?>
+<header>
+        <nav class="nav_user">
+            <div class="container">
+                <div class="head_title">
+                    <a class="btn_back" onclick="history.back()">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </a>
+                    <h1><?= $title ?></h1>
+                </div>
+            </div>
+        </nav>
+    </header>
 <div class="container">
     <div class="pengaduan_detail_wrapper">
         <div class="_content">
@@ -27,25 +38,7 @@ include 'partials/nav.php';
             <div class="detail">
                 <p><?= $data['deskripsi']; ?></p>
             </div>
-            <div class="tanggapan">
-                <div class="_title">
-                    <h2>Tanggapan</h2>
-                </div>
-                <?php
-                $tgp = mysqli_query($koneksi, "SELECT * FROM dat_tanggapan WHERE id_pengaduan = $id");
 
-                $row = mysqli_fetch_assoc($tgp);
-                ?>
-                <p>
-                    <?= $row['tanggapan'] ?? null; ?>
-                </p>
-                <?php if (mysqli_num_rows($tgp) <= 0) : ?>
-                    <div class="_not_found">
-                        <h4>Belum ada tanggapan</h4>
-                    </div>
-                <?php endif; ?>
-
-            </div>
         </div>
         <div class="_info">
             <h2>Informasi Pengaduan</h2>
@@ -71,6 +64,22 @@ include 'partials/nav.php';
             </div>
             <h3>Pada tanggal</h3>
             <p class="date"><?= $data['tgl_pengaduan']; ?></p>
+            <div class="tanggapan">
+                <h3>Tanggapan</h3>
+                <?php
+                $tgp = mysqli_query($koneksi, "SELECT * FROM dat_tanggapan WHERE id_pengaduan = $id");
+
+                $row = mysqli_fetch_assoc($tgp);
+                ?>
+                <p>
+                    <?= $row['tanggapan'] ?? null; ?>
+                </p>
+                <?php if (mysqli_num_rows($tgp) <= 0) : ?>
+                    <p class="null_alert">Belum ditanggapi</p>
+                <?php endif; ?>
+            </div>
+
+
         </div>
     </div>
 </div>

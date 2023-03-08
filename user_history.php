@@ -15,15 +15,19 @@ $title = "History Pengaduan";
 include 'partials/header.php';
 include 'partials/nav.php';
 ?>
-    <div class="container">
-        <section class="user_history">
-            <div class="history_list">
+<div class="container">
+    <section class="user_history">
+        <div class="history_list">
             <?php
-                $nik = $_SESSION['nik'];
-                $show = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE nik = $nik ORDER BY id DESC");
-                while ($data = mysqli_fetch_assoc($show)) :
-                ?>
-                    <div class="_card">
+            $nik = $_SESSION['nik'];
+            $show = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE nik = $nik ORDER BY id DESC");
+            if (mysqli_num_rows($show) <= 0) {
+                echo "<i class='null_alert'>Belum ada pengaduan</i>";
+            }
+
+            while ($data = mysqli_fetch_assoc($show)) :
+            ?>
+                <div class="_card">
                     <div class="aduan_title">
                         <p><?= $data['tgl_pengaduan']; ?></p>
                         <h2><?= $data['judul']; ?></h2>
@@ -44,16 +48,18 @@ include 'partials/nav.php';
                             <form action="functions/crud_pengaduan.php" method="post" class="action_menu">
                                 <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
                                 <a href="detail_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-circle-info"></i>Detail</a>
-                                <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                                <?php if ($data['status_pengaduan'] == 'Diproses') : ?>
+                                    <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                                <?php endif; ?>
                                 <button type="submit" name="btnDelete"><i class="fa-solid fa-trash-can"></i>Hapus</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <?php endwhile ?>
-            </div>
-        </section>
-    </div>
+            <?php endwhile ?>
+        </div>
+    </section>
+</div>
 
 
-    <?php include 'partials/footer.php' ?>
+<?php include 'partials/footer.php' ?>

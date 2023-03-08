@@ -64,21 +64,21 @@ $title = "Login";
                 <?php
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-                $password = md5($password);  
+                $password = md5($password);
 
                 $data = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE username = '$username'");
                 if (mysqli_num_rows($data) === 1) : ?>
                     <?php $baris = mysqli_fetch_assoc($data);
                     if ($password == $baris['password']) : ?>
-                        <div class="success_alert alert"> Login berhasil... <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
+                        <div class="success_alert alert"> Login berhasil...</div>
                         <?php
+                        header("refresh:2; url=../user_dashboard.php");
                         $_SESSION['id'] = $baris['id'];
                         $_SESSION['login'] = true;
                         $_SESSION['nik'] = $baris['nik'];
                         $_SESSION['nama'] = $baris['nama'];
                         $_SESSION['username'] = $baris['username'];
                         $_SESSION['profile'] = $baris['profile'];
-                        header("refresh:2; url=../user_dashboard.php");
                         exit; ?>
                     <?php else : ?>
                         <div class="error_alert alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
