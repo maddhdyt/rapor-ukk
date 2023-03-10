@@ -49,7 +49,7 @@ $bg_primary: #25417420;
 }
 
 // Control Effect
-.null_alert{
+.null_alert {
   text-align: center !important;
   font-size: 16px;
   margin-top: 20px;
@@ -116,11 +116,15 @@ $bg_primary: #25417420;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
   overflow-x: hidden !important;
+}
+
+body {
+  background-color: #fff;
 }
 
 footer {
@@ -256,8 +260,9 @@ footer {
     text-align: center;
     margin-bottom: 30px;
 
-    h1 {
+    a {
       font-size: 32px;
+      text-decoration: none;
       font-weight: 700;
       color: $primary_color;
     }
@@ -270,21 +275,6 @@ footer {
 
   .form {
     margin-top: 20px;
-    // .form_title {
-    //   text-align: center;
-    //   margin-bottom: 35px;
-
-    //   h1 {
-    //     font-size: 32px;
-    //     font-weight: 700;
-    //     color: $primary_color;
-    //   }
-
-    //   p {
-    //     color: #444444;
-    //     margin-top: 10px;
-    //   }
-    // }
 
     .form_group {
       margin-bottom: 20px;
@@ -298,9 +288,14 @@ footer {
         border-radius: 12px;
         padding: 20px 25px;
         background-color: $bg_primary;
-        border: none;
-        outline: none;
+        border: 1px solid transparent;
+        transition: all 800ms;
         color: #444444;
+        outline: none;
+        &:focus {
+          background-color: #fff;
+          border: 1px solid $primary_color;
+        }
       }
 
       .btn_submit {
@@ -326,7 +321,7 @@ footer {
 
   .link {
     .to_another {
-      text-align: right;
+      text-align: center;
       font-size: 14px;
       color: #444444;
       margin-top: 30px;
@@ -406,6 +401,28 @@ nav {
 
             &:hover {
               color: #254074;
+            }
+          }
+        }
+        .profile_menu {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          .btn {
+            width: 45px;
+            aspect-ratio: 1/1;
+            background-color: $bg_primary;
+            border-radius: 12px;
+            text-decoration: none;
+            @include flex(center, center);
+            transition: all 500ms;
+            &:hover {
+              background-color: #fff;
+              box-shadow: 0px 0px 4px 1px #dddddd;
+            }
+            i {
+              color: $primary_color;
+              font-size: 16px;
             }
           }
         }
@@ -826,27 +843,45 @@ nav {
     ._card {
       border-radius: 12px;
       background-color: $bg_primary;
-      padding: 40px 0;
       text-align: center;
       transition: all 500ms;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
       &:hover {
         background-color: #ffffff;
         box-shadow: 0px 0px 4px 1px #dddddd;
       }
 
-      h2 {
-        font-weight: 600;
-        font-size: 18px;
-        color: #292c33;
-        margin-bottom: 15px;
+      .icon {
+        width: 80px;
+        @include flex(center, center);
+        color: #fff;
+        border-radius: 12px;
+        aspect-ratio: 1/1;
+        margin: 15px;
+        background-color: $primary_color;
+        i {
+          font-size: 24px;
+        }
       }
 
-      span {
-        font-weight: 600;
-        font-size: 32px;
-        color: $primary_color;
+      .info {
+        text-align: left;
+        h2 {
+          font-weight: 600;
+          font-size: 16px;
+          color: #292c33;
+          margin-bottom: 5px;
+        }
+
+        span {
+          font-weight: 600;
+          font-size: 24px;
+          color: $primary_color;
+        }
       }
     }
   }
@@ -868,7 +903,169 @@ nav {
     }
   }
 }
+// User Profile
+.user_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  .user_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
 
+    .user {
+      flex-grow: 1;
+      @include flex(center, flex-start);
+      flex-direction: column;
+      gap: 25px;
+
+      ._pic {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 8px 2px #dddddd;
+        @include img_fit();
+        @include flex(center, center);
+        i {
+          font-size: 48px;
+          color: $primary_color;
+        }
+
+        img {
+          border-radius: 12px;
+          position: absolute;
+        }
+      }
+
+      ._info {
+        text-align: center;
+        h1 {
+          font-weight: 600;
+          font-size: 24px;
+          color: #292c33;
+          margin-bottom: 8px;
+        }
+
+        span {
+          font-weight: 400;
+          font-size: 14px;
+          color: #444444;
+        }
+      }
+    }
+
+    .menu {
+      display: flex;
+      width: 100%;
+      margin-top: 30px;
+
+      gap: 25px;
+
+      a {
+        font-size: 14px !important;
+      }
+
+      i {
+        font-size: 20px;
+      }
+
+      ._btn {
+        @include flex(center, center);
+        text-decoration: none;
+        border-radius: 12px;
+        background-color: $bg_primary;
+        height: 50px;
+        width: 50%;
+        font-weight: 500;
+        color: $primary_color;
+        transition: all 500ms;
+
+        i {
+          font-size: 18px;
+        }
+
+        &:hover {
+          background-color: #ffffff;
+          box-shadow: 0px 0px 4px 1px #dddddd;
+        }
+      }
+    }
+  }
+  .menu {
+    width: 100%;
+    margin-top: 50px;
+    border-bottom: 1px solid #ddd;
+    .option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 0px;
+      border: 1px solid #dddddd;
+      border-left: 0px;
+      border-right: 0px;
+      border-bottom: 0px;
+      text-decoration: none;
+      transition: all 600ms;
+      
+      i {
+        color: $primary_color;
+      }
+      &:hover {
+        background-color: #eaeaea;
+      }
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .icon {
+          background-color: $bg_primary;
+          border-radius: 12px;
+          width: 45px;
+          aspect-ratio: 1/1;
+          @include flex(center, center);
+          i {
+            font-size: 18px;
+            color: $primary_color;
+          }
+        }
+        p {
+          font-size: 14px;
+          color: #444;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .btn_logout {
+    margin-top: 50px;
+    width: fit-content;
+    @include flex(center, center);
+    padding: 14px 20px;
+    background-color: #ba000024;
+    color: #ba0000b7;
+    font-weight: 500;
+    text-decoration: none;
+    gap: 10px;
+    font-size: 14px;
+    border-radius: 12px;
+    transition: all 400ms;
+    position: relative;
+
+    i {
+      font-size: 20px;
+    }
+
+    &:hover {
+      background-color: #ba0000;
+      color: #ffffff;
+    }
+  }
+}
 // History Pengaduan
 .user_history {
   ._title {
@@ -1058,7 +1255,7 @@ nav {
       border: 1px solid transparent;
       outline: none;
       color: #444444;
-      transition: all 500ms;
+      transition: all 800ms;
       &:focus {
         border: 1px solid $primary_color;
         background-color: #fff;
@@ -1132,7 +1329,7 @@ nav {
 // Edit Pengaduan
 .edit_pengaduan {
   @include grid(1, 1, 20px);
-  margin-top: 25px;
+  margin-top: 5px;
 
   .form_group {
     display: flex;
@@ -1149,17 +1346,16 @@ nav {
       width: 100%;
       font-size: 14px;
       border-radius: 12px;
-      padding: 18px 20px;
+      padding: 16px 20px;
       background-color: $bg_primary;
       border: 1px solid transparent;
       outline: none;
       color: #444444;
-      transition: all 500ms;
+      transition: all 800ms;
       &:focus {
         border: 1px solid $primary_color;
         background-color: #fff;
       }
-      
     }
 
     .text_area {
@@ -1243,6 +1439,10 @@ nav {
         margin-right: 20px;
       }
     }
+  }
+
+  .menu {
+    margin-top: 50px;
   }
 }
 
@@ -1333,7 +1533,7 @@ nav {
       color: #ffffff;
       cursor: pointer;
       position: relative;
-      a{
+      a {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -1351,7 +1551,7 @@ nav {
       font-weight: 600;
       transition: all 400ms;
       cursor: pointer;
-      a{
+      a {
         width: 100%;
         height: 100%;
         color: $primary_color;
@@ -1362,7 +1562,7 @@ nav {
       &:hover {
         background-color: $primary_color;
         color: #ffffff;
-        a{
+        a {
           color: #fff;
         }
       }
@@ -1371,8 +1571,8 @@ nav {
     .active {
       background-color: $primary_color;
       color: #ffffff;
-      a{
-        color: #fff
+      a {
+        color: #fff;
       }
     }
   }
@@ -1426,9 +1626,8 @@ nav {
         font-size: 16px;
         line-height: 26px;
         text-align: justify;
-        color: #444444;
+        color: #444444 !important;
         margin-top: 15px;
-        font-style: italic;
       }
 
       ._title {
@@ -1538,9 +1737,9 @@ nav {
         color: #444444;
       }
     }
-    .tanggapan{
+    .tanggapan {
       margin-top: 20px;
-      p{
+      p {
         font-size: 14px !important;
         text-align: start !important;
         margin-top: 10px !important;
@@ -1685,19 +1884,31 @@ nav {
       }
     }
   }
+  // User Profile 
+  .user_profile {
+    .menu {
+      .option {
+        .info {
+          p {
+            font-size: 16px !important;
+          }
+        }
+      }
+    }
+  }
   // Feed Pengaduan
-  .pagination{
+  .pagination {
     justify-content: start !important;
   }
   // Edit Profile
-  .profile_input{
+  .profile_input {
     flex-direction: row !important;
     align-items: center;
     gap: 30px;
-    .preview{
+    .preview {
       margin-top: 0px !important;
     }
-    .file_name{
+    .file_name {
       width: fit-content;
     }
   }
@@ -1763,16 +1974,16 @@ nav {
   // Footer
   footer {
     .footer_content {
-      @include grid(8, 1, 50px);
+      @include grid(4, 1, 50px);
     }
     .footer_nav {
-      @include col_span(3);
-    }
-    .nav_group {
       @include col_span(2);
     }
+    .nav_group {
+      @include col_span(1);
+    }
     .contact_form {
-      @include col_span(3);
+      @include col_span(1);
     }
   }
 

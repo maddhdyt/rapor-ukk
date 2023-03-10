@@ -14,7 +14,7 @@ $show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = $id");
 
 $data = mysqli_fetch_assoc($show);
 
-$title = "Edit Profile";
+$title = "Edit Profil";
 
 include 'partials/header.php';
 include 'partials/nav.php';
@@ -23,10 +23,6 @@ include 'partials/nav.php';
 
 <div class="container">
     <div class="user_pengaduan">
-        <div class="_title">
-            <p>Kamu bisa mengedit data diri dan mengubah password kamu di halaman ini,
-                pastikan data diri yang kamu masukan benar!</p>
-        </div>
         <?php
         if (isset($_POST['btnUpdateProfile'])) {        
             $id = $_POST['id'];        
@@ -51,7 +47,7 @@ include 'partials/nav.php';
                 $tampil = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = '$id'");
                 $data = mysqli_fetch_assoc($tampil);
 
-                if (file_exists("assets/img/" . $data['profile'])) {
+                if ($data['profile'] != "") {
                     unlink("assets/img/" . $data['profile']);
                 }
 
@@ -100,11 +96,13 @@ include 'partials/nav.php';
                 <input type="text" class="form_control" name="alamat" value="<?= $data['alamat'] ?>">
             </div>
             <div class="form_group col-2">
-                <input type="submit" name="btnUpdateProfile" value="Simpan" class="btn_submit"></input>
+                <input type="submit" name="btnUpdateProfile" value="Simpan Perubahan" class="btn_submit"></input>
             </div>
         </form>
-    </div>
+        <div class="menu">
 
+        </div>
+    </div>
 </div>
 
 <?php

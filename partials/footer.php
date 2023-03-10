@@ -25,7 +25,6 @@
                     <h2>Kontak kami</h2>
                 </div>
                 <div class="_items">
-                    <p>Jl Raya Rancakalong, Nagarawangi, RT/03 RW/07, Kecamatan Rancakalong, Kabupaten Sumedang</p>
                     <p>Phone : +6287731370962</p>
                     <p>Email : rapor.rck@gmail.com</p>
                 </div>

@@ -70,13 +70,15 @@ if (isset($_POST['btnUpdate'])) {
 
 if (isset($_POST['btnDelete'])) {
     $id = $_POST['id'];
+    $nik = $_POST['nik'];
 
-    $show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = '$id'");
-    $ambil = mysqli_fetch_assoc($show);
+    // delete account
+    $hapus = mysqli_query($koneksi, "DELETE FROM dat_masyarakat WHERE id = $id");
+    // wipe all data
+    $wipe = mysqli_query($koneksi, "DELETE FROM dat_pengaduan WHERE nik = $nik");
+    
 
-    $hapus = mysqli_query($koneksi, "DELETE FROM dat_masyarakat WHERE id = '$id'");
-
-    if ($hapus) {
+    if ($wipe) {
         echo "<script>alert('Data berhasil dihapus');
             window.history.back();
         </script>";

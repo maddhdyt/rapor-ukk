@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../assets/admin/css/components.css">
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-    <script src="https://kit.fontawesome.com/0297ba9f6f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -69,7 +69,7 @@
                     <ul class="sidebar-menu mt-2">
                         <li class="menu-header">Menu</li>
                         <?php
-                        if ($_SESSION['level'] == 'admin') {
+                        if ($_SESSION['level'] == 'admin') :
                         ?>
 
                             <li class="<?php if ($title == "Home") {
@@ -105,7 +105,7 @@
                                         } else {
                                             echo "";
                                         } ?>"><a class="nav-link" href="data_petugas.php"><i class="fa-solid fa-users-gear"></i><span>Data Petugas</span></a></li>
-                        <?php } else { ?>
+                        <?php else : ?>
                             <li class="<?php if ($title == "Dashboard") {
                                             echo "active";
                                         } else {
@@ -122,7 +122,7 @@
                                         } else {
                                             echo "";
                                         } ?>"><a class="nav-link" href="kelola_tanggapan.php"><i class="fa-regular fa-comments"></i><span>Tanggapan</span></a></li>
-                        <?php } ?>
+                        <?php endif; ?>
                     </ul>
                 </aside>
             </div>

@@ -13,7 +13,7 @@ include 'partials/header.php';
 
 <!-- Main Content -->
 <div class="main-content">
-<div class="row mt-3">
+    <div class="row mt-3">
         <div class="col-12 col-md-6 col-lg-12">
             <div class="card">
                 <div class="card-header">
@@ -49,12 +49,12 @@ include 'partials/header.php';
                         <input name="password2" type="password" class="form-control" value="">
                     </div>
                     <div class="card-footer text-right">
-                        <input name="btnDaftar" type="submit" class="btn btn-primary mr-1" value="Submit">
-                        <div class="btn btn-secondary" onclick="history.back ()">Cancel</div>
+                        <a href="data_masyarakat.php" class="btn btn-danger">Cancel</a>
+                        <input name="btnDaftar" type="submit" class="btn btn-primary ml-2" value="Submit">
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-<?php include 'partials/footer.php'; ?>
+    <?php include 'partials/footer.php'; ?>

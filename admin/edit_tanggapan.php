@@ -40,7 +40,7 @@ include 'partials/header.php';
                         <textarea name="tanggapan" id="" class="form-control" required><?= $data['tanggapan']; ?></textarea>
                     </div>
                     <div class="card-footer text-right">
-                    <div class="btn btn-secondary" onclick="history.back ()">Cancel</div>
+                    <a href="kelola_tanggapan.php" class="btn btn-danger">Cancel</a>
                     <input name="btnUbah" type="submit" class="btn btn-primary ml-2" value="Submit">
                     </div>
                 </form>

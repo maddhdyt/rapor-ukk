@@ -6,6 +6,7 @@ include 'core/conn.php';
 
 $nik = $_SESSION['nik'];
 
+
 $show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE nik = $nik");
 $data = mysqli_fetch_assoc($show);
 
@@ -43,12 +44,21 @@ include 'partials/header.php';
             <div class="nav_items">
                 <ul>
                     <li><a href="">Beranda</a></li>
-                    <li><a href="">Tentang Kami</a></li>
-                    <li><a href="">Kategori</a></li>
-                    <li><a href="">How it Works?</a></li>
-                    <a href="auth/logout.php" class="btn_logout">
+                    <li><a href="">Tulis Pengaduan</a></li>
+                    <li><a href="">Aduan Masyarakat</a></li>
+
+                    <div class="profile_menu">
+                        <!-- <a href="user_history.php?id=<?= $_SESSION['id']; ?>" class="btn">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </a> -->
+                        <a href="user_profile.php?id=<?= $_SESSION['id']; ?>" class="btn">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                    </div>
+
+                    <!-- <a href="auth/logout.php" class="btn_logout">
                         Logout<i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    </a>
+                    </a> -->
                 </ul>
             </div>
             <div class="nav_toggle" onclick="showNavbar()">
@@ -72,25 +82,36 @@ include 'partials/header.php';
                     <h1><?= $data['nama']; ?></h1>
                     <span>@<?= $data['username']; ?></span>
                 </div>
-
-            </div>
-            <div class="menu">
-                <a href="edit_profile.php?id=<?= $_SESSION['id']; ?>" class="_btn"><i class="fa-solid fa-user-pen"></i></a>
-                <a href="user_history.php?id=<?= $_SESSION['id']; ?>" class="_btn"><i class="fa-solid fa-clock-rotate-left"></i></a>
             </div>
         </div>
         <div class="statistic">
             <div class="_card">
-                <h2>Jumlah Pengaduan</h2>
-                <span><?= $total_report ?></span>
+                <div class="icon">
+                    <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <div class="info">
+                    <h2>Jumlah Pengaduan</h2>
+                    <span><?= $total_report ?></span>
+                </div>
             </div>
             <div class="_card">
-                <h2>Pengaduan Diproses</h2>
-                <span><?= $process_report ?></span>
+                <div class="icon">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <div class="info">
+                    <h2>Pengaduan Diproses</h2>
+                    <span><?= $process_report ?></span>
+                </div>
+
             </div>
             <div class="_card">
-                <h2>Pengaduan Selesai</h2>
-                <span><?= $done_report ?></span>
+                <div class="icon">
+                    <i class="fa-solid fa-check-to-slot"></i>
+                </div>
+                <div class="info">
+                    <h2>Pengaduan Selesai</h2>
+                    <span><?= $done_report ?></span>
+                </div>
             </div>
         </div>
         <div id="options">
@@ -108,7 +129,7 @@ include 'partials/header.php';
                 </div>
                 <div class="_card">
                     <div class="_title">
-                        <h2>Pengaduan Masyarakat</h2>
+                        <h2>Aduan Masyarakat</h2>
                         <p>Kamu bisa melihat aduan terkini yang telah dilaporkan masyarakat</p>
                     </div>
                     <div class="btn_group">

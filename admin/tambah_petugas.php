@@ -51,8 +51,8 @@ include 'partials/header.php';
                         <input name="password2" type="password" class="form-control" value="">
                     </div>
                     <div class="card-footer text-right">
-                        <input name="btnDaftar" type="submit" class="btn btn-primary mr-1" value="Submit">
-                        <div class="btn btn-secondary" onclick="history.back ()">Cancel</div>
+                        <a href="data_petugas.php" class="btn btn-danger">Cancel</a>
+                        <input name="btnDaftar" type="submit" class="btn btn-primary ml-2" value="Submit">
                     </div>
                 </form>
             </div>

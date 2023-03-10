@@ -48,29 +48,14 @@ include 'partials/header.php';
                             <td>
                                 <form action="../functions/crud_masyarakat.php" method="post">
                                     <input type="hidden" name="id" value="<?= $data['id'] ?> ">
-                                    <a href="edit_masyarakat.php?id=<?php echo $data['id'] ?>" class="btn btn-secondary text-primary">Ubah</a>
-                                    <input type="submit" name="btnDelete" class="btn btn-danger ml-1" value="Hapus">
+                                    <input type="hidden" name="nik" value="<?= $data['nik'] ?> ">
+                                    <div class="d-flex" style="gap: 10px;">
+                                        <a href="edit_masyarakat.php?id=<?php echo $data['id'] ?>" class="btn_control primary text-white" data-toggle="tooltip" data-original-title="Ubah"><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <button type="submit" name="btnDelete" class="btn_control danger text-white outline-0 border-0" data-toggle="tooltip" data-original-title="Hapus"><i class="fa-solid fa-trash-can"></i></button>
+                                    </div>
                                 </form>
                             </td>
                         </tr>
-
-                        <div class="modal fade" id="hapusPetugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     <?php endwhile; ?>
                 </tbody>
             </table>

@@ -46,8 +46,10 @@ include 'partials/header.php';
                             <td>
                                 <form action="../functions/crud_petugas.php" method="post">
                                     <input type="hidden" name="id" value="<?= $data['id'] ?> ">
-                                    <a href="edit_petugas.php?id=<?= $data['id'] ?>" class="btn btn-secondary text-primary">Ubah</a>
-                                    <button type="submit" name="btnDelete" class="btn btn-danger ml-1">Hapus</button>
+                                    <div class="d-flex" style="gap: 10px;">
+                                        <a href="edit_petugas.php?id=<?php echo $data['id'] ?>" class="btn_control primary text-white" data-toggle="tooltip" data-original-title="Ubah"><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <button type="submit" name="btnDelete" class="btn_control danger text-white outline-0 border-0" data-toggle="tooltip" data-original-title="Hapus"><i class="fa-solid fa-trash-can"></i></button>
+                                    </div>
                                 </form>
                             </td>
                         </tr>

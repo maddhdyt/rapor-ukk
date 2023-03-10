@@ -28,27 +28,27 @@ include 'partials/header.php';
                     <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
                     <div class="form-group">
                         <label>NIK</label>
-                        <input name="nik" type="text" class="form-control" value="<?php echo $data['nik']?>">
+                        <input name="nik" type="text" class="form-control" value="<?php echo $data['nik'] ?>">
                     </div>
                     <div class="form-group">
                         <label>Nama Lengkap</label>
-                        <input name="nama" type="text" class="form-control" value="<?php echo $data['nama']?>">
+                        <input name="nama" type="text" class="form-control" value="<?php echo $data['nama'] ?>">
                     </div>
                     <div class="form-group">
                         <label>Telepon</label>
-                        <input name="telp" type="text" class="form-control" value="<?php echo $data['telp']?>">
+                        <input name="telp" type="text" class="form-control" value="<?php echo $data['telp'] ?>">
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
-                        <input name="alamat" type="text" class="form-control" value="<?php echo $data['alamat']?>">
+                        <input name="alamat" type="text" class="form-control" value="<?php echo $data['alamat'] ?>">
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input name="username" type="text" class="form-control" value="<?php echo $data['username']?>">
+                        <input name="username" type="text" class="form-control" value="<?php echo $data['username'] ?>">
                     </div>
                     <div class="card-footer text-right">
-                        <input name="btnUpdate" type="submit" class="btn btn-primary mr-1" value="Submit">
-                        <div class="btn btn-secondary" onclick="history.back ()">Cancel</div>
+                        <a href="data_masyarakat.php" class="btn btn-danger">Cancel</a>
+                        <input name="btnUpdate" type="submit" class="btn btn-primary ml-2" value="Submit">
                     </div>
                 </form>
             </div>

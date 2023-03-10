@@ -37,7 +37,7 @@ $title = "Login";
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 
 <head>
     <meta charset="UTF-8">
@@ -47,16 +47,17 @@ $title = "Login";
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/0297ba9f6f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
+    <!-- <script src="https://kit.fontawesome.com/0297ba9f6f.js" crossorigin="anonymous"></script> -->
 </head>
 
 <body>
     <div class="container">
         <div class="form_enter_container">
             <div class="form_title">
-                <h1>RAPOR!</h1>
+                <a href="../index.php">RAPOR!</a>
                 <p>Login terlebih dahulu untuk melanjutkan</p>
             </div>
             <?php
@@ -101,7 +102,7 @@ $title = "Login";
             </form>
             <div class="link">
                 <div class="to_another">Belum punya akun? <a href="register.php">Daftar</a></div>
-                <a href="../index.php" class="to_home"><i class="fa-solid fa-arrow-right-from-bracket"></i>Kembali</a>
+                <!-- <a href="../index.php" class="to_home"><i class="fa-solid fa-arrow-right-from-bracket"></i>Kembali</a> -->
             </div>
         </div>
     </div>

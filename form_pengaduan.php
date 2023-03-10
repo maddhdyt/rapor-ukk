@@ -34,7 +34,7 @@ include 'partials/nav.php';
                 $gambar = $random . '_' . $namafile;
                 mysqli_query($koneksi, "INSERT INTO dat_pengaduan (id, nik, judul, deskripsi, gambar, tgl_pengaduan, status_pengaduan)
                     VALUES('', '$nik', '$judul', '$deskripsi', '$gambar', '$tgl_pengaduan', 'Diproses')");
-                echo "<div class='alert success_alert'>Pengaduan berhasil dikirim<i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
+                echo "<div class='alert success_alert'>Pengaduan berhasil dikirim</div>";
                 header("refresh:1; url=user_dashboard.php");
             } else {
                 echo "<div class='alert error_alert'>Gagal mengirim, file terlalu besar<i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
