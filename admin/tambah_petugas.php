@@ -9,7 +9,6 @@ $title = "Data Petugas";
 include 'partials/header.php';
 
 ?>
-
 <!-- Main Content -->
 <div class="main-content">
     <div class="row mt-3">

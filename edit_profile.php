@@ -105,6 +105,7 @@ include 'partials/nav.php';
     </div>
 </div>
 
-<?php
-include 'partials/footer.php';
-?>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

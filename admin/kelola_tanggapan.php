@@ -47,15 +47,13 @@ include 'partials/header.php';
                             </td>
                             <td><?= $data['tgl_pengaduan']; ?></td>
                             <td><?= $data['nama']; ?></td>
-
                             <td><?= $data['judul']; ?></td>
                             <td><img class="rounded" src="../assets/img/<?= $data['gambar'] ?>" alt="" width="80px" height="50px"></td>
-
                             <td>
                                 <form action="">
                                     <div class="d-flex" style="gap: 10px;">
-                                        <a href="../detail_pengaduan.php?id=<?php echo $data['id_pengaduan'] ?>" class="btn_control secondary text-white" data-toggle="tooltip" data-original-title="Detail"><i class="fa-solid fa-circle-info"></i></a>
-                                        <a href="edit_tanggapan.php?id=<?php echo $data['id_pengaduan'] ?>" class="btn_control primary text-white" data-toggle="tooltip" data-original-title="Ubah"><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <a href="../detail_pengaduan.php?id=<?php echo $data['id_pengaduan'] ?>" class="btn_control secondary text-white"><i class="fa-solid fa-circle-info"></i></a>
+                                        <a href="edit_tanggapan.php?id=<?php echo $data['id_pengaduan'] ?>" class="btn_control primary text-white"><i class="fa-regular fa-pen-to-square"></i></a>
                                     </div>
                                 </form>
                             </td>

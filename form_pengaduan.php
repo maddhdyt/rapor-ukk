@@ -1,7 +1,6 @@
 <?php
 
 include 'core/conn.php';
-include 'functions/alert.php';
 
 include 'core/init_user.php';
 
@@ -58,6 +57,8 @@ include 'partials/nav.php';
         </form>
     </div>
 </div>
-<?php
-include 'partials/footer.php';
-?>
+
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

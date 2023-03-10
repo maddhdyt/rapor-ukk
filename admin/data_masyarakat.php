@@ -50,8 +50,7 @@ include 'partials/header.php';
                                     <input type="hidden" name="id" value="<?= $data['id'] ?> ">
                                     <input type="hidden" name="nik" value="<?= $data['nik'] ?> ">
                                     <div class="d-flex" style="gap: 10px;">
-                                        <a href="edit_masyarakat.php?id=<?php echo $data['id'] ?>" class="btn_control primary text-white" data-toggle="tooltip" data-original-title="Ubah"><i class="fa-regular fa-pen-to-square"></i></a>
-                                        <button type="submit" name="btnDelete" class="btn_control danger text-white outline-0 border-0" data-toggle="tooltip" data-original-title="Hapus"><i class="fa-solid fa-trash-can"></i></button>
+                                        <a href="edit_masyarakat.php?id=<?php echo $data['id'] ?>" class="btn_control primary text-white"><i class="fa-regular fa-pen-to-square"></i></a>
                                     </div>
                                 </form>
                             </td>

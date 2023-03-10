@@ -68,22 +68,22 @@ if (isset($_POST['btnUpdate'])) {
     }
 }
 
-if (isset($_POST['btnDelete'])) {
-    $id = $_POST['id'];
-    $nik = $_POST['nik'];
+// if (isset($_POST['btnDelete'])) {
+//     $id = $_POST['id'];
+//     $nik = $_POST['nik'];
 
-    // delete account
-    $hapus = mysqli_query($koneksi, "DELETE FROM dat_masyarakat WHERE id = $id");
-    // wipe all data
-    $wipe = mysqli_query($koneksi, "DELETE FROM dat_pengaduan WHERE nik = $nik");
+//     // delete account
+//     $hapus = mysqli_query($koneksi, "DELETE FROM dat_masyarakat WHERE id = $id");
+//     // wipe all data
+//     $wipe = mysqli_query($koneksi, "DELETE FROM dat_pengaduan WHERE nik = $nik");
     
 
-    if ($wipe) {
-        echo "<script>alert('Data berhasil dihapus');
-            window.history.back();
-        </script>";
-    } else {
-        echo "<script>alert('Data gagal dihapus')</script>";
-    }
-}
+//     if ($wipe) {
+//         echo "<script>alert('Data berhasil dihapus');
+//             window.history.back();
+//         </script>";
+//     } else {
+//         echo "<script>alert('Data gagal dihapus')</script>";
+//     }
+// }
 

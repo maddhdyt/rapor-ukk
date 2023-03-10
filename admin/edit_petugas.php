@@ -51,12 +51,12 @@ include 'partials/header.php';
                         <input name="username" type="text" class="form-control" value="<?php echo $data['username'] ?>">
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
-                        <input name="password" type="password" class="form-control" value="<?php echo $data['password'] ?>">
+                        <label>Password Baru</label>
+                        <input name="password" type="password" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Konfirmasi Password</label>
-                        <input name="password2" type="password" class="form-control" value="<?php echo $data['password'] ?>">
+                        <input name="password2" type="password" class="form-control">
                     </div>
                     <div class="card-footer text-right">
                         <a href="data_petugas.php" class="btn btn-danger">Cancel</a>

@@ -30,35 +30,24 @@ include 'partials/header.php';
         overflow-x: hidden !important;
     }
 </style>
+<!-- Modal -->
 <header>
     <nav class="nav_user">
         <div class="container">
-            <!-- <div class="head_title">
-                <a href="index.php" class="btn_back">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </a>
-            </div> -->
             <div class="logo">
                 <a href="index.php">RAPOR!</a>
             </div>
             <div class="nav_items">
                 <ul>
-                    <li><a href="">Beranda</a></li>
-                    <li><a href="">Tulis Pengaduan</a></li>
-                    <li><a href="">Aduan Masyarakat</a></li>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="form_pengaduan.php">Tulis Pengaduan</a></li>
+                    <li><a href="news_pengaduan.php">Aduan Masyarakat</a></li>
 
                     <div class="profile_menu">
-                        <!-- <a href="user_history.php?id=<?= $_SESSION['id']; ?>" class="btn">
-                            <i class="fa-solid fa-clock-rotate-left"></i>
-                        </a> -->
                         <a href="user_profile.php?id=<?= $_SESSION['id']; ?>" class="btn">
                             <i class="fa-solid fa-user"></i>
                         </a>
                     </div>
-
-                    <!-- <a href="auth/logout.php" class="btn_logout">
-                        Logout<i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    </a> -->
                 </ul>
             </div>
             <div class="nav_toggle" onclick="showNavbar()">
@@ -178,9 +167,19 @@ include 'partials/header.php';
                                 <?php if ($data['status_pengaduan'] == 'Diproses') : ?>
                                     <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
                                 <?php endif; ?>
-                                <button type="submit" name="btnDelete"><i class="fa-solid fa-trash-can"></i>Hapus</button>
+                                <a onclick="showModal()"><i class="fa-solid fa-trash-can"></i>Hapus</a>
                             </form>
                         </div>
+                    </div>
+                </div>
+                <div class="modal">
+                    <div class="modal-content">
+                        <p>Yakin hapus pengaduan?</p>
+                        <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
+                            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                            <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
+                            <div class="btn btn-cancel">Batal</div>
+                        </form>
                     </div>
                 </div>
             <?php endwhile; ?>

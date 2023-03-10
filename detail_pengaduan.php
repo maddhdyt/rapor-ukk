@@ -1,5 +1,6 @@
 <?php
 
+$title = "Detail Pengaduan";
 $id = $_GET['id'];
 
 include 'core/conn.php';
@@ -8,22 +9,24 @@ $show = mysqli_query($koneksi, "SELECT dat_pengaduan.id, dat_pengaduan.tgl_penga
 
 $data = mysqli_fetch_assoc($show);
 
-$title = "Detail Pengaduan";
+if ($id !== $data['id']) {
+    echo "<script>document.location='user_dashboard.php';</script>";
+}
 include 'partials/header.php';
 
 ?>
 <header>
-        <nav class="nav_user">
-            <div class="container">
-                <div class="head_title">
-                    <a class="btn_back" onclick="history.back()">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </a>
-                    <h1><?= $title ?></h1>
-                </div>
+    <nav class="nav_user">
+        <div class="container">
+            <div class="head_title">
+                <a class="btn_back" onclick="history.back()">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </a>
+                <h1><?= $title ?></h1>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 <div class="container">
     <div class="pengaduan_detail_wrapper">
         <div class="_content">
@@ -69,16 +72,18 @@ include 'partials/header.php';
 
                 $row = mysqli_fetch_assoc($tgp);
                 ?>
-                <p>
+                <p style="word-wrap: break-word;">
                     <?= $row['tanggapan'] ?? null; ?>
                 </p>
                 <?php if (mysqli_num_rows($tgp) <= 0) : ?>
                     <p class="null_alert">Belum ditanggapi</p>
                 <?php endif; ?>
             </div>
-
-
         </div>
     </div>
 </div>
-<?php include 'partials/footer.php'; ?>
+
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

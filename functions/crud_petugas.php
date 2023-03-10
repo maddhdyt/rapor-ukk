@@ -9,7 +9,9 @@ if (isset($_POST['btnDaftar'])) {
     $level = $_POST['level'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $password = md5($password);
     $password2 = $_POST['password2'];
+    $password2 = md5($password2);
 
     // initialize
 
@@ -42,11 +44,19 @@ if (isset($_POST['btnUbah'])) {
     $level = $_POST['level'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $password = md5($password);
     $password2 = $_POST['password2'];
+    $password2 = md5($password2);
     $password_lama = $_POST['password_lama'];
 
     if ($password != $password2) {
-        echo "<script>alert('Password tidak sama')</script>";
+        echo "<script>alert('Password tidak sama');
+        document.location='../admin/data_petugas.php';</script>";
+    } else if ($password == "" || $password2 == "") {
+        mysqli_query($koneksi, "UPDATE dat_petugas SET nama_petugas = '$name', telp = '$telp', level = '$level', username = '$username', password = '$password_lama' WHERE id = $id");
+        echo "<script>alert('Data akun berhasil diupdate');
+            document.location='../admin/data_petugas.php';
+            </script>";
     } else {
         mysqli_query($koneksi, "UPDATE dat_petugas SET nama_petugas = '$name', telp = '$telp', level = '$level', username = '$username', password = '$password' WHERE id = $id");
         echo "<script>alert('Data akun berhasil diupdate');
@@ -57,9 +67,6 @@ if (isset($_POST['btnUbah'])) {
 
 if (isset($_POST['btnDelete'])) {
     $id = $_POST['id'];
-
-    $show = mysqli_query($koneksi, "SELECT * FROM dat_petugas WHERE id = '$id'");
-    $ambil = mysqli_fetch_assoc($show);
 
     $hapus = mysqli_query($koneksi, "DELETE FROM dat_petugas WHERE id = '$id'");
 

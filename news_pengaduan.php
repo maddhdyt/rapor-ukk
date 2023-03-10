@@ -2,7 +2,7 @@
 
 include 'core/conn.php';
 
-$title = "Pengaduan Masyarakat";
+$title = "Aduan Masyarakat";
 
 $perPage = 6; //perhalaman
 $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
@@ -36,7 +36,6 @@ include 'partials/nav.php';
         </div>
         <div class="_list">
             <?php
-            // $show = mysqli_query($koneksi, "SELECT dat_pengaduan.id, dat_pengaduan.tgl_pengaduan, dat_pengaduan.judul, dat_pengaduan.gambar, dat_pengaduan.deskripsi, dat_masyarakat.nik, dat_masyarakat.nama FROM dat_pengaduan INNER JOIN dat_masyarakat ON dat_pengaduan.nik = dat_masyarakat.nik ORDER BY id DESC LIMIT 6");
             while ($data = mysqli_fetch_assoc($all)) :
             ?>
                 <div class="card_news">
@@ -76,4 +75,7 @@ include 'partials/nav.php';
         </div>
     </div>
 </div>
-<?php include 'partials/footer.php' ?>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

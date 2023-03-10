@@ -54,7 +54,6 @@ include 'partials/header.php';
                 header("refresh:1; url=user_dashboard.php");
             }
         }
-        
         ?>
         <form action="" method="post" class="edit_pengaduan" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $data['id']; ?>">
@@ -82,6 +81,7 @@ include 'partials/header.php';
     </div>
 </div>
 
-<?php
-include 'partials/footer.php';
-?>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

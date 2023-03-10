@@ -40,6 +40,7 @@ include 'partials/nav.php';
 
 </div>
 
-<?php
-include 'partials/footer.php';
-?>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

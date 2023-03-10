@@ -63,10 +63,75 @@
     opacity: 0;
   }
 }
-html{
+html {
   background-color: #eeeeee;
 }
-.btn_control{
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 15% auto;
+  padding: 30px 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  animation-name: modal-show;
+  animation-duration: 0.4s;
+  border-radius: 12px;
+}
+.modal-content p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222222;
+}
+.modal-content .btn_group {
+  margin-top: 20px;
+  display: flex !important;
+  justify-content: center;
+  gap: 10px;
+}
+.modal-content .btn_group .btn {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.modal-content .btn_group .btn-confirm {
+  background-color: #c60000;
+  color: #fff;
+}
+.modal-content .btn_group .btn-cancel {
+  background-color: #eaeaea;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.btn_control {
+  border: none;
+  outline: none;
   cursor: pointer;
   border-radius: 8px;
   display: flex;
@@ -86,7 +151,7 @@ html{
 .secondary {
   background-color: #25417420;
 }
-.danger{
+.danger {
   background-color: #c70000;
 }
 .secondary i {
@@ -3559,8 +3624,8 @@ pre {
   margin-left: 45px;
 }
 
-.main-wrapper{
-    background-color: #eeeeee;
+.main-wrapper {
+  background-color: #eeeeee;
 }
 .main-wrapper-1 .section .section-header {
   margin-left: -30px;

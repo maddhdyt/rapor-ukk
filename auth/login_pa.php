@@ -7,8 +7,6 @@ if (isset($_SESSION['login_admin'])) {
     header("Location: ../admin/dashboard.php");
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +18,6 @@ if (isset($_SESSION['login_admin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin - RAPOR!</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -41,6 +36,7 @@ if (isset($_SESSION['login_admin'])) {
             if (isset($_POST['btnMasuk'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
+                $password = md5($password);
 
                 $data = mysqli_query($koneksi, "SELECT * FROM dat_petugas WHERE username = '$username'");
 
@@ -74,9 +70,6 @@ if (isset($_SESSION['login_admin'])) {
                     <input type="submit" value="Login" class="btn_submit" name="btnMasuk"></input>
                 </div>
             </form>
-            <div class="link">
-                <!-- <a href="../index.php" class="to_home"><i class="fa-solid fa-arrow-right-from-bracket"></i>Kembali</a> -->
-            </div>
         </div>
     </div>
     <script src="../assets/js/main.js"></script>

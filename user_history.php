@@ -24,7 +24,6 @@ include 'partials/nav.php';
             if (mysqli_num_rows($show) <= 0) {
                 echo "<i class='null_alert'>Belum ada pengaduan</i>";
             }
-
             while ($data = mysqli_fetch_assoc($show)) :
             ?>
                 <div class="_card">
@@ -43,16 +42,25 @@ include 'partials/nav.php';
                                                 } ?>"><?= $data['status_pengaduan'] ?>
                             </div>
                         </div>
+                        <div class="modal">
+                            <div class="modal-content">
+                                <p>Yakin hapus pengaduan?</p>
+                                <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
+                                    <input type="text" name="id" value="<?= $data['id']; ?>">
+                                    <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
+                                    <div class="btn btn-cancel">Batal</div>
+                                </form>
+                            </div>
+                        </div>
                         <div class="_menu action_toggle">
                             <i class="fa-solid fa-ellipsis-vertical"></i>
-                            <form action="functions/crud_pengaduan.php" method="post" class="action_menu">
-                                <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                            <div class="action_menu">
                                 <a href="detail_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-circle-info"></i>Detail</a>
                                 <?php if ($data['status_pengaduan'] == 'Diproses') : ?>
                                     <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
                                 <?php endif; ?>
-                                <button type="submit" name="btnDelete"><i class="fa-solid fa-trash-can"></i>Hapus</button>
-                            </form>
+                                <a onclick="showModal()"><i class="fa-solid fa-trash-can"></i>Hapus</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,5 +69,7 @@ include 'partials/nav.php';
     </section>
 </div>
 
+<script src="assets/js/main.js"></script>
+</body>
 
-<?php include 'partials/footer.php' ?>
+</html>

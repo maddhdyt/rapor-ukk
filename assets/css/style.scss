@@ -93,6 +93,71 @@ $bg_primary: #25417420;
     right: 25px;
   }
 }
+// Modal
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 15% auto;
+  padding: 30px 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  animation-name: modal-show;
+  animation-duration: 0.4s;
+  border-radius: 12px;
+  p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222222;
+  }
+  
+  .btn_group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    .btn{
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn-confirm {
+      background-color: #c60000;
+      color: #fff;
+    }
+    .btn-cancel {
+      background-color: #eaeaea;
+    }
+  }
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
 
 // JS Control
 .hide_alert {
@@ -626,12 +691,15 @@ nav {
       ._btn {
         @include base_btn();
         @include flex(center, flex-start);
-        background-color: #ffffff6d;
+        background-color: #fff;
         gap: 15px;
 
         i {
-          color: #fff;
+          color: $primary_color;
           font-size: 18px;
+        }
+        span {
+          color: $primary_color;
         }
       }
     }
@@ -907,7 +975,8 @@ nav {
 .user_profile {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
+  margin-bottom: 150px;
   .user_info {
     width: 100%;
     display: flex;
@@ -1004,7 +1073,7 @@ nav {
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 20px 0px;
+      padding: 20px 10px;
       border: 1px solid #dddddd;
       border-left: 0px;
       border-right: 0px;
@@ -1042,6 +1111,9 @@ nav {
     }
   }
   .btn_logout {
+    cursor: pointer;
+    border: none;
+    outline: none;
     margin-top: 50px;
     width: fit-content;
     @include flex(center, center);
@@ -1068,6 +1140,7 @@ nav {
 }
 // History Pengaduan
 .user_history {
+  margin-bottom: 150px;
   ._title {
     @include flex(center, space-between);
     margin-bottom: 40px;
@@ -1224,6 +1297,7 @@ nav {
 
 // Tulis Pengaduan
 .user_pengaduan {
+  margin-bottom: 150px;
   ._title {
     p {
       font-weight: 400;
@@ -1448,6 +1522,7 @@ nav {
 
 // Pengaduan News
 .user_news {
+  margin-bottom: 150px;
   ._title {
     p {
       font-weight: 400;
@@ -1581,6 +1656,7 @@ nav {
 // Detail Pengaduan
 .pengaduan_detail_wrapper {
   @include grid(1, 1, 40px);
+  margin-bottom: 150px;
 
   ._content {
     ._banner {
@@ -1615,41 +1691,6 @@ nav {
         word-wrap: break-word;
         color: #444444;
         margin-top: 15px;
-      }
-    }
-
-    .tanggapan {
-      margin-top: 35px;
-
-      p {
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 26px;
-        text-align: justify;
-        color: #444444 !important;
-        margin-top: 15px;
-      }
-
-      ._title {
-        h2 {
-          font-weight: 600;
-          font-size: 16px;
-          color: #222222;
-        }
-      }
-
-      ._not_found {
-        border-radius: 8px;
-        padding: 15px 15px;
-        background-color: #ff00004e;
-        text-align: center;
-        margin-top: 15px;
-
-        h4 {
-          font-size: 14px;
-          color: #ff0000;
-          font-weight: 500;
-        }
       }
     }
   }
@@ -1739,10 +1780,37 @@ nav {
     }
     .tanggapan {
       margin-top: 20px;
+
       p {
-        font-size: 14px !important;
-        text-align: start !important;
-        margin-top: 10px !important;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 26px;
+        text-align: justify;
+        color: #444444 !important;
+        margin-top: 10px;
+        word-wrap: break-word;
+      }
+
+      ._title {
+        h2 {
+          font-weight: 600;
+          font-size: 16px;
+          color: #222222;
+        }
+      }
+
+      ._not_found {
+        border-radius: 8px;
+        padding: 15px 15px;
+        background-color: #ff00004e;
+        text-align: center;
+        margin-top: 15px;
+
+        h4 {
+          font-size: 14px;
+          color: #ff0000;
+          font-weight: 500;
+        }
       }
     }
   }

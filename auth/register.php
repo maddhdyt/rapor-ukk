@@ -117,21 +117,16 @@ $title = "Register";
                     <input type="password" name="password2" placeholder="Konfirmasi Password" class="form_control input_password" value="<?php echo $_POST['password2'] ?? null; ?>" required><i class="fa-regular fa-eye" onclick="showPassword()"></i>
                 </div>
                 <div class="form_group">
-                    <input type="submit" value="Daftar" class="btn_submit" name="btnDaftar"></input>
+                    <input type="submit" name="btnDaftar" value="Daftar" class="btn_submit"></input>
                 </div>
             </form>
             <div class="link">
                 <div class="to_another">Sudah punya akun? <a href="login.php">Login</a></div>
-                <!-- <a href="../index.php" class="to_home"><i class="fa-solid fa-arrow-right-from-bracket"></i>Kembali</a> -->
             </div>
         </div>
     </div>
     <script src="../assets/js/main.js"></script>
-    <script>
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, window.location.href);
-        }
-    </script>
+    
 </body>
 
 </html>

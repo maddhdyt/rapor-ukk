@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" />
     <title>Beranda - RAPOR</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,32 +64,26 @@
     </header>
     <section id="options">
         <div class="container">
-            <div class="user_menu">
+        <div class="user_menu">
                 <div class="_card">
                     <div class="_title">
-                        <h2>Tulis Pengaduan</h2>
+                        <h2>Ajukan Pengaduan</h2>
                         <p>Pengaduan akan dikirim dan diverifikasi oleh admin </p>
                     </div>
                     <div class="btn_group">
-                        <div class="_icon">
-                            <img src="assets/img/document.png">
-                        </div>
                         <a href="form_pengaduan.php" class="_btn">
-                            <i class="fa-solid fa-plus"></i><span>Laporan</span>
+                            <i class="fa-solid fa-plus"></i><span>Pengaduan</span>
                         </a>
                     </div>
                 </div>
                 <div class="_card">
                     <div class="_title">
-                        <h2>Pengaduan Terkini</h2>
+                        <h2>Aduan Masyarakat</h2>
                         <p>Kamu bisa melihat aduan terkini yang telah dilaporkan masyarakat</p>
                     </div>
                     <div class="btn_group">
-                        <div class="_icon">
-                            <img src="assets/img/newspaper.png">
-                        </div>
                         <a href="news_pengaduan.php" class="_btn">
-                            <span>Jelajahi</span>
+                            <i class="fa-solid fa-magnifying-glass"></i><span>Jelajahi</span>
                         </a>
                     </div>
                 </div>

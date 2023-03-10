@@ -27,7 +27,6 @@ include 'partials/header.php';
                         <th>Judul</th>
                         <th>Gambar</th>
                         <th>Tanggal Tanggapan</th>
-                        <th>Tanggapan</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,8 +63,6 @@ include 'partials/header.php';
                             <td><?= $data['judul']; ?></td>
                             <td><img class="rounded" src="../assets/img/<?= $data['gambar'] ?>" alt="" width="80px" height="50px"></td>
                             <td><?= $data['tgl_tanggapan']; ?></td>
-                            <td><?= $data['tanggapan']; ?></td>
-
                         </tr>
                     <?php endwhile; ?>
                 </tbody>

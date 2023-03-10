@@ -4,12 +4,11 @@ include 'core/conn.php';
 
 include 'core/init_user.php';
 
-// $id = $_GET['id'];
-
-// if ($id != $_SESSION['id']) {
-//     header("Location: /rapor-ukk/user_dashboard.php");
-// }
 $id = $_SESSION['id'];
+
+if ($id != $_SESSION['id']) {
+    header("Location: /rapor-ukk/user_dashboard.php");
+}
 $show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = $id");
 
 $data = mysqli_fetch_assoc($show);
@@ -17,10 +16,20 @@ $data = mysqli_fetch_assoc($show);
 $title = "Profil Saya";
 
 include 'partials/header.php';
-include 'partials/nav.php';
 
 ?>
-
+<header>
+    <nav class="nav_user">
+        <div class="container">
+            <div class="head_title">
+                <a class="btn_back" href="user_dashboard.php">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </a>
+                <h1><?= $title ?></h1>
+            </div>
+        </div>
+    </nav>
+</header>
 <div class="container">
     <div class="user_profile">
         <div class="user_info">
@@ -39,7 +48,7 @@ include 'partials/nav.php';
             <a href="edit_profile.php?id=<?= $_SESSION['id'] ?>" class="option">
                 <div class="info">
                     <div class="icon">
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-user-pen"></i>
                     </div>
                     <p>Edit Profil</p>
                 </div>
@@ -64,12 +73,23 @@ include 'partials/nav.php';
                 <i class="fa-solid fa-chevron-right"></i>
             </a>
         </div>
-        <a href="auth/logout.php" class="btn_logout">
+
+        <button onclick="showModal()" class="btn_logout">
             Logout<i class="fa-solid fa-arrow-right-to-bracket"></i>
-        </a>
+        </button>
+    </div>
+</div>
+<div class="modal">
+    <div class="modal-content">
+        <p>Yakin untuk keluar akun?</p>
+        <div class="btn_group">
+            <a href="auth/logout.php" class="btn btn-confirm">Keluar</a>
+            <button class="btn btn-cancel">Batal</button>
+        </div>
     </div>
 </div>
 
-<?php
-include 'partials/footer.php';
-?>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>
