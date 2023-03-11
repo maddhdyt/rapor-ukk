@@ -49,7 +49,6 @@ function hideModal() {
 }
 
 btnConfirm.addEventListener('click', () => {
-    // Do something when user confirms
     hideModal();
 });
 

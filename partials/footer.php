@@ -1,40 +1,5 @@
-<footer>
-    <div class="container">
-        <div class="footer_content">
-            <div class="footer_nav">
-                <div class="_title">
-                    <h1>RAPOR!</h1>
-                    <p>Website pengaduan bagi masyarakat untuk melaporkan keluhan mereka kepada instansi publik
-                        berbasis online</p>
-                </div>
-            </div>
-            <div class="nav_group">
-                <div class="_title">
-                    <h2>Navigasi</h2>
-                </div>
-                <div class="_items">
-                    <a href="#" class="nav_link">Beranda</a>
-                    <a href="#" class="nav_link">Tulis Laporan</a>
-                    <a href="#" class="nav_link">Pengaduan Terkini</a>
-                    <a href="#" class="nav_link">How it Works?</a>
-                    <a href="#" class="nav_link">Tentang Kami</a>
-                </div>
-            </div>
-            <div class="contact_form">
-                <div class="_title">
-                    <h2>Kontak kami</h2>
-                </div>
-                <div class="_items">
-                    <p>Phone : +6287731370962</p>
-                    <p>Email : rapor.rck@gmail.com</p>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy;Copyright 2023 Ahmad Hidayat - UKK Rekayasa Perangkat Lunak</p>
-        </div>
-    </div>
-</footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 <script src="assets/js/main.js"></script>
 </body>
 

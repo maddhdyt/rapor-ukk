@@ -16,9 +16,6 @@ include 'partials/header.php';
 <div class="main-content">
     <div class="card mt-3" style="border-radius: 8px;">
         <div class="card-body">
-            <a href="tambah_masyarakat.php" class="btn btn-primary mb-4">
-                Tambah Masyarakat
-            </a>
             <table id="raporTable" class="display nowrap" style="width: 100%;">
                 <thead>
                     <tr>
@@ -50,7 +47,7 @@ include 'partials/header.php';
                                     <input type="hidden" name="id" value="<?= $data['id'] ?> ">
                                     <input type="hidden" name="nik" value="<?= $data['nik'] ?> ">
                                     <div class="d-flex" style="gap: 10px;">
-                                        <a href="edit_masyarakat.php?id=<?php echo $data['id'] ?>" class="btn_control primary text-white"><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <a href="info_masyarakat.php?id=<?php echo $data['id'] ?>" class="btn_control primary text-white"><i class="fa-solid fa-circle-info"></i></a>
                                     </div>
                                 </form>
                             </td>

@@ -42,16 +42,6 @@ include 'partials/nav.php';
                                                 } ?>"><?= $data['status_pengaduan'] ?>
                             </div>
                         </div>
-                        <div class="modal">
-                            <div class="modal-content">
-                                <p>Yakin hapus pengaduan?</p>
-                                <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
-                                    <input type="text" name="id" value="<?= $data['id']; ?>">
-                                    <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
-                                    <div class="btn btn-cancel">Batal</div>
-                                </form>
-                            </div>
-                        </div>
                         <div class="_menu action_toggle">
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                             <div class="action_menu">
@@ -59,17 +49,24 @@ include 'partials/nav.php';
                                 <?php if ($data['status_pengaduan'] == 'Diproses') : ?>
                                     <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
                                 <?php endif; ?>
-                                <a onclick="showModal()"><i class="fa-solid fa-trash-can"></i>Hapus</a>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmModal<?= $data['id'] ?>" onclick="showModal()"><i class="fa-solid fa-trash-can"></i>Hapus</button>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="modal" id="confirmModal<?= $data['id'] ?>" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+                        <div class="modal-content">
+                            <p>Yakin hapus pengaduan?</p>
+                            <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
+                                <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                                <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
+                                <div class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Batal</div>
+                            </form>
+                        </div>
                 </div>
             <?php endwhile ?>
         </div>
     </section>
 </div>
 
-<script src="assets/js/main.js"></script>
-</body>
-
-</html>
+<?php include 'partials/footer.php'; ?>

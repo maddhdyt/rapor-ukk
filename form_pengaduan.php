@@ -57,8 +57,4 @@ include 'partials/nav.php';
         </form>
     </div>
 </div>
-
-<script src="assets/js/main.js"></script>
-</body>
-
-</html>
+<?php include 'partials/footer.php'; ?>

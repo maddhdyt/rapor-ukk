@@ -167,18 +167,20 @@ include 'partials/header.php';
                                 <?php if ($data['status_pengaduan'] == 'Diproses') : ?>
                                     <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
                                 <?php endif; ?>
-                                <a onclick="showModal()"><i class="fa-solid fa-trash-can"></i>Hapus</a>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmModal<?= $data['id'] ?>" onclick="showModal()"><i class="fa-solid fa-trash-can"></i>Hapus</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="modal">
+                <!-- Button trigger modal -->
+                <!-- Modal -->
+                <div class="modal" id="confirmModal<?= $data['id'] ?>" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
                     <div class="modal-content">
                         <p>Yakin hapus pengaduan?</p>
                         <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
                             <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
                             <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
-                            <div class="btn btn-cancel">Batal</div>
+                            <div class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Batal</div>
                         </form>
                     </div>
                 </div>
@@ -186,5 +188,39 @@ include 'partials/header.php';
         </div>
     </section>
 </div>
-
+<footer>
+    <div class="container">
+        <div class="footer_content">
+            <div class="footer_nav">
+                <div class="_title">
+                    <h1>RAPOR!</h1>
+                    <p>Website pengaduan bagi masyarakat untuk melaporkan keluhan mereka kepada instansi publik
+                        berbasis online</p>
+                </div>
+            </div>
+            <div class="nav_group">
+                <div class="_title">
+                    <h2>Navigasi</h2>
+                </div>
+                <div class="_items">
+                    <a href="#" class="nav_link">Beranda</a>
+                    <a href="form_pengaduan.php" class="nav_link">Tulis Laporan</a>
+                    <a href="news_pengaduan.php" class="nav_link">Aduan Masyarakat</a>
+                </div>
+            </div>
+            <div class="contact_form">
+                <div class="_title">
+                    <h2>Kontak kami</h2>
+                </div>
+                <div class="_items">
+                    <p>Phone : +6287731370962</p>
+                    <p>Email : rapor.rck@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy;Copyright 2023 Ahmad Hidayat - UKK Rekayasa Perangkat Lunak</p>
+        </div>
+    </div>
+</footer>
 <?php include 'partials/footer.php'; ?>

@@ -10,6 +10,11 @@ $show = mysqli_query($koneksi, "SELECT * FROM dat_petugas WHERE id = $id");
 
 $data = mysqli_fetch_assoc($show);
 
+// Jika tidak ada masyarakat yang id = $_GET['id']
+if ($id !== $data['id']) {
+    echo "<script>document.location='data_petugas.php';</script>";
+}
+
 $title = "Data Petugas";
 
 include 'partials/header.php';

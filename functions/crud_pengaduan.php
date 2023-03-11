@@ -36,9 +36,11 @@ if (isset($_POST['btnDelete'])) {
     $id = $_POST['id'];
 
     $show = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE id = '$id'");
-    $ambil = mysqli_fetch_assoc($show);
+    $data = mysqli_fetch_assoc($show);
 
-    unlink("../assets/img/" . $ambil['gambar']);
+    if ($data['gambar'] != "") {
+        unlink("../assets/img/" . $data['gambar']);
+    }
     $hapus = mysqli_query($koneksi, "DELETE FROM dat_pengaduan WHERE id = '$id'");
 
     if ($hapus) {
@@ -68,35 +70,3 @@ if (isset($_POST['btnUpdate'])) {
     }
 }
 
-// if (isset($_POST['btnUpdateProfile'])) {
-//     $id = $_POST['id'];
-//     $nik = $_POST['nik'];
-//     $nama = $_POST['nama'];
-//     $telp = $_POST['telp'];
-//     $alamat = $_POST['alamat'];
-//     $username = $_POST['username'];
-//     $old_pass = $_POST['old_pass'];
-//     $old_pic = $_POST['old_pic'];
-//     $namafile = $_FILES['gambar']['name'];
-//     $ukuran = $_FILES['gambar']['size'];
-//     $dir = "../assets/img/";
-//     $random = rand();
-//     $tmpFile = $_FILES['gambar']['tmp_name'];
-
-//     if ($namafile === "") {
-//         mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$old_pic', username = '$username', password = '$old_pass' WHERE id = $id");
-//         echo "<script>alert('Data Berhasil Diubah'); document.location='../user_dashboard.php';</script>";
-//     } else {
-//         $tampil = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = '$id'");
-//         $data = mysqli_fetch_assoc($tampil);
-
-//         if (file_exists("../assets/img/" . $data['profile'])) {
-//             unlink("../assets/img/" . $data['profile']);
-//         }
-
-//         move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
-//         $gambar = $random . '_' . $namafile;
-//         mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$gambar', username = '$username', password = '$old_pass' WHERE id = $id");
-//         echo "<script>alert('Data akun berhasil diupdate'); document.location='../user_dashboard.php'; </script>";
-//     }
-// }
