@@ -86,7 +86,7 @@ $title = "Register";
                     <?php $simpan = mysqli_query($koneksi, "INSERT INTO dat_masyarakat VALUES ('', '$nik', '$nama','$telp', '$alamat', '', '$username', '$password')");
                     if ($simpan) : ?>
                         <div class="success_alert"> Akun berhasil dibuat, silahkan login</div>
-                        <?php header("refresh:2; Location: login.php;"); ?>
+                        <?php header("refresh:1; url=login.php"); ?>
                     <?php else : ?>
                         <div class="error_alert"> Akun gagal dibuat</i></div>
                     <?php endif; ?>
