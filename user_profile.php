@@ -20,7 +20,7 @@ include 'partials/header.php';
 ?>
 <header>
     <nav class="nav_user">
-        <div class="container">
+        <div class="_container">
             <div class="head_title">
                 <a class="btn_back" href="user_dashboard.php">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -30,7 +30,7 @@ include 'partials/header.php';
         </div>
     </nav>
 </header>
-<div class="container">
+<div class="_container">
     <div class="user_profile">
         <div class="user_info">
             <div class="user">
@@ -74,17 +74,24 @@ include 'partials/header.php';
             </a>
         </div>
 
-        <button onclick="showModal()" class="btn_logout">
+        <button class="btn_logout" data-bs-toggle="modal" data-bs-target="#confirmModal">
             Logout<i class="fa-solid fa-arrow-right-to-bracket"></i>
         </button>
     </div>
 </div>
-<div class="modal">
-    <div class="modal-content">
-        <p>Yakin untuk keluar akun?</p>
-        <div class="btn_group">
-            <a href="auth/logout.php" class="btn btn-confirm">Keluar</a>
-            <button class="btn btn-cancel">Batal</button>
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Yakin keluar akun?</p>
+            </div>
+            <div class="modal-footer border-0 p-0 m-0">
+                <div class="btn_group">
+                    <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                    <a href="auth/logout.php" class="btn btn-confirm">Keluar</a>
+                    <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Batal</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

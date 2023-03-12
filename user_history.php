@@ -6,8 +6,9 @@ include 'core/init_user.php';
 
 $id = $_GET['id'];
 
+// Jika bukan id pengguna
 if ($id != $_SESSION['id']) {
-    header("Location: /rapor-ukk/user_dashboard.php");
+    header("Location: error/403_error.php");
 }
 
 $title = "History Pengaduan";
@@ -15,7 +16,7 @@ $title = "History Pengaduan";
 include 'partials/header.php';
 include 'partials/nav.php';
 ?>
-<div class="container">
+<div class="_container">
     <section class="user_history">
         <div class="history_list">
             <?php
@@ -49,20 +50,26 @@ include 'partials/nav.php';
                                 <?php if ($data['status_pengaduan'] == 'Diproses') : ?>
                                     <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
                                 <?php endif; ?>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmModal<?= $data['id'] ?>" onclick="showModal()"><i class="fa-solid fa-trash-can"></i>Hapus</button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmModal<?= $data['id'] ?>"><i class="fa-solid fa-trash-can"></i>Hapus</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="confirmModal<?= $data['id'] ?>" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+                <div class="modal fade" id="confirmModal<?= $data['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <p>Yakin hapus pengaduan?</p>
-                            <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
-                                <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
-                                <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
-                                <div class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Batal</div>
-                            </form>
+                            <div class="modal-body">
+                                <p>Yakin hapus pengaduan?</p>
+                            </div>
+                            <div class="modal-footer border-0 p-0 m-0">
+                                <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
+                                    <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                                    <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
+                                    <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Batal</button>
+                                </form>
+                            </div>
                         </div>
+                    </div>
                 </div>
             <?php endwhile ?>
         </div>

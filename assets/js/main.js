@@ -36,20 +36,20 @@ for (let i = 0; i < actionToggle.length; i++) {
     })
 }
 
-const modal = document.querySelector('.modal');
-const btnConfirm = document.querySelector('.btn-confirm');
-const btnCancel = document.querySelector('.btn-cancel');
+// const modal = document.querySelector('.modal');
+// const btnConfirm = document.querySelector('.btn-confirm');
+// const btnCancel = document.querySelector('.btn-cancel');
 
-function showModal() {
-    modal.style.display = 'block';
-}
+// function showModal() {
+//     modal.style.display = 'block';
+// }
 
-function hideModal() {
-    modal.style.display = 'none';
-}
+// function hideModal() {
+//     modal.style.display = 'none';
+// }
 
-btnConfirm.addEventListener('click', () => {
-    hideModal();
-});
+// btnConfirm.addEventListener('click', () => {
+//     hideModal();
+// });
 
-btnCancel.addEventListener('click', hideModal);
+// btnCancel.addEventListener('click', hideModal);

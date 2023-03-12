@@ -2,7 +2,7 @@
 
 include '../core/conn.php';
 
-include '../core/init_admin_only.php';
+include '../core/init_admin.php';
 
 $id = $_SESSION['id_petugas'];
 
@@ -15,7 +15,7 @@ include 'partials/header.php';
 <!-- Main Content -->
 <div class="main-content">
     <div class="card mt-3" style="border-radius: 8px;">
-        <div class="card-body">
+        <div class="card-body"> 
             <table id="raporTable" class="display nowrap" style="width: 100%;">
                 <thead>
                     <tr>

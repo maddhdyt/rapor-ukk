@@ -16,16 +16,16 @@
 <body>
     <header>
         <nav>
-            <div class="container">
+            <div class="_container">
                 <div class="logo">
                     <a href="#">RAPOR!</a>
                 </div>
                 <div class="nav_items">
                     <ul>
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#options">Fitur</a></li>
-                        <li><a href="#about">Tentang Kami</a></li>
-                        <li><a href="#alurPengaduan">Alur Pengaduan</a></li>
+                        <li onclick="showNavbar()"><a href="#">Beranda</a></li>
+                        <li onclick="showNavbar()"><a href="#options">Fitur</a></li>
+                        <li onclick="showNavbar()"><a href="#about">Tentang Kami</a></li>
+                        <li onclick="showNavbar()"><a href="#alurPengaduan">Alur Pengaduan</a></li>
                         <a href="auth/login.php" class="btn_login">
                             Masuk<i class="fa-solid fa-arrow-right-to-bracket"></i>
                         </a>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
+        <div class="_container">
             <div class="header_content">
                 <div class="_title">
                     <h1>
@@ -44,10 +44,10 @@
                     </h1>
                     <p>
                         Laporkan keluhan kepada instansi publik dengan menulis
-                        pengaduan dengan cepat bersama RAPOR sekarang!
+                        pengaduan dengan cepat bersama RAPOR!
                     </p>
-                    <a href="#alurPengaduan" class="_btn">
-                        Pelajari Sekarang
+                    <a href="auth/register.php" class="_btn">
+                        Daftar Sekarang
                     </a>
                 </div>
                 <div class="_banner">
@@ -57,7 +57,7 @@
         </div>
     </header>
     <section id="options">
-        <div class="container">
+        <div class="_container">
             <div class="text_group">
                 <h2 class="_title">Fitur <span class="text_primary">Rapor</span></h2>
                 <p class="_desc">Rapor memiliki beberapa fitur utama berikut</p>
@@ -89,17 +89,17 @@
         </div>
     </section>
     <section id="about">
-        <div class="container">
+        <div class="_container">
             <div class="about">
                 <div class="text_group">
                     <h2 class="_title">
                         Tentang <span class="text_primary">Rapor</span>
                     </h2>
                     <p class="_desc">
-                        Rapor atau Rakyat Melapor merupakan aplikasi pengaduan berbasis website yang hadir sebagai wadah keluhanmu terhadap instansi publik dengan proses pengaduan yang lebih cepat dan mudah. Kamu bisa menulis pengaduan tentang keluhan terhadap pelayanan umum yang kurang baik, kerusakan infrastuktur umum, tindak kriminal pegawai publik dan lain - lain. Laporanmu akan dikelola oleh pegawai desa dan akan ditindak lanjuti secepatnya.
+                        Rapor atau Rakyat Melapor merupakan aplikasi pengaduan berbasis website yang hadir sebagai wadah keluhanmu terhadap instansi publik dengan proses pengaduan yang lebih cepat dan mudah. Laporanmu akan dikelola oleh pegawai desa dan akan ditindak lanjuti secepatnya.
                     </p>
-                    <a href="auth/register.php" class="_btn">
-                        Get Started
+                    <a href="#alurPengaduan" class="_btn">
+                        Pelajari Sekarang
                     </a>
                 </div>
                 <div class="icon_group">
@@ -126,17 +126,17 @@
                     </div>
                     <div class="_card">
                         <div class="icon">
-                            <img src="assets/icon/icon-globe.png">
+                            <img src="assets/icon/icon-shield.png">
                         </div>
-                        <h2>Bersifat Publik</h2>
-                        <p>Kamu bisa melihat pengaduan yang dilaporkan masyarakat</p>
+                        <h2>Privasi Terlindungi</h2>
+                        <p>Kamu bisa mengirim pengaduan secara publik maupun pribadi</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <section id="alurPengaduan">
-        <div class="container">
+        <div class="_container">
             <div class="alur_pengaduan">
                 <div class="text_group">
                     <h2 class="_title">Alur <span class="text_primary">Pengaduan</span></h2>
@@ -149,7 +149,7 @@
                         </div>
                         <div class="desc">
                             <h2>Tulis Pengaduan</h2>
-                            <p>Pertama-tama tuliskan laporanmu yang ingin diajukan ke pihak desa. Pastikan menulis laporan anda dengan jelas.</p>
+                            <p>Ajukan laporanmu kepada pihak instansi publik. Pastikan menulis laporan anda dengan jelas.</p>
                         </div>
                     </div>
                     <div class="item">
@@ -184,7 +184,7 @@
         </div>
     </section>
     <footer>
-        <div class="container">
+        <div class="_container">
             <div class="footer_content">
                 <div class="footer_nav">
                     <div class="_title">

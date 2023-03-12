@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="assets/icon/logo-rapor.svg" type="image/x-icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <body>

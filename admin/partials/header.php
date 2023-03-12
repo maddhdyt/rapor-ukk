@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="google" content="notranslate">
     <title>Rapor Dashboard | <?= $title ?> </title>
 
     <!-- General CSS Files -->
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="../assets/vendor/datatables.min.css">
     <link rel="stylesheet" href="../assets/vendor/responsive.dataTables.min.css">
     <link rel="stylesheet" href="../assets/vendor/jquery.dataTables.min.css">
+    <link rel="shortcut icon" href="../assets/icon/logo-rapor.svg" type="image/x-icon">
 
 
     <!-- CSS Libraries -->
@@ -94,7 +96,7 @@
                                             echo "";
                                         } ?>"><a class="nav-link" href="pengaduan_report.php"><i class="fa-solid fa-print"></i><span>Print Laporan</span></a></li>
 
-                            <li class="menu-header">Registrasi</li>
+                            <li class="menu-header">Data User</li>
                             <li class="<?php if ($title == "Data Masyarakat") {
                                             echo "active";
                                         } else {
@@ -122,6 +124,12 @@
                                         } else {
                                             echo "";
                                         } ?>"><a class="nav-link" href="kelola_tanggapan.php"><i class="fa-regular fa-comments"></i><span>Tanggapan</span></a></li>
+                            <li class="menu-header">Data User</li>
+                            <li class="<?php if ($title == "Data Masyarakat") {
+                                            echo "active";
+                                        } else {
+                                            echo "";
+                                        } ?>"><a class="nav-link" href="data_masyarakat.php"><i class="fa-solid fa-users"></i><span>Data Masyarakat</span></a></li>
                         <?php endif; ?>
                     </ul>
                 </aside>

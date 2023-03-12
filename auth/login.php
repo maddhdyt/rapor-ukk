@@ -43,18 +43,17 @@ $title = "Login";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" />
     <title><?= $title ?> - RAPOR!</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
-    <!-- <script src="https://kit.fontawesome.com/0297ba9f6f.js" crossorigin="anonymous"></script> -->
 </head>
 
 <body>
-    <div class="container">
+    <div class="_container">
         <div class="form_enter_container">
             <div class="form_title">
                 <a href="../index.php">RAPOR!</a>
@@ -71,7 +70,7 @@ $title = "Login";
                 if (mysqli_num_rows($data) === 1) : ?>
                     <?php $baris = mysqli_fetch_assoc($data);
                     if ($password == $baris['password']) : ?>
-                        <div class="success_alert alert"> Login berhasil...</div>
+                        <div class="success_alert"> Login berhasil...</div>
                         <?php
                         header("refresh:2; url=../user_dashboard.php");
                         $_SESSION['id'] = $baris['id'];
@@ -82,10 +81,10 @@ $title = "Login";
                         $_SESSION['profile'] = $baris['profile'];
                         exit; ?>
                     <?php else : ?>
-                        <div class="error_alert alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
+                        <div class="error_alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
                     <?php endif; ?>
                 <?php else : ?>
-                    <div class="error_alert alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
+                    <div class="error_alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
                 <?php endif; ?>
             <?php endif; ?>
 

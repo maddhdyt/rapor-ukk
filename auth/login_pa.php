@@ -16,6 +16,7 @@ if (isset($_SESSION['login_admin'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" />
     <title>Login Admin - RAPOR!</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,10 +24,11 @@ if (isset($_SESSION['login_admin'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="../assets/icon/logo-rapor.svg" type="image/x-icon">
 </head>
 
 <body>
-    <div class="container">
+    <div class="_container">
         <div class="form_enter_container">
             <div class="form_title">
                 <a href="../index.php">RAPOR!</a>
@@ -43,7 +45,7 @@ if (isset($_SESSION['login_admin'])) {
                 if (mysqli_num_rows($data) === 1) {
                     $baris = mysqli_fetch_assoc($data);
                     if ($password == $baris['password']) {
-                        echo "<div class='success_alert alert'> Login berhasil...</div>";
+                        echo "<div class='success_alert'> Login berhasil...</div>";
                         header("refresh:2; url=../admin/dashboard.php");
                         $_SESSION['id_petugas'] = $baris['id'];
                         $_SESSION['login_admin'] = true;
@@ -52,10 +54,10 @@ if (isset($_SESSION['login_admin'])) {
                         $_SESSION['level'] = $baris['level'];
                         exit;
                     } else {
-                        echo "<div class='error_alert alert'> Username atau password salah <i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
+                        echo "<div class='error_alert'> Username atau password salah <i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
                     }
                 } else {
-                    echo "<div class='error_alert alert'> Username atau password salah <i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
+                    echo "<div class='error_alert'> Username atau password salah <i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
                 }
             }
             ?>

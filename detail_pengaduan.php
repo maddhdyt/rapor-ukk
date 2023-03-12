@@ -1,23 +1,35 @@
 <?php
-
+session_start();
 $title = "Detail Pengaduan";
 $id = $_GET['id'];
+$nik = $_SESSION['nik'] ?? null;
 
 include 'core/conn.php';
 
-$show = mysqli_query($koneksi, "SELECT dat_pengaduan.id, dat_pengaduan.tgl_pengaduan, dat_pengaduan.judul, dat_pengaduan.gambar, dat_pengaduan.status_pengaduan, dat_pengaduan.deskripsi, dat_masyarakat.nik, dat_masyarakat.nama, dat_masyarakat.profile FROM dat_pengaduan INNER JOIN dat_masyarakat ON dat_pengaduan.nik = dat_masyarakat.nik WHERE dat_pengaduan.id = $id");
+$show = mysqli_query($koneksi, "SELECT dat_pengaduan.id, dat_pengaduan.tgl_pengaduan, dat_pengaduan.judul, dat_pengaduan.gambar, dat_pengaduan.status_pengaduan, dat_pengaduan.deskripsi, dat_pengaduan.kategori, dat_masyarakat.nik, dat_masyarakat.nama, dat_masyarakat.profile FROM dat_pengaduan INNER JOIN dat_masyarakat ON dat_pengaduan.nik = dat_masyarakat.nik WHERE dat_pengaduan.id = $id");
 
 $data = mysqli_fetch_assoc($show);
 
+// jika id tidak ada
 if ($id !== $data['id']) {
-    echo "<script>document.location='user_dashboard.php';</script>";
+    echo "<script>document.location='error/404_error.php';</script>";
 }
+// Inisialisasi pengaduan private
+// if ($data['kategori'] == 'private' && $data['nik'] != $nik && !isset($_SESSION['login_admin'])){
+//     echo "<script>document.location='error/403_error.php';</script>";
+// }
+// if ($data['kategori'] == 'private' && $nik !== $data['nik']) {
+//     echo "<script>document.location='error/403_error.php';</script>";
+//     return false;
+// } else if ($data['kategori'] == 'private' && isset($_SESSION['login_admin'])) {
+//     echo "<script>alert('tes');</script>";
+// } 
 include 'partials/header.php';
 
 ?>
 <header>
     <nav class="nav_user">
-        <div class="container">
+        <div class="_container">
             <div class="head_title">
                 <a class="btn_back" onclick="history.back()">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -27,7 +39,7 @@ include 'partials/header.php';
         </div>
     </nav>
 </header>
-<div class="container">
+<div class="_container">
     <div class="pengaduan_detail_wrapper">
         <div class="_content">
             <div class="_banner">

@@ -3,6 +3,7 @@
 include '../core/conn.php';
 
 session_start();
+
 if (isset($_POST['btnDaftar'])) {
     $name = $_POST['nama_petugas'];
     $telp = $_POST['telp'];
@@ -68,15 +69,17 @@ if (isset($_POST['btnUbah'])) {
 if (isset($_POST['btnDelete'])) {
     $id = $_POST['id'];
 
-    $hapus = mysqli_query($koneksi, "DELETE FROM dat_petugas WHERE id = '$id'");
 
-    if ($hapus) {
-        echo "<script>alert('Data berhasil dihapus');
+    if ($id === $_SESSION['id_petugas']) {
+       echo "<script>alert('Gagal, akun sedang dipakai') </script>";
+    } else {
+        $hapus = mysqli_query($koneksi, "DELETE FROM dat_petugas WHERE id = '$id'");
+        if ($hapus) {
+            echo "<script>alert('Data berhasil dihapus');
             window.history.back();
         </script>";
-    } else {
-        echo "<script>alert('Data gagal dihapus')</script>";
+        } else {
+            echo "<script>alert('Gagal dihapus')</script>";
+        }
     }
 }
-
-?>

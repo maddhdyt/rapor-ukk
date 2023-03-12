@@ -1,3 +1,0 @@
-<?php 
-
-$alert = false;

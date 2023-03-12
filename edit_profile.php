@@ -1,13 +1,12 @@
 <?php
 
 include 'core/conn.php';
-
 include 'core/init_user.php';
 
 $id = $_GET['id'];
 
 if ($id != $_SESSION['id']) {
-    header("Location: /rapor-ukk/user_dashboard.php");
+    header("Location: error/403_error.php");
 }
 
 $show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = $id");
@@ -21,7 +20,7 @@ include 'partials/nav.php';
 
 ?>
 
-<div class="container">
+<div class="_container">
     <div class="user_pengaduan">
         <?php
         if (isset($_POST['btnUpdateProfile'])) {        
@@ -41,7 +40,7 @@ include 'partials/nav.php';
 
             if ($namafile === "") {
                 mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$old_pic', username = '$username', password = '$old_pass' WHERE id = $id");
-                echo "<div class='success_alert alert'> Akun berhasil diupdate</div>";
+                echo "<div class='success_alert'> Akun berhasil diupdate</div>";
                 header("refresh:1; url=user_dashboard.php");
             } else {
                 $tampil = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = '$id'");
@@ -54,7 +53,7 @@ include 'partials/nav.php';
                 move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
                 $gambar = $random . '_' . $namafile;
                 mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$gambar', username = '$username', password = '$old_pass' WHERE id = $id");
-                echo "<div class='success_alert alert'> Akun berhasil diupdate</div>";
+                echo "<div class='success_alert'> Akun berhasil diupdate</div>";
                 header("refresh:1; url=user_dashboard.php");
             }
         }
@@ -95,7 +94,7 @@ include 'partials/nav.php';
                 <label for="">Alamat</label>
                 <input type="text" class="form_control" name="alamat" value="<?= $data['alamat'] ?>">
             </div>
-            <div class="form_group col-2">
+            <div class="form_group">
                 <input type="submit" name="btnUpdateProfile" value="Simpan Perubahan" class="btn_submit"></input>
             </div>
         </form>

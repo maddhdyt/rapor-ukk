@@ -2,7 +2,7 @@
 
 include '../core/conn.php';
 
-include '../core/init_admin_only.php';
+include '../core/init_admin.php';
 
 $id = $_GET['id'];
 

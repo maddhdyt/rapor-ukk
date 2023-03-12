@@ -6,6 +6,16 @@ include '../core/init_admin.php';
 
 $id = $_GET['id'];
 
+$show = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE id = $id");
+
+$data = mysqli_fetch_assoc($show);
+
+// Jika tidak ada masyarakat yang id = $_GET['id']
+if ($id !== $data['id']) {
+    echo "<script>document.location='../error/404_error.php';</script>";
+}
+
+
 $title = "Kelola Pengaduan";
 
 include 'partials/header.php';

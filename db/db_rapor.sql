@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2023 at 10:42 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- Generation Time: Mar 12, 2023 at 06:43 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,21 +33,20 @@ CREATE TABLE `dat_masyarakat` (
   `nama` varchar(100) NOT NULL,
   `telp` varchar(15) NOT NULL,
   `alamat` text NOT NULL,
+  `profile` text NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dat_masyarakat`
 --
 
-INSERT INTO `dat_masyarakat` (`id`, `nik`, `nama`, `telp`, `alamat`, `username`, `password`) VALUES
-(17, '12349729384', 'Alexander Pandora', '0877313709621', 'Rancakalong', 'alex', '1234'),
-(18, '2374628734627834', 'Dandi Ramadhan', 'qwrqwr', 'qwrqwr', 'dandi', '1234'),
-(19, '', '', '', '', '', ''),
-(20, '3211190311072838', 'Dandi ganteng', '82913', 'Dayeuhluhur', 'danzz', '1234'),
-(21, '001', 'Ammar', '08773173627476', 'Tangker', 'Marz', '1234'),
-(22, '3211190311072832', 'Anwar Maulana', '083126902110', 'SITURAJA', 'away', '12345');
+INSERT INTO `dat_masyarakat` (`id`, `nik`, `nama`, `telp`, `alamat`, `profile`, `username`, `password`) VALUES
+(43, '3211190311072830', 'Ahmad Hidayat', '083126902110', 'Rancakalong', '347660336_The Wind Rises ↝ Jiro Horikoshi _ Hanako Satomi _ Honjo _ Kayo Horikoshi _ Kurokawa.jpg', 'amadkun', '81dc9bdb52d04dc20036dbd8313ed055'),
+(44, '3211160407040004', 'Erika Sukmawati', '08731370962', 'Nalegong', '498538852_𝗏𝖾𝗅𝗈𝗎𝗍_.png', 'jaegf', '6a40cf245cb3250a41e457bebb9bf561'),
+(45, '321119031017381', 'Masyarakat 1', '083126902261', 'Konoha', '', 'masyarakat1', '81dc9bdb52d04dc20036dbd8313ed055'),
+(46, '321119031816317', 'Rafly Doank', '083126294828', 'Situraja', '', 'rflygntng', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
 
@@ -62,19 +61,20 @@ CREATE TABLE `dat_pengaduan` (
   `judul` varchar(100) NOT NULL,
   `gambar` text NOT NULL,
   `deskripsi` text NOT NULL,
-  `status_pengaduan` enum('Diproses','Diterima','Ditolak') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status_pengaduan` enum('Diproses','Diterima','Ditolak') NOT NULL,
+  `kategori` enum('private','public') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dat_pengaduan`
 --
 
-INSERT INTO `dat_pengaduan` (`id`, `nik`, `tgl_pengaduan`, `judul`, `gambar`, `deskripsi`, `status_pengaduan`) VALUES
-(81, '3211190311072838', '2023-02-21', 'Katel lengit', '834553679_IMG-20230220-WA0036.jpg', 'Tolong carikan katel saya', 'Diproses'),
-(85, '001', '2023-02-21', 'Perbaikan Jalan', '1258303367_', 'Tolong jalan tanjungkerta diperbaiki ', 'Diproses'),
-(86, '001', '2023-02-21', 'Puan Maharani', '284087670_', 'Mohon kepada Pak Jokowi segera memundurkan diri dari masa jababatannya menjadi presiden', 'Diproses'),
-(87, '001', '2023-02-21', 'Fredin', '1393255760_', 'Jika baikmu disepelekan maju dan hancurkan\r\n\r\nMaju ketika benar mundur ketika salah\r\n\r\nyow kumaha barudak\r\n\r\nSIKATTTTTTTTTTTTTT!', 'Diproses'),
-(88, '001', '2023-02-21', 'Dandi Ramadhan', '556390043_', 'Kata sandi hospot nn madd', 'Diproses');
+INSERT INTO `dat_pengaduan` (`id`, `nik`, `tgl_pengaduan`, `judul`, `gambar`, `deskripsi`, `status_pengaduan`, `kategori`) VALUES
+(177, '3211190311072830', '2023-03-12', 'Jalan rusak', '2085843501_images (1).jpeg', 'Ada jalan berlubang disekitaran cibiru, mohon segera diperbaiki karena sangat menggangu lalu lintas', 'Diproses', 'public'),
+(178, '3211190311072830', '2023-03-12', 'Fasilitas rusak', '1924825854_IMG-20230312-WA0075.jpg', 'Tanda lalu lintas roboh, mohon segera diperbaiki ', 'Diproses', 'public'),
+(179, '321119031017381', '2023-03-12', 'Atap bocor', '1951965538_IMG-20230312-WA0072.jpg', 'Atap di bangunan desa Rancakalong berlubang, harap segera diperbaiki', 'Diproses', 'public'),
+(180, '321119031816317', '2023-03-12', 'Jalan rusak', '1094441428_IMG-20230312-WA0074.jpg', 'Jalan rusak menghabat aktivitas warga sekitar cibiru mohon segera diperbaiki', 'Diterima', 'public'),
+(181, '3211190311072830', '2023-03-12', 'Karyawan bank dicurigai bobol atm', '782719387_IMG-20230312-WA0077.jpg', 'Atm di dekat rumah saya semalam kebobolan, saya curiga ke salah satu karyawan di BRI itu karena gerak geriknya yang mencurigakan, mohon segera diidentifikasi pelakunya', 'Diproses', 'private');
 
 -- --------------------------------------------------------
 
@@ -89,15 +89,15 @@ CREATE TABLE `dat_petugas` (
   `level` enum('admin','petugas') NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dat_petugas`
 --
 
 INSERT INTO `dat_petugas` (`id`, `nama_petugas`, `telp`, `level`, `username`, `password`) VALUES
-(1, 'asep', '087777777', 'petugas', 'petugas', 'petugas'),
-(2, 'AsepKun', '083126902110', 'admin', 'admin', 'admin');
+(6, 'Petugas Baru', '080', 'petugas', 'petugas', '81dc9bdb52d04dc20036dbd8313ed055'),
+(7, 'Admin Ahmad', '083126902110', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -111,14 +111,15 @@ CREATE TABLE `dat_tanggapan` (
   `id_petugas` int(11) NOT NULL,
   `tgl_tanggapan` date NOT NULL,
   `tanggapan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dat_tanggapan`
 --
 
 INSERT INTO `dat_tanggapan` (`id`, `id_pengaduan`, `id_petugas`, `tgl_tanggapan`, `tanggapan`) VALUES
-(2, 82, 2, '2023-02-21', 'Gmau jual pulau lagi\r\n');
+(30, 175, 7, '2023-03-12', 'qwfrqwf'),
+(31, 180, 7, '2023-03-12', 'oke akan segera kami tindak lanjut segera\r\n');
 
 --
 -- Indexes for dumped tables
@@ -156,25 +157,25 @@ ALTER TABLE `dat_tanggapan`
 -- AUTO_INCREMENT for table `dat_masyarakat`
 --
 ALTER TABLE `dat_masyarakat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `dat_pengaduan`
 --
 ALTER TABLE `dat_pengaduan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
 
 --
 -- AUTO_INCREMENT for table `dat_petugas`
 --
 ALTER TABLE `dat_petugas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `dat_tanggapan`
 --
 ALTER TABLE `dat_tanggapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

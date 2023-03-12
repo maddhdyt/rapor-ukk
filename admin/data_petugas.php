@@ -46,6 +46,7 @@ include 'partials/header.php';
                             <td>
                                 <form action="../functions/crud_petugas.php" method="post">
                                     <input type="hidden" name="id" value="<?= $data['id'] ?> ">
+                                    
                                     <div class="d-flex" style="gap: 10px;">
                                         <a href="edit_petugas.php?id=<?php echo $data['id'] ?>" class="btn_control primary text-white"><i class="fa-regular fa-pen-to-square"></i></a>
                                         <button type="submit" name="btnDelete" class="btn_control danger text-white outline-0 border-0" onclick="return confirm('Yakin untuk menghapus?')"><i class="fa-solid fa-trash-can"></i></button>

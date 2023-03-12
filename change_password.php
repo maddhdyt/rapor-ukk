@@ -7,7 +7,7 @@ include 'core/init_user.php';
 $id = $_GET['id'];
 
 if ($id != $_SESSION['id']) {
-    header("Location: /rapor-ukk/user_dashboard.php");
+    header("Location: error/403_error.php");
 }
 
 $show = mysqli_query($koneksi, "SELECT * FROM dat_masyarakat WHERE id = $id");
@@ -21,7 +21,7 @@ include 'partials/header.php';
 ?>
 <header>
         <nav class="nav_user">
-            <div class="container">
+            <div class="_container">
                 <div class="head_title">
                     <a class="btn_back" href="user_profile.php?id=<?= $_SESSION['id']; ?>">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -31,7 +31,7 @@ include 'partials/header.php';
             </div>
         </nav>
     </header>
-<div class="container">
+<div class="_container">
     <div class="user_pengaduan">
         <?php
         if (isset($_POST['btnChangePass'])) {
@@ -45,12 +45,12 @@ include 'partials/header.php';
             $password2 = md5($password2);
 
             if ($old_pass != $old_pass2) {
-                echo "<div class='error_alert alert'>Password lama tidak sesuai<i class='fa-solid fa-xmark' onclick='hideAlert()'></i></div>";
+                echo "<div class='error_alert'>Password lama tidak sesuai<i class='fa-solid fa-xmark' onclick='hideAlert()'></i></div>";
             } else if ($password != $password2) {
-                echo "<div class='error_alert alert'>Password tidak sesuai<i class='fa-solid fa-xmark' onclick='hideAlert()'></i></div>";
+                echo "<div class='error_alert'>Password tidak sesuai<i class='fa-solid fa-xmark' onclick='hideAlert()'></i></div>";
             } else {
                 mysqli_query($koneksi, "UPDATE dat_masyarakat SET password = '$password' WHERE id = $id");
-                echo "<div class='success_alert alert'>Password berhasil diubah</div>";
+                echo "<div class='success_alert'>Password berhasil diubah</div>";
                 header("refresh:1; url=user_dashboard.php");
             }
         }
@@ -71,7 +71,7 @@ include 'partials/header.php';
                 <label for="">Konfirmasi Password</label> 
                 <input type="password" class="form_control" name="password2" required>
             </div>
-            <div class="form_group col-2">
+            <div class="form_group">
                 <input type="submit" name="btnChangePass" value="Ubah Password" class="btn_submit"></input>
             </div>
         </form>

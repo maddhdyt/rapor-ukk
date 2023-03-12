@@ -33,7 +33,7 @@ include 'partials/header.php';
 <!-- Modal -->
 <header>
     <nav class="nav_user">
-        <div class="container">
+        <div class="_container">
             <div class="logo">
                 <a href="index.php">RAPOR!</a>
             </div>
@@ -59,7 +59,7 @@ include 'partials/header.php';
         </div>
     </nav>
 </header>
-<div class="container">
+<div class="_container">
     <section class="dashboard_user_menu">
         <div class="user_info">
             <div class="user">
@@ -167,21 +167,27 @@ include 'partials/header.php';
                                 <?php if ($data['status_pengaduan'] == 'Diproses') : ?>
                                     <a href="edit_pengaduan.php?id=<?= $data['id'] ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
                                 <?php endif; ?>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmModal<?= $data['id'] ?>" onclick="showModal()"><i class="fa-solid fa-trash-can"></i>Hapus</button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmModal<?= $data['id'] ?>"><i class="fa-solid fa-trash-can"></i>Hapus</button>
                             </form>
                         </div>
                     </div>
                 </div>
                 <!-- Button trigger modal -->
                 <!-- Modal -->
-                <div class="modal" id="confirmModal<?= $data['id'] ?>" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-                    <div class="modal-content">
-                        <p>Yakin hapus pengaduan?</p>
-                        <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
-                            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
-                            <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
-                            <div class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Batal</div>
-                        </form>
+                <div class="modal fade" id="confirmModal<?= $data['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <p>Yakin hapus pengaduan?</p>
+                            </div>
+                            <div class="modal-footer border-0 p-0 m-0">
+                                <form action="functions/crud_pengaduan.php" method="post" class="btn_group">
+                                    <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                                    <button type="submit" name="btnDelete" class="btn btn-confirm">Hapus</button>
+                                    <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Batal</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             <?php endwhile; ?>
@@ -189,7 +195,7 @@ include 'partials/header.php';
     </section>
 </div>
 <footer>
-    <div class="container">
+    <div class="_container">
         <div class="footer_content">
             <div class="footer_nav">
                 <div class="_title">
@@ -213,7 +219,7 @@ include 'partials/header.php';
                     <h2>Kontak kami</h2>
                 </div>
                 <div class="_items">
-                    <p>Phone : +6287731370962</p>
+                    <p>Phone : +6283126902110</p>
                     <p>Email : rapor.rck@gmail.com</p>
                 </div>
             </div>

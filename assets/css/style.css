@@ -70,22 +70,10 @@
   right: 25px;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
 .modal-content {
   background-color: #ffffff;
   margin: 15% auto;
-  padding: 30px 20px;
+  padding: 20px 20px !important;
   border: 1px solid #888;
   width: 80%;
   max-width: 400px;
@@ -94,18 +82,27 @@
   animation-duration: 0.4s;
   border-radius: 12px;
 }
-.modal-content p {
-  font-size: 20px;
+.modal-content .modal-header h1 {
+  font-size: 16px;
+}
+.modal-content .modal-body {
+  padding: 30px 0px;
+}
+.modal-content .modal-body p {
+  font-size: 24px;
   font-weight: 600;
   color: #222222;
+  margin: auto 0;
 }
-.modal-content .btn_group {
-  margin-top: 20px;
+.modal-content .modal-footer .btn_group {
   display: flex;
   justify-content: center;
   gap: 10px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
-.modal-content .btn_group .btn {
+.modal-content .modal-footer .btn_group .btn {
+  display: block;
   padding: 10px 15px;
   border-radius: 8px;
   border: none;
@@ -114,11 +111,11 @@
   font-size: 14px;
   cursor: pointer;
 }
-.modal-content .btn_group .btn-confirm {
+.modal-content .modal-footer .btn_group .btn-confirm {
   background-color: #c60000;
   color: #fff;
 }
-.modal-content .btn_group .btn-cancel {
+.modal-content .modal-footer .btn_group .btn-cancel {
   background-color: #eaeaea;
 }
 
@@ -266,7 +263,7 @@ footer .copyright p {
   color: #ffffff;
 }
 
-.container {
+._container {
   width: 85% !important;
   height: 100% !important;
   margin: 0 auto !important;
@@ -364,22 +361,22 @@ nav {
   left: 0;
   background-color: #ffffff;
 }
-nav .container {
+nav ._container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-nav .container .logo {
+nav ._container .logo {
   z-index: 9999;
 }
-nav .container .logo a {
+nav ._container .logo a {
   font-size: 32px;
   font-weight: 800;
   text-decoration: none;
   color: #254074;
   letter-spacing: 0.05em;
 }
-nav .container .nav_items {
+nav ._container .nav_items {
   position: absolute;
   top: 0;
   left: 0;
@@ -390,32 +387,35 @@ nav .container .nav_items {
   transition: all 600ms;
   transform: translateX(-100%);
 }
-nav .container .nav_items ul {
+nav ._container .nav_items ul {
   display: flex;
   flex-direction: column;
   gap: 25px;
   width: 85%;
   margin: 0 auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
 }
-nav .container .nav_items ul li {
+nav ._container .nav_items ul li {
   list-style: none;
   font-size: 14px;
   font-weight: 500;
   opacity: 0.8;
 }
-nav .container .nav_items ul li a {
+nav ._container .nav_items ul li a {
   text-decoration: none;
   color: #444444;
 }
-nav .container .nav_items ul li a:hover {
+nav ._container .nav_items ul li a:hover {
   color: #254074;
 }
-nav .container .nav_items ul .profile_menu {
+nav ._container .nav_items ul .profile_menu {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-nav .container .nav_items ul .profile_menu .btn {
+nav ._container .nav_items ul .profile_menu .btn {
   width: 45px;
   aspect-ratio: 1/1;
   background-color: rgba(37, 65, 116, 0.1254901961);
@@ -426,15 +426,15 @@ nav .container .nav_items ul .profile_menu .btn {
   justify-content: center;
   transition: all 500ms;
 }
-nav .container .nav_items ul .profile_menu .btn:hover {
+nav ._container .nav_items ul .profile_menu .btn:hover {
   background-color: #fff;
   box-shadow: 0px 0px 4px 1px #dddddd;
 }
-nav .container .nav_items ul .profile_menu .btn i {
+nav ._container .nav_items ul .profile_menu .btn i {
   color: #254074;
   font-size: 16px;
 }
-nav .container .nav_itemsV2 {
+nav ._container .nav_itemsV2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -445,7 +445,7 @@ nav .container .nav_itemsV2 {
   transition: all 600ms;
   transform: translateX(-100%);
 }
-nav .container .nav_itemsV2 ul {
+nav ._container .nav_itemsV2 ul {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -453,28 +453,28 @@ nav .container .nav_itemsV2 ul {
   margin: 0 auto;
   margin-top: 50px;
 }
-nav .container .nav_itemsV2 ul li {
+nav ._container .nav_itemsV2 ul li {
   list-style: none;
   font-size: 14px;
   font-weight: 500;
   opacity: 0.8;
 }
-nav .container .nav_itemsV2 ul li a {
+nav ._container .nav_itemsV2 ul li a {
   text-decoration: none;
   color: #444444;
 }
-nav .container .nav_itemsV2 ul li a:hover {
+nav ._container .nav_itemsV2 ul li a:hover {
   color: #254074;
 }
-nav .container .nav_itemsV2 ul .btn_logout {
+nav ._container .nav_itemsV2 ul .btn_logout {
   background-color: rgba(186, 0, 0, 0.2);
   color: #ba0000;
 }
-nav .container .nav_itemsV2 ul .btn_logout:hover {
+nav ._container .nav_itemsV2 ul .btn_logout:hover {
   background-color: #ba0000;
   color: #ffffff;
 }
-nav .container .btn_login {
+nav ._container .btn_login {
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
@@ -490,14 +490,14 @@ nav .container .btn_login {
   border-radius: 12px;
   transition: all 400ms;
 }
-nav .container .btn_login i {
+nav ._container .btn_login i {
   font-size: 20px;
 }
-nav .container .btn_login:hover {
+nav ._container .btn_login:hover {
   background-color: #254074;
   color: #ffffff;
 }
-nav .container .btn_logout {
+nav ._container .btn_logout {
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
@@ -513,14 +513,14 @@ nav .container .btn_logout {
   border-radius: 12px;
   transition: all 400ms;
 }
-nav .container .btn_logout i {
+nav ._container .btn_logout i {
   font-size: 20px;
 }
-nav .container .btn_logout:hover {
+nav ._container .btn_logout:hover {
   background-color: #ba0000;
   color: #ffffff;
 }
-nav .container .nav_toggle {
+nav ._container .nav_toggle {
   z-index: 9999;
   border-radius: 12px;
   background-color: rgba(37, 65, 116, 0.1254901961);
@@ -533,14 +533,14 @@ nav .container .nav_toggle {
   transition: all 400ms;
   cursor: pointer;
 }
-nav .container .nav_toggle i {
+nav ._container .nav_toggle i {
   font-size: 24px;
 }
-nav .container .nav_toggle:hover {
+nav ._container .nav_toggle:hover {
   background-color: #254074;
   color: #ffffff;
 }
-nav .container .nav_toggleV2 {
+nav ._container .nav_toggleV2 {
   z-index: 9999;
   border-radius: 12px;
   background-color: rgba(37, 65, 116, 0.1254901961);
@@ -549,10 +549,10 @@ nav .container .nav_toggleV2 {
   transition: all 400ms;
   cursor: pointer;
 }
-nav .container .nav_toggleV2 i {
+nav ._container .nav_toggleV2 i {
   font-size: 24px;
 }
-nav .container .nav_toggleV2:hover {
+nav ._container .nav_toggleV2:hover {
   background-color: #254074;
   color: #ffffff;
 }
@@ -570,7 +570,7 @@ nav .container .nav_toggleV2:hover {
   order: 2;
 }
 .header_content ._title h1 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 40px;
   color: #444444;
@@ -656,18 +656,18 @@ nav .container .nav_toggleV2:hover {
   color: #254074;
 }
 
-#options .container .text_group ._title {
-  font-size: 32px;
+#options ._container .text_group ._title {
+  font-size: 26px;
   font-weight: 600;
   color: #222;
 }
-#options .container .text_group ._desc {
+#options ._container .text_group ._desc {
   color: #444;
   margin-top: 6px;
   text-align: justify;
   line-height: 28px;
 }
-#options .container .user_menu {
+#options ._container .user_menu {
   margin-top: 30px;
 }
 
@@ -680,7 +680,7 @@ nav .container .nav_toggleV2:hover {
   align-items: center;
 }
 .about .text_group ._title {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 600;
   color: #222;
 }
@@ -752,7 +752,7 @@ nav .container .nav_toggleV2:hover {
   margin-top: 80px;
 }
 .alur_pengaduan .text_group ._title {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 600;
   color: #222;
 }
@@ -810,17 +810,17 @@ nav .container .nav_toggleV2:hover {
   background-color: transparent;
   z-index: 99;
 }
-.nav_user .container {
+.nav_user ._container {
   display: flex;
-  align-items: center;
+  align-items: center !important;
   justify-content: space-between;
 }
-.nav_user .container .head_title {
+.nav_user ._container .head_title {
   display: flex;
-  align-items: center;
+  align-items: center !important;
   gap: 15px;
 }
-.nav_user .container .head_title .btn_back {
+.nav_user ._container .head_title .btn_back {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -834,24 +834,25 @@ nav .container .nav_toggleV2:hover {
   transition: all 400ms;
   z-index: 9999;
 }
-.nav_user .container .head_title .btn_back:hover {
+.nav_user ._container .head_title .btn_back:hover {
   background-color: #ffffff;
   box-shadow: 0px 0px 4px 1px #dddddd;
 }
-.nav_user .container .head_title .btn_back i {
+.nav_user ._container .head_title .btn_back i {
   font-size: 16px;
 }
-.nav_user .container .head_title h1 {
+.nav_user ._container .head_title h1 {
   font-size: 18px;
   color: #292c33;
   font-weight: 600;
+  margin: auto 0;
 }
-.nav_user .container .head_title h2 {
+.nav_user ._container .head_title h2 {
   font-size: 16px;
   color: #292c33;
   font-weight: 600;
 }
-.nav_user .container .icon_profile {
+.nav_user ._container .icon_profile {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -863,7 +864,7 @@ nav .container .nav_toggleV2:hover {
   cursor: pointer;
   position: relative;
 }
-.nav_user .container .icon_profile .profile_menu {
+.nav_user ._container .icon_profile .profile_menu {
   position: absolute;
   top: 70px;
   right: 0;
@@ -879,7 +880,7 @@ nav .container .nav_toggleV2:hover {
   gap: 14px;
   transform: translateX(300%);
 }
-.nav_user .container .icon_profile .profile_menu a {
+.nav_user ._container .icon_profile .profile_menu a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -890,16 +891,16 @@ nav .container .nav_toggleV2:hover {
   cursor: pointer;
   gap: 5px;
 }
-.nav_user .container .icon_profile .profile_menu a i {
+.nav_user ._container .icon_profile .profile_menu a i {
   font-size: 14px;
 }
-.nav_user .container .icon_profile .profile_menu a:hover {
+.nav_user ._container .icon_profile .profile_menu a:hover {
   color: #254074;
 }
-.nav_user .container .icon_profile .profile_menu a:last-child {
+.nav_user ._container .icon_profile .profile_menu a:last-child {
   color: #ff0000;
 }
-.nav_user .container .icon_profile i {
+.nav_user ._container .icon_profile i {
   font-size: 18px;
 }
 
@@ -1175,6 +1176,7 @@ nav .container .nav_toggleV2:hover {
 }
 .user_profile .menu .option .info {
   display: flex;
+  height: 100%;
   align-items: center;
   gap: 20px;
 }
@@ -1195,6 +1197,7 @@ nav .container .nav_toggleV2:hover {
   font-size: 14px;
   color: #444;
   font-weight: 500;
+  margin: auto 0;
 }
 .user_profile .btn_logout {
   cursor: pointer;
@@ -1404,8 +1407,8 @@ nav .container .nav_toggleV2:hover {
 }
 .form_pengaduan .form_group i {
   position: absolute;
-  right: 25px;
-  font-size: 18px;
+  right: 20px;
+  font-size: 16px;
   color: #254074;
   cursor: pointer;
   pointer-events: none;
@@ -1443,7 +1446,7 @@ nav .container .nav_toggleV2:hover {
   color: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 15px 20px;
+  padding: 18px 20px;
   margin-right: 20px;
 }
 .form_pengaduan .form_group .btn_submit {
@@ -1469,6 +1472,8 @@ nav .container .nav_toggleV2:hover {
 .edit_pengaduan .form_group {
   display: flex;
   flex-direction: column;
+  position: relative;
+  justify-content: center;
   gap: 12px;
 }
 .edit_pengaduan .form_group label {
@@ -1491,9 +1496,38 @@ nav .container .nav_toggleV2:hover {
   border: 1px solid #254074;
   background-color: #fff;
 }
+.edit_pengaduan .form_group .select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.edit_pengaduan .form_group i {
+  position: absolute;
+  right: 20px;
+  font-size: 16px;
+  color: #254074;
+  cursor: pointer;
+  pointer-events: none;
+}
 .edit_pengaduan .form_group .text_area {
   height: 200px;
   resize: vertical;
+}
+.edit_pengaduan .form_group input[type=file] {
+  width: 100%;
+  cursor: pointer;
+  background-color: rgba(37, 65, 116, 0.1254901961);
+  border-radius: 12px;
+}
+.edit_pengaduan .form_group ::-webkit-file-upload-button {
+  cursor: pointer;
+  background: rgba(37, 65, 116, 0.8549019608);
+  color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-right: 20px;
+  font-size: 14px !important;
 }
 .edit_pengaduan .form_group .btn_submit {
   align-self: flex-end;
@@ -1530,7 +1564,6 @@ nav .container .nav_toggleV2:hover {
   cursor: pointer;
   flex-grow: 1;
   border-radius: 12px;
-  background-color: rgba(37, 65, 116, 0.1254901961);
   color: #444444;
   flex-basis: content;
 }
@@ -1558,19 +1591,6 @@ nav .container .nav_toggleV2:hover {
 }
 .edit_pengaduan .form_group .profile_input .preview img {
   position: absolute;
-}
-.edit_pengaduan .form_group .profile_input input[type=file] {
-  width: 100%;
-  cursor: pointer;
-}
-.edit_pengaduan .form_group .profile_input ::-webkit-file-upload-button {
-  cursor: pointer;
-  background: rgba(37, 65, 116, 0.7960784314);
-  color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 15px 20px;
-  margin-right: 20px;
 }
 .edit_pengaduan .menu {
   margin-top: 50px;
@@ -1821,6 +1841,7 @@ nav .container .nav_toggleV2:hover {
   font-weight: 500;
   font-size: 14px;
   color: #444444;
+  margin: auto 0;
 }
 .pengaduan_detail_wrapper ._info .tanggapan {
   margin-top: 20px;
@@ -1856,7 +1877,7 @@ nav .container .nav_toggleV2:hover {
   nav {
     height: 110px;
   }
-  .container {
+  ._container {
     width: 80% !important;
   }
   .form_enter_container {
@@ -1878,7 +1899,7 @@ nav .container .nav_toggleV2:hover {
     margin: 0 !important;
     gap: 20px;
     flex-direction: row !important;
-    align-items: center;
+    align-items: center !important;
   }
   .nav_itemsV2 ul {
     width: 80% !important;
@@ -1896,7 +1917,7 @@ nav .container .nav_toggleV2:hover {
     grid-column: span 4/span 4;
   }
   .header_content ._title h1 {
-    font-size: 36px;
+    font-size: 42px;
     line-height: 54px;
   }
   .header_content ._banner {
@@ -1913,6 +1934,9 @@ nav .container .nav_toggleV2:hover {
     padding: 40px;
     height: 250px;
   }
+  #options ._container .text_group ._title {
+    font-size: 32px !important;
+  }
   .about {
     margin-top: 100px;
     display: grid;
@@ -1922,6 +1946,9 @@ nav .container .nav_toggleV2:hover {
   }
   .about .text_group {
     grid-column: span 3/span 3;
+  }
+  .about .text_group ._title {
+    font-size: 32px !important;
   }
   .about .icon_group {
     grid-column: span 4/span 4;
@@ -1933,12 +1960,16 @@ nav .container .nav_toggleV2:hover {
   .alur_pengaduan {
     margin-top: 100px;
   }
+  .alur_pengaduan ._title {
+    font-size: 32px !important;
+  }
   .alur_pengaduan .step_group {
     gap: 30px;
   }
   .alur_pengaduan .step_group .item {
     flex-direction: row !important;
     align-items: center;
+    gap: 30px;
   }
   .alur_pengaduan .step_group .item .icon {
     width: 80px;
@@ -1982,27 +2013,29 @@ nav .container .nav_toggleV2:hover {
   .nav_user {
     height: 120px;
   }
-  .nav_user .container .head_title {
+  .nav_user ._container .head_title {
     gap: 25px;
+    display: flex;
+    align-items: center;
   }
-  .nav_user .container .head_title .logo {
+  .nav_user ._container .head_title .logo {
     font-size: 28px;
     font-weight: 800;
     text-decoration: none;
     color: #254074;
     letter-spacing: 0.05em;
   }
-  .nav_user .container .head_title h1 {
+  .nav_user ._container .head_title h1 {
     font-size: 24px;
   }
-  .nav_user .container .head_title h2 {
+  .nav_user ._container .head_title h2 {
     font-size: 20px;
   }
-  .nav_user .container .icon_profile {
+  .nav_user ._container .icon_profile {
     width: 50px;
     height: 50px;
   }
-  .nav_user .container .icon_profile i {
+  .nav_user ._container .icon_profile i {
     font-size: 18px;
   }
   .user_profile .menu .option .info p {

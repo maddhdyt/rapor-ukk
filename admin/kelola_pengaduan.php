@@ -19,6 +19,7 @@ include 'partials/header.php';
                     <tr>
                         <th>No</th>
                         <th>Status</th>
+                        <th>Kategori</th>
                         <th>Tanggal Aduan</th>
                         <th>Nama Pengadu</th>
                         <th>Judul</th>
@@ -29,7 +30,7 @@ include 'partials/header.php';
                 <tbody>
                     <?php
                     $no = 1;
-                    $show = mysqli_query($koneksi, "SELECT dat_pengaduan.id, dat_pengaduan.tgl_pengaduan, dat_pengaduan.judul, dat_pengaduan.gambar, dat_pengaduan.status_pengaduan, dat_pengaduan.deskripsi, dat_masyarakat.nik, dat_masyarakat.nama FROM dat_pengaduan INNER JOIN dat_masyarakat ON dat_pengaduan.nik = dat_masyarakat.nik WHERE status_pengaduan = 'Diproses' ORDER BY dat_pengaduan.id DESC");
+                    $show = mysqli_query($koneksi, "SELECT dat_pengaduan.id, dat_pengaduan.tgl_pengaduan, dat_pengaduan.judul, dat_pengaduan.gambar, dat_pengaduan.status_pengaduan, dat_pengaduan.deskripsi, dat_pengaduan.kategori, dat_masyarakat.nik, dat_masyarakat.nama FROM dat_pengaduan INNER JOIN dat_masyarakat ON dat_pengaduan.nik = dat_masyarakat.nik WHERE status_pengaduan = 'Diproses' ORDER BY dat_pengaduan.id DESC");
                     while ($data = mysqli_fetch_assoc($show)) :
                     ?>
                         <tr>
@@ -43,9 +44,11 @@ include 'partials/header.php';
                                                 echo "stat_reject";
                                             } ?>"><?= $data['status_pengaduan']; ?></div>
                             </td>
+                            <td><?= $data['kategori']; ?></td>
                             <td><?= $data['tgl_pengaduan']; ?></td>
                             <td><?= $data['nama']; ?></td>
-                            <td><?= $data['judul']; ?></td>
+                            <td><?= substr($data['judul'], "0", "50") .
+                          "..."; ?></td>
                             <td><img class="rounded" src="../assets/img/<?= $data['gambar'] ?>" alt="" width="80px" height="50px"></td>
 
                             <td>

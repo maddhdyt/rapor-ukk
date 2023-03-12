@@ -4,13 +4,13 @@ include 'core/conn.php';
 
 $title = "Aduan Masyarakat";
 
-$perPage = 6; //perhalaman
+$perPage = 3; //perhalaman
 $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
 $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
 
-$all = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan LIMIT $start, $perPage");
+$all = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE kategori = 'public' ORDER BY id DESC LIMIT $start, $perPage");
 
-$result = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan");
+$result = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE kategori = 'public'");
 $total = mysqli_num_rows($result);
 
 $pages = ceil($total / $perPage);
@@ -23,13 +23,22 @@ if ($page < ($pages - $jumlahLink)) {
     $end_num = $pages;
 }
 
-
-
 include 'partials/header.php';
-include 'partials/nav.php';
 
 ?>
-<div class="container">
+<header>
+    <nav class="nav_user">
+        <div class="_container">
+            <div class="head_title">
+                <a href="user_dashboard.php" class="btn_back">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </a>
+                <h1><?= $title ?></h1>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="_container">
     <div class="user_news">
         <div class="_title">
             <p>Pengaduan yang telah dikirimkan oleh masyarakat akan tampil disini</p>

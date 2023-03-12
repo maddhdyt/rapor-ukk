@@ -3,34 +3,6 @@
 session_start();
 
 include '../core/conn.php';
-include 'alert.php';
-
-// if (isset($_POST['btnSave'])) {
-//     $nik = $_SESSION['nik'];
-//     $judul = $_POST['judul'];
-//     $deskripsi = $_POST['deskripsi'];
-//     $tgl_pengaduan = date('Y-m-d');
-
-//     $namafile = $_FILES['gambar']['name'];
-//     $ukuran = $_FILES['gambar']['size'];
-//     $dir = "../assets/img/";
-//     $random = rand();
-//     $tmpFile = $_FILES['gambar']['tmp_name'];
-
-//     if ($ukuran < 1044070) {
-//         move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
-//         $gambar = $random . '_' . $namafile;
-//         mysqli_query($koneksi, "INSERT INTO dat_pengaduan (id, nik, judul, deskripsi, gambar, tgl_pengaduan, status_pengaduan)
-//         VALUES('', '$nik', '$judul', '$deskripsi', '$gambar', '$tgl_pengaduan', 'Diproses')");
-//         // echo "<script>alert('Data berhasil disimpan'); document.location='../user_dashboard.php'</script>";
-//         echo "<script>
-//             document.location='../form_pengaduan.php';
-//         </script>";
-//         $alert = true;
-//     } else {
-//         echo "<script>alert('Data gagal disimpan File terlalu besar'); document.location='../form_pengaduan.php'</script>";
-//     }
-// }
 
 if (isset($_POST['btnDelete'])) {
     $id = $_POST['id'];
@@ -56,17 +28,35 @@ if (isset($_POST['btnUpdate'])) {
     $id = $_POST['id'];
     $judul = $_POST['judul'];
     $deskripsi = $_POST['deskripsi'];
+    $kategori = $_POST['kategori'];
+    $old_pic = $_POST['old_pic'];
+    $namafile = $_FILES['gambar']['name'];
+    $ukuran = $_FILES['gambar']['size'];
+    $dir = "../assets/img/";
+    $random = rand();
+    $tmpFile = $_FILES['gambar']['tmp_name'];
 
-    $update = mysqli_query($koneksi, "UPDATE dat_pengaduan SET judul = '$judul', deskripsi = '$deskripsi' WHERE id = $id");
-
-    if ($update) {
-        echo "<script>alert('Data pengaduan berhasil diupdate');
-            document.location='../user_dashboard.php';
-            </script>";
+    if ($namafile == "") {
+        mysqli_query($koneksi, "UPDATE dat_pengaduan SET judul = '$judul', deskripsi = '$deskripsi', kategori = '$kategori', gambar = '$old_pic' WHERE id = $id");
+        echo "<script>alert('Pengaduan berhasil diubah')</script>";
+        header("refresh:1; url=../user_dashboard.php");
     } else {
-        echo "<script>alert('Data pengaduan gagal diupdate');
-            document.location='../edit_pengaduan.php';
-            </script>";
+        $row = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE id = '$id'");
+        $data = mysqli_fetch_assoc($row);
+        if ($data['gambar'] != "") {
+            unlink("../assets/img/" . $data['gambar']);
+        }
+        move_uploaded_file($tmpFile, $dir . $random . '_' . $namafile);
+        $gambar = $random . '_' . $namafile;
+        $update = mysqli_query($koneksi, "UPDATE dat_pengaduan SET judul = '$judul', deskripsi = '$deskripsi', kategori = '$kategori', gambar = '$gambar' WHERE id = $id");
+        if ($update) {
+            echo "<script>alert('Data pengaduan berhasil diubah');
+                document.location='../user_dashboard.php';
+                </script>";
+        } else {
+            echo "<script>alert('Data pengaduan gagal diubah');
+                document.location='../edit_pengaduan.php';
+                </script>";
+        }
     }
 }
-
