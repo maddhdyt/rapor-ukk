@@ -81,10 +81,10 @@ $title = "Login";
                         $_SESSION['profile'] = $baris['profile'];
                         exit; ?>
                     <?php else : ?>
-                        <div class="error_alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
+                        <div class="error_alert"> Username atau password salah</div>
                     <?php endif; ?>
                 <?php else : ?>
-                    <div class="error_alert"> Username atau password salah <i class="fa-solid fa-xmark" onclick="hideAlert()"></i></div>
+                    <div class="error_alert"> Username atau password salah</div>
                 <?php endif; ?>
             <?php endif; ?>
 
@@ -101,7 +101,6 @@ $title = "Login";
             </form>
             <div class="link">
                 <div class="to_another">Belum punya akun? <a href="register.php">Daftar</a></div>
-                <!-- <a href="../index.php" class="to_home"><i class="fa-solid fa-arrow-right-from-bracket"></i>Kembali</a> -->
             </div>
         </div>
     </div>

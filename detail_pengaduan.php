@@ -14,16 +14,7 @@ $data = mysqli_fetch_assoc($show);
 if ($id !== $data['id']) {
     echo "<script>document.location='error/404_error.php';</script>";
 }
-// Inisialisasi pengaduan private
-// if ($data['kategori'] == 'private' && $data['nik'] != $nik && !isset($_SESSION['login_admin'])){
-//     echo "<script>document.location='error/403_error.php';</script>";
-// }
-// if ($data['kategori'] == 'private' && $nik !== $data['nik']) {
-//     echo "<script>document.location='error/403_error.php';</script>";
-//     return false;
-// } else if ($data['kategori'] == 'private' && isset($_SESSION['login_admin'])) {
-//     echo "<script>alert('tes');</script>";
-// } 
+
 include 'partials/header.php';
 
 ?>

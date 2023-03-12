@@ -36,7 +36,7 @@ include 'partials/nav.php';
                 echo "<div class='success_alert'>Pengaduan berhasil dikirim</div>";
                 header("refresh:1; url=user_dashboard.php");
             } else {
-                echo "<div class='error_alert'>Gagal mengirim, file terlalu besar<i class='fa-solid fa-xmark' onclick='hideAlert()''></i></div>";
+                echo "<div class='error_alert'>Gagal mengirim, file terlalu besar></i></div>";
             }
         }
         ?>

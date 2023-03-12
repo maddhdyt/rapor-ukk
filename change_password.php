@@ -45,9 +45,9 @@ include 'partials/header.php';
             $password2 = md5($password2);
 
             if ($old_pass != $old_pass2) {
-                echo "<div class='error_alert'>Password lama tidak sesuai<i class='fa-solid fa-xmark' onclick='hideAlert()'></i></div>";
+                echo "<div class='error_alert'>Password lama tidak sesuai</div>";
             } else if ($password != $password2) {
-                echo "<div class='error_alert'>Password tidak sesuai<i class='fa-solid fa-xmark' onclick='hideAlert()'></i></div>";
+                echo "<div class='error_alert'>Password tidak sesuai</div>";
             } else {
                 mysqli_query($koneksi, "UPDATE dat_masyarakat SET password = '$password' WHERE id = $id");
                 echo "<div class='success_alert'>Password berhasil diubah</div>";
