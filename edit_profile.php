@@ -16,29 +16,40 @@ $data = mysqli_fetch_assoc($show);
 $title = "Edit Profil";
 
 include 'partials/header.php';
-include 'partials/nav.php';
-
 ?>
-
+<header>
+    <nav class="nav_user">
+        <div class="_container">
+            <div class="head_title">
+                <a href="user_profile.php?id=<?= $_SESSION['id'] ?>" class="btn_back">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </a>
+                <h1><?= $title ?></h1>
+            </div>
+        </div>
+    </nav>
+</header>
 <div class="_container">
     <div class="user_pengaduan">
         <?php
-        if (isset($_POST['btnUpdateProfile'])) {        
-            $id = $_POST['id'];        
-            $nik = $_POST['nik'];        
-            $nama = $_POST['nama'];        
-            $telp = $_POST['telp'];        
-            $alamat = $_POST['alamat'];        
-            $username = $_POST['username'];        
-            $old_pass = $_POST['old_pass'];        
-            $old_pic = $_POST['old_pic'];        
-            $namafile = $_FILES['gambar']['name'];        
-            $ukuran = $_FILES['gambar']['size'];        
-            $dir = "assets/img/";        
+        if (isset($_POST['btnUpdateProfile'])) {
+            $id = $_POST['id'];
+            $nik = $_POST['nik'];
+            $nama = $_POST['nama'];
+            $telp = $_POST['telp'];
+            $alamat = $_POST['alamat'];
+            $username = $_POST['username'];
+            $old_pass = $_POST['old_pass'];
+            $old_pic = $_POST['old_pic'];
+            $namafile = $_FILES['gambar']['name'];
+            $ukuran = $_FILES['gambar']['size'];
+            $dir = "assets/img/";
             $random = rand();
-            $tmpFile = $_FILES['gambar']['tmp_name'];        
+            $tmpFile = $_FILES['gambar']['tmp_name'];
 
-            if ($namafile === "") {
+            if (strlen($nik) < 16 || strlen($nik) > 16) {
+                echo "<div class='error_alert'>Nik harus 16 karakter</div>";
+            } else if ($namafile === "") {
                 mysqli_query($koneksi, "UPDATE dat_masyarakat SET nik = '$nik', nama = '$nama', telp = '$telp', alamat = '$alamat', profile = '$old_pic', username = '$username', password = '$old_pass' WHERE id = $id");
                 echo "<div class='success_alert'> Akun berhasil diupdate</div>";
                 header("refresh:1; url=user_dashboard.php");
@@ -84,7 +95,7 @@ include 'partials/nav.php';
             </div>
             <div class="form_group">
                 <label for="">NIK</label>
-                <input type="text" class="form_control" name="nik" value="<?= $data['nik'] ?>">
+                <input type="number" class="form_control" name="nik" value="<?= $data['nik'] ?>">
             </div>
             <div class="form_group">
                 <label for="">No Telp</label>

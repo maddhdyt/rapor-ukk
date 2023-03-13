@@ -24,20 +24,9 @@ if ($page < ($pages - $jumlahLink)) {
 }
 
 include 'partials/header.php';
+include 'partials/nav.php';
 
 ?>
-<header>
-    <nav class="nav_user">
-        <div class="_container">
-            <div class="head_title">
-                <a href="user_dashboard.php" class="btn_back">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </a>
-                <h1><?= $title ?></h1>
-            </div>
-        </div>
-    </nav>
-</header>
 <div class="_container">
     <div class="user_news">
         <div class="_title">

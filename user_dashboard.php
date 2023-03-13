@@ -13,7 +13,7 @@ $data = mysqli_fetch_assoc($show);
 $data1 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE nik = $nik");
 $total_report = mysqli_num_rows($data1);
 
-$data2 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE nik = $nik AND status_pengaduan = 'Diterima' OR status_pengaduan = 'Ditolak'");
+$data2 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE status_pengaduan = 'Diterima' AND nik = $nik");
 $done_report = mysqli_num_rows($data2);
 
 $data3 = mysqli_query($koneksi, "SELECT * FROM dat_pengaduan WHERE status_pengaduan = 'Diproses' AND nik = $nik");
@@ -98,7 +98,7 @@ include 'partials/header.php';
                     <i class="fa-solid fa-check-to-slot"></i>
                 </div>
                 <div class="info">
-                    <h2>Pengaduan Selesai</h2>
+                    <h2>Pengaduan Diterima</h2>
                     <span><?= $done_report ?></span>
                 </div>
             </div>

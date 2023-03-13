@@ -12,7 +12,7 @@ $data = mysqli_fetch_assoc($show);
 
 // Jika id tidak ada
 if ($id !== $data['id']) {
-    echo "<script>document.location='data_masyarakat.php';</script>";
+    echo "<script>document.location='../error/404_error.php';</script>";
 }
 
 $title = "Data Masyarakat";

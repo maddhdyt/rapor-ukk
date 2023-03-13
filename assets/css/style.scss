@@ -68,6 +68,14 @@ $bg_primary: #25417420;
   src: url("../font/Poppins-Bold.ttf");
   font-weight: 800;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none; 
+    appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 // Utility
 .text_primary {
   color: $primary_color;
@@ -127,7 +135,6 @@ $bg_primary: #25417420;
   width: 80%;
   max-width: 400px;
   text-align: center;
-  animation-name: modal-show;
   animation-duration: 0.4s;
   border-radius: 12px;
   .modal-header {
@@ -171,19 +178,6 @@ $bg_primary: #25417420;
     }
   }
 }
-
-@keyframes modal-show {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -50px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 // JS Control
 .hide_alert {
   display: none !important;

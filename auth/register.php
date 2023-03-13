@@ -67,8 +67,8 @@ $title = "Register";
                 $telp = $_POST['telp'];
                 $alamat = $_POST['alamat'];
                 $username = $_POST['username'];
-                $password = $_POST['password'];
-                $password = md5($password);
+                $passworddef = $_POST['password'];
+                $password = md5($passworddef);
                 $password2 = $_POST['password2'];
                 $password2 = md5($password2);
 
@@ -78,6 +78,10 @@ $title = "Register";
 
                 if (mysqli_fetch_assoc($cek_nik)) : ?>
                     <div class="error_alert"> Nik sudah digunakan</i></div>
+                <?php elseif (strlen($nik) < 16 || strlen($nik) > 16) : ?>
+                    <div class="error_alert"> Nik harus 16 angka</i></div>
+                <?php elseif (strlen($passworddef) < 8) : ?>
+                    <div class="error_alert"> Password minimal 8 karakter</i></div>
                 <?php elseif (mysqli_fetch_assoc($cek_username)) : ?>
                     <div class="error_alert"> Username sudah digunakan</i></div>
                 <?php elseif ($password != $password2) : ?>
@@ -95,7 +99,7 @@ $title = "Register";
 
             <form class="form" action="" method="post">
                 <div class="form_group">
-                    <input type="text" name="nik" placeholder="NIK" class="form_control" value="<?php echo $_POST['nik'] ?? null; ?>" required>
+                    <input type="number" name="nik" placeholder="NIK" class="form_control" value="<?php echo $_POST['nik'] ?? null; ?>" required>
                 </div>
                 <div class="form_group">
                     <input type="text" name="nama" placeholder="Nama Lengkap" class="form_control" value="<?php echo $_POST['nama'] ?? null; ?>" required>
@@ -125,7 +129,7 @@ $title = "Register";
         </div>
     </div>
     <script src="../assets/js/main.js"></script>
-    
+
 </body>
 
 </html>

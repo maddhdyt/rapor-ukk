@@ -39,8 +39,8 @@ include 'partials/header.php';
             $old_pass = $_POST['old_pass'];
             $old_pass2 = $_POST['old_pass2'];
             $old_pass2 = md5($old_pass2);
-            $password = $_POST['password'];
-            $password = md5($password);
+            $passworddef = $_POST['password'];
+            $password = md5($passworddef);
             $password2 = $_POST['password2'];
             $password2 = md5($password2);
 
@@ -48,6 +48,8 @@ include 'partials/header.php';
                 echo "<div class='error_alert'>Password lama tidak sesuai</div>";
             } else if ($password != $password2) {
                 echo "<div class='error_alert'>Password tidak sesuai</div>";
+            } else if (strlen($passworddef) < 8) {
+                echo "<div class='error_alert'>Password minimal 8 karakter</div>";
             } else {
                 mysqli_query($koneksi, "UPDATE dat_masyarakat SET password = '$password' WHERE id = $id");
                 echo "<div class='success_alert'>Password berhasil diubah</div>";
